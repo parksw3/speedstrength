@@ -1,0 +1,136 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+
+\title{Speed and strength of epidemic intervention}
+\author{Jonathan Dushoff, Sang Woo Park, and?}
+
+\usepackage{tabularx}
+
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{hyperref}
+\bibliographystyle{chicago}
+\date{\today}
+
+\usepackage{bm}
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
+\newcommand{\etal}{\textit{et al.}}
+
+\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+\newcommand{\jd}[1]{\comment{cyan}{BMB}{#1}}
+\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+
+\newcommand{\Rx}[1]{\ensuremath{{\mathcal R}_{#1}}} 
+\newcommand{\Ro}{\Rx{0}}
+\newcommand{\RR}{\ensuremath{{\mathcal R}}}
+\newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
+\newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
+
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+An epidemic can be characterized by its \emph{speed} and \emph{strength}.
+The speed of an epidemic, often characterized by the exponential growth rate $r$, 
+measures how \emph{fast} an epidemic grows initially. On the other hand, the 
+strength of an epidemic, often characterized by the basic reproductive number $\Ro$,
+measures how \emph{large} an epidemic will grow. Knowing the speed and strength of 
+an epidemic allows us to make short- and long-term predictions.
+
+Infectious disease research often focuses on estimating the basic reproductive
+number -- defined as the average number of secondary cases caused by a primary 
+case in a fully susceptible population -- because it allows us to make 
+prediction about the final size of an epidemic and the difficulty of the 
+associated epidemic intervention. In particuar, the required control effort 
+(i.e., the proportion of the population that needs to be vaccinated in order to
+prevent the disease from spreading) is often expressed as $1 - 1/\Ro$. 
+\swp{Maybe a sentence about Ronald Ross?}
+
+Like epidemic strength, epidemic speed measures how disease spreads in the population
+and, therefore, can help us understand the effectiveness of a control strategy.
+
+\section{Methods}
+
+\subsection{Epidemic moodel}
+
+Infection kernel, $K(\tau)$, describes the rate at which secondary infections are 
+expected to be caused by an infected individual, on \emph{average} (see Park 2019
+for distinction between individual- and population-level infection kernel). Infection
+kernel can be decomposed into two parts: reproduction number, 
+$$
+\Ro = \int K(s) ds,
+$$ 
+and the generation-interval distribution, 
+$$
+g(\tau) = \frac{K(\tau)}{\Ro},
+$$
+which represents the expected time distribution of the secondary cases. The 
+generation-interval distribution plays an important role in liking speed and
+strength of an epidemic.
+
+Renewal equation:
+\begin{equation}
+i(t) = S(t) \int K(s) i(t-s) ds
+\end{equation}
+
+Euler-Lotka:
+\begin{equation}
+1/\RR = \int g(s) \exp(-rs) ds
+\end{equation}
+
+\subsection{Control strategies}
+
+\begin{itemize}
+	\item $L(\tau)$ represents intervention over the course of infection
+	\item Then, $\hat K(\tau) = K(\tau)/L(\tau)$
+	\item Define intervention strength:
+	$$
+	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)},
+	$$
+	harmonic mean of $L(\tau)$ weighted by generation-interval distribution; outbreak controlled if $\theta > \mathcal R$ (not affected by $\RR$)
+	\item Define intervention speed ($\phi = r - \hat r$):
+	$$
+	1 = \langle \frac{\exp(\phi \tau) }{L(\tau)} \rangle_{b(\tau)}
+	$$
+	sort of a mean associated with $L(\tau)$; outbreak controlled if $\phi > r$ (not affected by $r$).
+\end{itemize}
+
+\subsection{HIV example}
+
+\begin{itemize}
+	\item Can active testing and treatment stop the epidemic?
+	\item Explain different scenarios? assumptions?
+	\item Early vs late transmission (change proportion of early transmission)
+	\item Compare required strength and speed of intervention required to control the disease
+\end{itemize}
+
+\section{Results}
+
+\begin{itemize}
+	\item Early transmission matters for condom
+	\item Early transmission doesn't matter so much for target and treat
+	\item Think about speed vs strength axis
+\end{itemize}
+
+\section{Discussion}
+
+
+\begin{itemize}
+	\item Talk about generation time and reinterpret Eaton and Hallet?
+	\item Short generation time -> teating and treating will help less but lower epidemic strength
+	\item High generation time -> high proportion prevented but higher R.
+\end{itemize}
+
+\begin{itemize}
+	\item r and R have more in common than we think
+	\item Why test and treat predictions are robust to assumptions about transmission
+\end{itemize}
+
+
+
+\end{document}
