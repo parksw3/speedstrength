@@ -73,17 +73,22 @@ which represents the expected time distribution of the secondary cases. The
 generation-interval distribution plays an important role in liking speed and
 strength of an epidemic.
 
-Renewal equation:
+Here, we use the renewal equation to model disease incidence $i(\tau)$:
 \begin{equation}
-i(t) = S(t) \int K(s) i(t-s) ds
+i(\tau) = S(\tau) \int K(s) i(\tau-s) ds,
 \end{equation}
-
-Euler-Lotka:
+where current incidence $i(\tau)$ is expressed as a product of the proportion of the population susceptible $S(\tau)$ and the current infectiousness of all previously infected individuals $\int K(s) i(\tau - s) ds$.
+In the beginning of an epidemic, the proportion of population susceptible remains roughly constant ($S(\tau) \approx 1$) and this model simplifies to the Von Foerster equation [CITE Fraser et al.];
+during this period, we expect the epidemic to grow exponentially.
+Substituting $i(t) = i(0) \exp(rt)$ to (?) allows us to link speed and strength of an epidemic via the generation-interval distribution:
 \begin{equation}
-1/\RR = \int g(s) \exp(-rs) ds
+1/\RR = \int g(s) \exp(-rs) ds.
 \end{equation}
 
 \subsection{Control strategies}
+
+We assume that the effectiveness of intervention strategies $L(\tau)$ varies over the course of infection.
+
 
 \begin{itemize}
 	\item $L(\tau)$ represents intervention over the course of infection
