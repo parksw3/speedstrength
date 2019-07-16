@@ -19,8 +19,14 @@ $(ms)/Makefile:
 
 ######################################################################
 
+## speedstrength.pdf: speedstrength.tex
+
+######################################################################
+
+
 ### Makestuff
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
+-include $(ms)/texdeps.mk
 
