@@ -73,7 +73,11 @@ Assuming that $K$ doesn't change with time, we write:
 \end{equation}
 where $g(\tau)$ is the ``intrinsic'' generation-interval distribution (giving the relative infectiousness of the average individual as a function of time since infection) \cite{Champ}. Since $g$ is a distribution, it integrates to 1, and $\RR$ is thus the integral of $K$.
 
-Imagine a control measure that proportionally reduces $K$, so that the post-intervention kernel $\hat K = K/\theta$.  The factorization \eqref{speed} show that the reduction needed to prevent invasion (or to eliminate disease)  is exactly \RR. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention is larger than the strength of spread.
+Imagine a control measure that proportionally reduces $K$, for example by protecting a fixed fraction of susceptibles. We then have:
+\begin{equation}
+	\hat K(\tau) = (\RR/\theta) g(\tau).
+\end{equation}
+Since $g$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention is larger than the strength of spread.
 
 We generalize this idea by allowing an intervention strategy to reduce $K$ by different proportions over the course of an individual infection. We write the post-intervention kernel:
 \begin{equation}
@@ -81,11 +85,11 @@ We generalize this idea by allowing an intervention strategy to reduce $K$ by di
 \end{equation}
 where $L(\tau)$ is the average proportional reduction for an individual infected time $\tau$ ago.
 
-We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by generation-interval distribution.
-
+We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by generation-interval distribution:
 \begin{equation}
-	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)},
+	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)}.
 \end{equation}
+In this more general case, we have again that the disease cannot spread when $\theta \geq \RR$. 
 
 \subsection{Speed-based decomposition}
 
@@ -95,29 +99,19 @@ By analogy with the strength-based factorization \eqref{speed}, we can rewrite t
 K(\tau) = b(\tau)\exp(r\tau)
 \end{equation}
 
-Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times when the disease spreads exponentially.
+Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times when the disease spreads exponentially \cite{Champ}.
 
-Infection kernel, $K(\tau)$, describes the rate at which secondary infections are 
-expected to be caused by an infected individual, on \emph{average} (see Park 2019
-for distinction between individual- and population-level infection kernel). Infection
-kernel can be decomposed into two parts: reproduction number, 
-$$
-\Ro = \int K(s) ds,
-$$ 
-and the generation-interval distribution, 
-$$
-$$
-which represents the expected time distribution of the secondary cases. The 
-generation-interval distribution plays an important role in linking speed and
-strength of an epidemic.
+Now imagine an intervention that reduces transmission at a constant hazard rate $h$ across the disease generation, for example by identifying and isolating infectious individuals.
+We then have:
+\begin{equation}
+	\hat K(\tau) = K(\tau)\exp(-h\tau) = b(\tau)\exp((r-h)\tau)
+\end{equation}
+Since $b$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $h=r$. We call $h$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is larger than the speed of spread.
 
-
-	Define intervention speed ($\phi = r - \hat r$):
-	$$
+We define the strength of a general intervention $L(\tau)$ \eqref{Ldef} to be $\phi = r - \hat r$. We can then show that $\phi$ is a (sort of) mean satisfying:
+\begin{equation}
 	1 = \left\langle \frac{\exp(\phi \tau) }{L(\tau)} \right\rangle_{b(\tau)}
-	$$
-	sort of a mean associated with $L(\tau)$; outbreak controlled if $\phi > r$ (not affected by $r$).
-
+\end{equation}
 
 \section{Examples}
 
