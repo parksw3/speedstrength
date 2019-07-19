@@ -101,17 +101,23 @@ K(\tau) = b(\tau)\exp(r\tau)
 
 Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times when the disease spreads exponentially \cite{Champ}.
 
-Now imagine an intervention that reduces transmission at a constant hazard rate $h$ across the disease generation, for example by identifying and isolating infectious individuals.
+Now imagine an intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation, for example by identifying and isolating infectious individuals.
 We then have:
 \begin{equation}
-	\hat K(\tau) = K(\tau)\exp(-h\tau) = b(\tau)\exp((r-h)\tau)
+	\hat K(\tau) = K(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
 \end{equation}
-Since $b$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $h=r$. We call $h$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is larger than the speed of spread.
+Since $b$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\phi=r$. We call $\phi$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is faster than the speed of spread.
 
-We define the strength of a general intervention $L(\tau)$ \eqref{Ldef} to be $\phi = r - \hat r$. We can then show that $\phi$ is a (sort of) mean satisfying:
+We generalize this idea by allowing the hazard rate $h(\tau)$ at which $K$ is reduced to vary through time, thus:
 \begin{equation}
-	1 = \left\langle \frac{\exp(\phi \tau) }{L(\tau)} \right\rangle_{b(\tau)}
+	\hat K(\tau) = K(\tau) \exp(-\int_0^\tau h(\sigma) d\sigma)
 \end{equation}
+
+We define the speed of a general intervention $L(\tau)$ \eqref{Ldef} to be $\phi = r - \hat r$. We can then show that $\phi$ is a (sort of) mean satisfying:
+\begin{equation}
+	1 = \left\langle \frac{\exp(\phi \tau) }{\exp(\int_0^\tau h(\sigma) d\sigma)} \right\rangle_{b(\tau)}
+\end{equation}
+The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
 \section{Examples}
 
