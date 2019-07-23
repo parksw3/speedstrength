@@ -1,11 +1,11 @@
 \documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
 
 \title{Speed and strength of epidemic intervention}
-\author{Jonathan Dushoff, Sang Woo Park, and?}
+\author{Jonathan Dushoff, Sang Woo Park}
 
 \usepackage{tabularx}
 
-\usepackage{amsmath}
+%% \usepackage{amsmath}
 \usepackage{natbib}
 \usepackage{hyperref}
 \bibliographystyle{chicago}
@@ -28,7 +28,10 @@
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
 \newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
 
-\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\figlab}[1]{\label{fig:#1}}
+\newcommand{\eqref}[1]{(\ref{eq:#1})}
+\newcommand{\eqlab}[1]{\label{eq:#1}}
 \begin{document}
 
 \maketitle
@@ -36,80 +39,91 @@
 \section{Introduction}
 
 An epidemic can be characterized by its \emph{speed} and \emph{strength}.
-The speed of an epidemic, often characterized by the exponential growth rate $r$, 
-measures how \emph{fast} an epidemic grows initially. On the other hand, the 
-strength of an epidemic, often characterized by the basic reproductive number $\Ro$,
-measures how \emph{large} an epidemic will grow. Knowing the speed and strength of 
-an epidemic allows us to make short- and long-term predictions.
+The speed of an epidemic, often characterized by the exponential growth rate $r$, measures how \emph{fast} an epidemic grows, at the population level. 
+The strength of an epidemic, often characterized by the reproductive number $\RR$, measures how many new cases are caused by a typical \emph{individual} case.
+Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
-Infectious disease research often focuses on estimating the basic reproductive
-number -- defined as the average number of secondary cases caused by a primary 
-case in a fully susceptible population -- because it allows us to make 
-prediction about the final size of an epidemic and the difficulty of the 
-associated epidemic intervention. In particuar, the required control effort 
-(i.e., the proportion of the population that needs to be vaccinated in order to
-prevent the disease from spreading) is often expressed as $1 - 1/\Ro$. 
-\swp{Maybe a sentence about Ronald Ross?}
+Much research has prioritized estimates of the reproductive number, because it has a threshold value, $\RR=1$ that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts. 
+The insight that a case must on average cause at least one new case under good conditions for a disease persist goes back $>100$ years \cite{Ross}, and the idea of averaging by defining a `typical' case was formalized in the 19x0s \cite{Heesterbeek}.
+$\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic. 
 
-Like epidemic strength, epidemic speed measures how disease spreads in the population
-and, therefore, can help us understand the effectiveness of a control strategy.
+Like epidemic strength, epidemic speed measures how disease spreads in the population. Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's strength on the same scale as the reproductive number. We then show that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
 \section{Methods}
 
-\subsection{Epidemic moodel}
+\subsection{Epidemic model}
 
-Infection kernel, $K(\tau)$, describes the rate at which secondary infections are 
-expected to be caused by an infected individual, on \emph{average} (see Park 2019
-for distinction between individual- and population-level infection kernel). Infection
-kernel can be decomposed into two parts: reproduction number, 
-$$
-\Ro = \int K(s) ds,
-$$ 
-and the generation-interval distribution, 
-$$
-g(\tau) = \frac{K(\tau)}{\Ro},
-$$
-which represents the expected time distribution of the secondary cases. The 
-generation-interval distribution plays an important role in liking speed and
-strength of an epidemic.
-
-Here, we use the renewal equation to model disease incidence $i(\tau)$:
+We model disease incidence using the renewal-equation framework \cite{SeeChamp?}. 
+This is a simple, flexible framework that can cover a wide range model structures.
+In our model, disease incidence at time $t$ is given by:
 \begin{equation}
-i(\tau) = S(\tau) \int K(s) i(\tau-s) ds,
+i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 \end{equation}
-where current incidence $i(\tau)$ is expressed as a product of the proportion 
-of the population susceptible $S(\tau)$ and the current infectiousness of all 
-previously infected individuals $\int K(s) i(\tau - s) ds$. In the beginning 
-of an epidemic, the proportion of population susceptible remains roughly 
-constant ($S(\tau) \approx 1$) and this model simplifies to the Von Foerster 
-equation [CITE Fraser et al.]; during this period, we expect the epidemic 
-to grow exponentially. Substituting $i(t) = i(0) \exp(rt)$ to (?) allows us 
-to link speed and strength of an epidemic via the generation-interval distribution:
+Here, $K$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
+In general, $K$ will depend on population characteristics that may change through time -- notably, the proportion of the population susceptible.
+Since we are interested in invasion and control, we will generally neglect changes in $K$ through time, thus we will assume $K\equiv K(\tau)$. 
+This means we are neglecting changes in susceptible proportion through time.
+
+\subsection{Strength-based decomposition}
+
+Assuming that $K$ doesn't change with time, we write:
 \begin{equation}
-1/\RR = \int g(s) \exp(-rs) ds.
+	K(\tau) = \RR g(\tau),
+	\eqlab{speed}
 \end{equation}
+where $g(\tau)$ is the ``intrinsic'' generation-interval distribution (giving the relative infectiousness of the average individual as a function of time since infection) \cite{Champ}. Since $g$ is a distribution, it integrates to 1, and $\RR$ is thus the integral of $K$.
 
-\subsection{Speed and strength of epidemic intervention}
+Imagine a control measure that proportionally reduces $K$, for example by protecting a fixed fraction of susceptibles. We then have:
+\begin{equation}
+	\hat K(\tau) = (\RR/\theta) g(\tau).
+\end{equation}
+Since $g$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention is larger than the strength of spread.
 
+We generalize this idea by allowing an intervention strategy to reduce $K$ by different proportions over the course of an individual infection. We write the post-intervention kernel:
+\begin{equation}
+	\hat K(\tau) = K(\tau)/L(\tau), 
+\end{equation}
+where $L(\tau)$ is the average proportional reduction for an individual infected time $\tau$ ago.
+
+<<<<<<< HEAD
 We assume that the intervention strategies $L(\tau)$ vary over the course 
 of infection such that the effective kernel can be written as 
 $\hat K(\tau) = K(\tau)/L(\tau)$. For example, constant $L(\tau)$
+=======
+We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by generation-interval distribution:
+\begin{equation}
+	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)}.
+\end{equation}
+In this more general case, we have again that the disease cannot spread when $\theta \geq \RR$. 
+>>>>>>> b34bbf3fe15e185d787b423eaf49576db10ecc4f
 
+\subsection{Speed-based decomposition}
 
-\begin{itemize}
-	\item $L(\tau)$ represents intervention over the course of infection
-	\item Then, $\hat K(\tau) = K(\tau)/L(\tau)$
-	\item Define intervention strength:
-	$$
-	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)},
-	$$
-	harmonic mean of $L(\tau)$ weighted by generation-interval distribution; outbreak controlled if $\theta > \mathcal R$ (not affected by $\RR$)
-	\item Define intervention speed ($\phi = r - \hat r$):
-	$$
-	1 = \left\langle \frac{\exp(\phi \tau) }{L(\tau)} \right\rangle_{b(\tau)}
-	$$
-	sort of a mean associated with $L(\tau)$; outbreak controlled if $\phi > r$ (not affected by $r$).
-\end{itemize}
+By analogy with the strength-based factorization \eqref{speed}, we can rewrite the Euler-Lotka equation \eqref{euler} as a speed-based factorization:
+
+\begin{equation}
+K(\tau) = b(\tau)\exp(r\tau)
+\end{equation}
+
+Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times when the disease spreads exponentially \cite{Champ}.
+
+Now imagine an intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation, for example by identifying and isolating infectious individuals.
+We then have:
+\begin{equation}
+	\hat K(\tau) = K(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
+\end{equation}
+Since $b$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\phi=r$. We call $\phi$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is faster than the speed of spread.
+
+We generalize this idea by allowing the hazard rate $h(\tau)$ at which $K$ is reduced to vary through time, thus:
+\begin{equation}
+	\hat K(\tau) = K(\tau) \exp(-\int_0^\tau h(\sigma) d\sigma)
+\end{equation}
+
+We define the speed of a general intervention $L(\tau)$ \eqref{Ldef} to be $\phi = r - \hat r$. We can then show that $\phi$ is a (sort of) mean satisfying:
+\begin{equation}
+	1 = \left\langle \frac{\exp(\phi \tau) }{\exp(\int_0^\tau h(\sigma) d\sigma)} \right\rangle_{b(\tau)}
+\end{equation}
+The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
 \section{Examples}
 
