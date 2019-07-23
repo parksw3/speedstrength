@@ -44,34 +44,41 @@ The strength of an epidemic, often characterized by the reproductive number $\RR
 Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
 Much research has prioritized estimates of the reproductive number, because it has a threshold value, $\RR=1$ that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts. 
-The insight that a case must on average cause at least one new case under good conditions for a disease persist goes back $>100$ years \cite{Ross}, and the idea of averaging by defining a `typical' case was formalized in the 19x0s \cite{Heesterbeek}.
-$\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic. 
+The insight that a case must on average cause at least one new case under good conditions for a disease persist goes back $>100$ years \citep{ross1911prevention};
+the idea of averaging by defining a `typical' case was formalized in the 1990s \citep{diekmann1990definition}.
+$\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, miller2012note}. 
 
-Like epidemic strength, epidemic speed measures how disease spreads in the population. Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's strength on the same scale as the reproductive number. We then show that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
+Like epidemic strength, epidemic speed measures how disease spreads in the population. 
+Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's strength on the same scale as the reproductive number. 
+We then show that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
+We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
 \section{Methods}
 
 \subsection{Epidemic model}
 
-We model disease incidence using the renewal-equation framework \cite{SeeChamp?}. 
-This is a simple, flexible framework that can cover a wide range model structures.
+\swp{edited to make the notation slightly clearer}
+We model disease incidence using the renewal-equation framework \citep{champredon2015intrinsic}. 
+This is a simple, flexible framework that can cover a wide range model structures \citep{Champredon2018equivalence}.
 In our model, disease incidence at time $t$ is given by:
 \begin{equation}
 i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 \end{equation}
-Here, $K$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
-In general, $K$ will depend on population characteristics that may change through time -- notably, the proportion of the population susceptible.
-Since we are interested in invasion and control, we will generally neglect changes in $K$ through time, thus we will assume $K\equiv K(\tau)$. 
-This means we are neglecting changes in susceptible proportion through time.
+Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
+In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ -- notably, the proportion of the population susceptible.
+Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time, thus we will assume $K(\tau, t) \equiv K(\tau)$. 
+This means we are neglecting changes in susceptible proportion through time;
+under this assumption, the renewal equation is equivalent to the Von Foerster equations, outlined in \cite{fraser2004factors}.
 
 \subsection{Strength-based decomposition}
 
-Assuming that $K$ doesn't change with time, we write:
+Assuming that the infection kernel $K$ doesn't change with time, we write:
 \begin{equation}
 	K(\tau) = \RR g(\tau),
-	\eqlab{speed}
+	\eqlab{strength}
 \end{equation}
-where $g(\tau)$ is the ``intrinsic'' generation-interval distribution (giving the relative infectiousness of the average individual as a function of time since infection) \cite{Champ}. Since $g$ is a distribution, it integrates to 1, and $\RR$ is thus the integral of $K$.
+where $g(\tau)$ is the ``intrinsic'' generation-interval distribution (giving the relative infectiousness of the average individual as a function of time since infection) \citep{champredon2015intrinsic}. 
+Since $g$ is a distribution, it integrates to 1, and the reproduction number $\RR$ is thus the integral of $K$.
 
 Imagine a control measure that proportionally reduces $K$, for example by protecting a fixed fraction of susceptibles. We then have:
 \begin{equation}
@@ -84,45 +91,64 @@ We generalize this idea by allowing an intervention strategy to reduce $K$ by di
 	\hat K(\tau) = K(\tau)/L(\tau), 
 \end{equation}
 where $L(\tau)$ is the average proportional reduction for an individual infected time $\tau$ ago.
+Then, we define the post-intervention reproductive number with the following integral:
+\begin{equation}
+	\Rhat = \int K(\tau) d\tau
+\end{equation}
+This framework generalizes the work of \cite{fraser2004factors} who made parameteric assumptions about the shape of $1/L(\tau)$.
 
 We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by generation-interval distribution:
 \begin{equation}
 	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)}.
 \end{equation}
 In this more general case, we have again that the disease cannot spread when $\theta \geq \RR$. 
->>>>>>> b34bbf3fe15e185d787b423eaf49576db10ecc4f
 
 \subsection{Speed-based decomposition}
 
-By analogy with the strength-based factorization \eqref{speed}, we can rewrite the Euler-Lotka equation \eqref{euler} as a speed-based factorization:
-
+The Euler-Lokta equation allows us to calculate the initial exponential growth rate $r$ of an epidemic given an infection kernel $K$:
+\begin{equation}
+	1 = \int K(\tau) \exp(-r\tau) d\tau
+	\eqlab{euler}
+\end{equation}
+By analogy with the strength-based factorization \eqref{strength}, we can rewrite the Euler-Lotka equation \eqref{euler} as a speed-based factorization:
 \begin{equation}
 K(\tau) = b(\tau)\exp(r\tau)
 \end{equation}
-
-Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times when the disease spreads exponentially \cite{Champ}.
+Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times (measured from the infectee's point of view) when the disease spreads exponentially \citep{champredon2015intrinsic, britton2019estimation}.
 
 Now imagine an intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation, for example by identifying and isolating infectious individuals.
 We then have:
 \begin{equation}
 	\hat K(\tau) = K(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
 \end{equation}
-Since $b$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\phi=r$. We call $\phi$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is faster than the speed of spread.
+Since $b$ is a distribution (which integrates to 1), the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\phi=r$. 
+We call $\phi$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is faster than the speed of spread.
 
 We generalize this idea by allowing the hazard rate $h(\tau)$ at which $K$ is reduced to vary through time, thus:
 \begin{equation}
-	\hat K(\tau) = K(\tau) \exp(-\int_0^\tau h(\sigma) d\sigma)
+	\hat K(\tau) = K(\tau) \exp\left(-\int_0^\tau h(\sigma) d\sigma\right)
 \end{equation}
-
-We define the speed of a general intervention $L(\tau)$ \eqref{Ldef} to be $\phi = r - \hat r$. We can then show that $\phi$ is a (sort of) mean satisfying:
+The associated post-intervention epidemic speed $\hat r$ is given by:
 \begin{equation}
-	1 = \left\langle \frac{\exp(\phi \tau) }{\exp(\int_0^\tau h(\sigma) d\sigma)} \right\rangle_{b(\tau)}
+	1 = \int \hat K(\tau) \exp(-\hat r\tau) d\tau.	
+\end{equation}
+We define the speed of a general intervention to be $\phi = r - \hat r$. 
+We can then show that $\phi$ is a (sort of) mean satisfying:
+\begin{equation}
+	1 = \left\langle \frac{\exp(\phi \tau) }{\exp\left(\int_0^\tau h(\sigma) d\sigma\right)} \right\rangle_{b(\tau)}
 \end{equation}
 The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
-\section{Examples}
+\section{Results}
+
+In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for HIV. In particular, we compare how the amount of early vs. late transmission affect each intervention strategies. 
+
+In order to 
+
 
 \subsection{Test and treatment - HIV}
+
+
 
 \begin{itemize}
 	\item Can active testing and treatment stop the epidemic?
@@ -158,6 +184,6 @@ The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or d
 	\item Why test and treat predictions are robust to assumptions about transmission
 \end{itemize}
 
-
+\bibliography{speedstrength}
 
 \end{document}
