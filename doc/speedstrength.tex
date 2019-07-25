@@ -1,4 +1,5 @@
 \documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+\usepackage[top=1in,left=1in, right = 1in, footskip=1in]{geometry}
 
 \title{Speed and strength of epidemic intervention}
 \author{Jonathan Dushoff, Sang Woo Park}
@@ -139,7 +140,7 @@ We can then show that $\phi$ is a (sort of) mean satisfying:
 \end{equation}
 The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
-\section{Examples}
+\section{Intervention strategies for HIV}
 
 In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for the Human immunodeficiency virus (HIV). 
 These examples are not meant to provide precise or accurate estimates of the effectiveness of intervention strategies; 
@@ -156,56 +157,49 @@ The second gamma distribution, $\tsub{f}{late}$, models HIV transmission during 
 We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \citep{babiker2000time} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
 Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
-As our baseline scenario (\figref{example}A), we assume that early transmission is responsible for 23\% of the total transmission \citep{hayes2006amplified}.
-Based on the growth rate estimate ($0.452 \textrm{year}^{-1}$; \figref{example}B) from a HIV prevalence data in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproduction number is $3.17$.
-Further increasing the amount of early transmission reduces the mean generation time, which in turn decreases the reproduction number (\figref{example}C).
-
-\begin{figure}
+\begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/figure1.pdf}
 \caption{This is not a figure.}
 \figlab{example}
 \end{figure}
 
-\subsection{Univarsal testing and treatment}
+As our baseline scenario (\figref{example}A), we assume that early transmission is responsible for 23\% of the total transmission \citep{hayes2006amplified}.
+Based on the growth rate estimate ($0.452 \textrm{year}^{-1}$; \figref{example}B) from a HIV prevalence data in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproduction number is $3.17$.
+Further increasing the amount of early transmission reduces the mean generation time, which in turn decreases the reproduction number (\figref{example}C);
+therefore, we expect stronger (but not necessarily faster) intervention to be required in order to control the disease when there is more early transmission.
 
+\swp{Probably don't need a figure for this?}
+First, consider a condom intervention, which is approximately 80\% effective in reducing HIV seroconversion \citep{weller2002condom}.
+Assuming that ?\% of the sexually active population uses condom consistently,
+we can model this intervention as a constant function: $\tsub{L}{condom} = ???$.
+In this case, the strength of condom intervention is always constant regardless of the amount of early proportion.
+Therefore, we expect condom intervention to be able to control the spread of the HIV when more than ???\% of transmission is caused by early transmission (i.e., when the intervention strength is greater than the epidemic strength).
 
-\subsection{Test and treatment - HIV}
+\begin{figure}[!t]
+\includegraphics[width=\textwidth]{../figure/figure2.pdf}
+\caption{This is not a figure.}
+\figlab{test}
+\end{figure}
 
+On the other hand, consider a test-and-treat strategy in which infected individuals are identified and put to clinical care (e.g., antiretroviral therapy).
+We can model this intervention $\tsub{L}{test}$ as a saturating function that begins at 1 and plateaus at a sufficiently high value (such that identified individuals are effectively no longer infectious);
+in particular, we assume that all individuals will be identified and put to treatment within the first 5 years since their infection (\figref{test}A).
+Under this assumption, the strength of intervention decreases as the proportion of early transmission increases but is always higher than the epidemic strength; 
+however, it is unclear why this should be the case.
 
-
-\begin{itemize}
-	\item Can active testing and treatment stop the epidemic?
-	\item Explain different scenarios? assumptions?
-	\item Early vs late transmission (change proportion of early transmission)
-	\item Compare required strength and speed of intervention required to control the disease
-	\item Early transmission matters for condom
-	\item Early transmission doesn't matter so much for target and treat
-	\item Think about speed vs strength axis
-\end{itemize}
-
-\subsection{Asymptomatic infection}
-
-\begin{itemize}
-	\item See ``Factors that make an infectious disease outbreak controllable'' by Fraser et al.
-	\item Our framework generalizes their work
-	\item Timing of target intervention (Fraser works on this stuff and did a clinical trial on this; unpublished)
-\end{itemize}
-
-\subsection{Maybe one more example}
+Using the speed-based decomposition allows us to understand the problem much more clearly.
+The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because individuals are actively getting tested and treated); 
+the hazard rate goes down soon after the peak and reaches 0 after about 5 years because infected individuals who have access to medical care would have been identified within the first 5 years or so.
+The speed of epidemic stays constant regardless of the proportion of the early transmission because epidemic speed corrresponds to the observed growth rate.
+The speed of intervention stays roughly constant but slightly increases as proportion of early transmission increases \swp{because?}.
+This framework clearly demonstrates that test-and-treat intervention will be effective regardless of the proportion of early transmission.
 
 \section{Discussion}
 
 
-\begin{itemize}
-	\item Talk about generation time and reinterpret Eaton and Hallet?
-	\item Short generation time -> teating and treating will help less but lower epidemic strength
-	\item High generation time -> high proportion prevented but higher R.
-\end{itemize}
 
-\begin{itemize}
-	\item r and R have more in common than we think
-	\item Why test and treat predictions are robust to assumptions about transmission
-\end{itemize}
+
+
 
 \bibliography{speedstrength}
 
