@@ -143,8 +143,8 @@ The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or d
 \section{Intervention strategies for HIV}
 
 In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for the Human immunodeficiency virus (HIV). 
-These examples are not meant to provide precise or accurate estimates of the effectiveness of intervention strategies; 
-instead, we use these examples to demonstrate how strength- and speed-based decompositions allow us to better evaluate each control strategy under different scenarios.
+These examples are meant to provide neither precise nor accurate estimates of the effectiveness of intervention strategies; 
+instead, we use these examples to demonstrate how strength- and speed-based decompositions can help us better evaluate each control strategy under different scenarios.
 In particular, we study how the amount of early HIV transmission can affect our decisions.
 
 We model the infection kernel of the HIV as a sum of two gamma distributions:
@@ -159,25 +159,47 @@ Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/figure1.pdf}
-\caption{This is not a figure.}
+\caption{
+\textbf{The infection kernel of the HIV.}
+A. The infection kernel of the HIV is approximated using a sum of two gamma distributions. We assume that the baseline proportion of early transmission is 23\% \citep{hayes2006amplified}.
+B. Time series of HIV prevalence in pregnant women in South Africa, 1990 - 2010 \citep{barron2013eliminating}. The initial exponential growth rate of the HIV is estimated by fitting a straight line to log-prevalence (1990 - 1997) by minimizing the sum of squares.
+C. Increasing the proportion of early transmission reduces the estimate of the reproduction number.
+}
 \figlab{example}
 \end{figure}
 
 As our baseline scenario (\figref{example}A), we assume that early transmission is responsible for 23\% of the total transmission \citep{hayes2006amplified}.
-Based on the growth rate estimate ($0.452 \textrm{year}^{-1}$; \figref{example}B) from a HIV prevalence data in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproduction number is $3.17$.
+Based on the growth rate estimate ($0.452 \textrm{year}^{-1}$; \figref{example}B) from a HIV prevalence in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproduction number is $3.17$.
 Further increasing the amount of early transmission reduces the mean generation time, which in turn decreases the reproduction number (\figref{example}C);
 therefore, we expect stronger (but not necessarily faster) intervention to be required in order to control the disease when there is more early transmission.
 
-\swp{Probably don't need a figure for this?}
-First, consider a condom intervention, which is approximately 80\% effective in reducing HIV seroconversion \citep{weller2002condom}.
-Assuming that ?\% of the sexually active population uses condom consistently,
-we can model this intervention as a constant function: $\tsub{L}{condom} = ???$.
-In this case, the strength of condom intervention is always constant regardless of the amount of early proportion.
-Therefore, we expect condom intervention to be able to control the spread of the HIV when more than ???\% of transmission is caused by early transmission (i.e., when the intervention strength is greater than the epidemic strength).
-
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/figure2.pdf}
-\caption{This is not a figure.}
+\caption{
+\textbf{Understanding condom intervention using strength-based decomposition.}
+A. Condom intervention $\tsub{L}{condom}$ can be represeted as a constant function.
+B. The amount of early transmission affects the strength of an epidemic but not the strength of condom intervention. 
+}
+\figlab{condom}
+\end{figure}
+
+First, consider a condom intervention, which is approximately 80\% effective in reducing HIV seroconversion \citep{weller2002condom}.
+Assuming that ?\% of the sexually active population uses condom consistently,
+we can model this intervention as a constant function: $\tsub{L}{condom} = ???$ (\figref{condom}A).
+In this case, the strength of condom intervention is always constant regardless of the amount of early transmission, whereas the strength of epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
+Therefore, we expect condom intervention to be able to control the spread of the HIV when more than ???\% of transmission is caused by early transmission (i.e., when the intervention strength is greater than the epidemic strength).
+
+
+\begin{figure}[!t]
+\includegraphics[width=\textwidth]{../figure/figure3.pdf}
+\caption{
+\textbf{Understanding test-and-treat intervention using strength- and speed-based decomposition.}
+A. Test-and-treat intervention $\tsub{L}{test}$ starts at 1 and saturates after about 5 years.
+B. Increasing the amount of early transmission decreases the strength of an epidemic as well as the strength of test-and-treat intervention.
+C. Hazard rate $\tsub{h}{test}$ of test-and-treat intervention $\tsub{L}{test}$ peaks and plateaus very quickly and reaches zero after about 5 years.
+D. The amount of early transmission has no effect on the speed of an epidemic and small effect on the speed of intervention.
+We assume $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau h(\sigma) d\sigma \right)$ and $h(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $12$ months and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 1/6$.
+}
 \figlab{test}
 \end{figure}
 
