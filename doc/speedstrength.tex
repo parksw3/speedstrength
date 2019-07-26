@@ -50,7 +50,7 @@ the idea of averaging by defining a `typical' case was formalized in the 1990s \
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, miller2012note}. 
 
 Like epidemic strength, epidemic speed measures how disease spreads in the population. 
-Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's strength on the same scale as the reproductive number. 
+Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's strength on the same scale as the reproductive number \swp{(and by measuring an intervention's speed on the same scale as the initial exponential growth rate)}. 
 We then show that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
 We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
@@ -145,16 +145,16 @@ The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or d
 In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for the Human immunodeficiency virus (HIV). 
 These examples are meant to provide neither precise nor accurate estimates of the effectiveness of intervention strategies; 
 instead, we use these examples to demonstrate how strength- and speed-based decompositions can help us better evaluate each control strategy under different scenarios.
-In particular, we study how the amount of early HIV transmission can affect our decisions.
+In particular, we study how the amount of early HIV transmission affects our decision.
 
 We model the infection kernel of the HIV as a sum of two gamma distributions:
 \begin{equation}
 K(\tau) = \mathcal R \left(\tsub{p}{early} \tsub{f}{early}(\tau) + (1-\tsub{p}{early}) \tsub{f}{late}(\tau) \right).
 \end{equation}
-The first gamma distribution, $\tsub{f}{early}(\tau)$, models early HIV transmission during the acute infection stage.
+The first component, $\tsub{f}{early}(\tau)$, models early HIV transmission during the acute infection stage.
 We assume that $\tsub{f}{early}(\tau)$ has a mean of 3 months \citep{hollingsworth2008hiv} and a shape parameter of 3.
-The second gamma distribution, $\tsub{f}{late}$, models HIV transmission during the asymptomatic stage and the disease stage (after progression to Acquired Immune Deficiency Syndrome (AIDS)).
-We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \citep{babiker2000time} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
+The second component, $\tsub{f}{late}$, models HIV transmission during the asymptomatic stage and the disease stage (after progression to Acquired Immune Deficiency Syndrome (AIDS)).
+We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \swp{need to cite something and/or change this value} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
 Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
 \begin{figure}[!t]
@@ -169,7 +169,7 @@ C. Increasing the proportion of early transmission reduces the estimate of the r
 \end{figure}
 
 As our baseline scenario (\figref{example}A), we assume that early transmission is responsible for 23\% of the total transmission \citep{hayes2006amplified}.
-Based on the growth rate estimate ($0.452 \textrm{year}^{-1}$; \figref{example}B) from a HIV prevalence in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproduction number is $3.17$.
+Based on the growth rate estimate ($0.452 \textrm{year}^{-1}$; \figref{example}B) from HIV prevalence in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproduction number is $3.17$.
 Further increasing the amount of early transmission reduces the mean generation time, which in turn decreases the reproduction number (\figref{example}C);
 therefore, we expect stronger (but not necessarily faster) intervention to be required in order to control the disease when there is more early transmission.
 
@@ -183,12 +183,12 @@ B. The amount of early transmission affects the strength of an epidemic but not 
 \figlab{condom}
 \end{figure}
 
-First, consider a condom intervention, which is approximately 80\% effective in reducing HIV seroconversion \citep{weller2002condom}.
+\swp{Need values}
+First, consider a condom intervention that is approximately 80\% effective in reducing HIV seroconversion \citep{weller2002condom}.
 Assuming that ?\% of the sexually active population uses condom consistently,
 we can model this intervention as a constant function: $\tsub{L}{condom} = ???$ (\figref{condom}A).
 In this case, the strength of condom intervention is always constant regardless of the amount of early transmission, whereas the strength of epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
 Therefore, we expect condom intervention to be able to control the spread of the HIV when more than ???\% of transmission is caused by early transmission (i.e., when the intervention strength is greater than the epidemic strength).
-
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/figure3.pdf}
