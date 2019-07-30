@@ -23,6 +23,8 @@ Sources += *.tex
 
 ## speedstrength.pdf: speedstrength.tex
 
+Ignore += notes.md
+
 ######################################################################
 
 ### Makestuff
