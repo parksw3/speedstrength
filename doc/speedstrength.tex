@@ -45,8 +45,6 @@ Add a bigger perspective from Eaton and Hallett (SWP can start on that if time).
 
 Talk about speed-like and strength-like estimates of an epidemic (e.g., HIV growth rate vs.~measles mean susceptibility) and of an intervention.
 
-JD to do a condom calculation framing.
-
 \section{Introduction}
 
 An epidemic can be characterized by its \emph{speed} and \emph{strength}.
@@ -56,21 +54,19 @@ Knowing the speed and strength of an epidemic allows predictions about the cours
 
 Much research has prioritized estimates of the reproductive number, because it has a threshold value, $\RR=1$ that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts. 
 The insight that a case must on average cause at least one new case under good conditions for a disease persist goes back $>100$ years \citep{ross1911prevention};
-the idea of averaging by defining a `typical' case was formalized in the 1990s \citep{diekmann1990definition}.
+the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, miller2012note}. 
 
 Like epidemic strength, epidemic speed measures how disease spreads in the population. 
-Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's strength on the same scale as the reproductive number \swp{(and by measuring an intervention's speed on the same scale as the initial exponential growth rate)}. 
-We then show that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
+Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's ``strength'' on the same scale as the reproductive number. 
+We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. \jd{Tried to clarify in your direction.}
 We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
 \section{Methods}
 
 \subsection{Epidemic model}
 
-\swp{edited to make the notation slightly clearer}
-We model disease incidence using the renewal-equation framework \citep{champredon2015intrinsic}. 
-This is a simple, flexible framework that can cover a wide range model structures \citep{Champredon2018equivalence}.
+We model disease incidence using the renewal-equation framework, a simple, flexible framework that can cover a wide range of model structures \citep{Champredon2018equivalence}.
 In our model, disease incidence at time $t$ is given by:
 \begin{equation}
 i(t) = \int K(\tau, t) i(t-\tau) d\tau.
@@ -95,18 +91,18 @@ Imagine a control measure that proportionally reduces $K$, for example by protec
 \begin{equation}
 	\hat K(\tau) = (\RR/\theta) g(\tau).
 \end{equation}
-Since $g$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention is larger than the strength of spread.
+Since $g$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention $\theta$ is larger than the strength of spread \RR.
 
 We generalize this idea by allowing an intervention strategy to reduce $K$ by different proportions over the course of an individual infection. We write the post-intervention kernel:
 \begin{equation}
 	\hat K(\tau) = K(\tau)/L(\tau), 
 \end{equation}
 where $L(\tau)$ is the average proportional reduction for an individual infected time $\tau$ ago.
-Then, we define the post-intervention reproductive number with the following integral:
+The post-intervention reproductive number is thus:
 \begin{equation}
-	\Rhat = \int K(\tau) d\tau
+	\Rhat = \int \hat K(\tau) d\tau
 \end{equation}
-This framework generalizes the work of \cite{fraser2004factors} who made parameteric assumptions about the shape of $1/L(\tau)$.
+This framework generalizes the work of \cite{fraser2004factors} who made parametric assumptions about the shape of $1/L(\tau)$.
 
 We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by generation-interval distribution:
 \begin{equation}
@@ -187,18 +183,16 @@ therefore, we expect stronger (but not necessarily faster) intervention to be re
 \includegraphics[width=\textwidth]{../figure/figure2.pdf}
 \caption{
 \textbf{Understanding condom intervention using strength-based decomposition.}
-A. Condom intervention $\tsub{L}{condom}$ can be represeted as a constant function.
-B. The amount of early transmission affects the strength of an epidemic but not the strength of condom intervention. 
+A. Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the proportional reduction $L$ due to condom use is constant across the course of infection. 
+B. The estimated amount of early transmission affects estimated strength of the epidemic but not of a condom-based intervention.
 }
 \figlab{condom}
 \end{figure}
 
-\swp{Need values}
-First, consider a condom intervention that is approximately 80\% effective in reducing HIV seroconversion \citep{weller2002condom}.
-Assuming that ?\% of the sexually active population uses condom consistently,
-we can model this intervention as a constant function: $\tsub{L}{condom} = ???$ (\figref{condom}A).
-In this case, the strength of condom intervention is always constant regardless of the amount of early transmission, whereas the strength of epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
-Therefore, we expect condom intervention to be able to control the spread of the HIV when more than ???\% of transmission is caused by early transmission (i.e., when the intervention strength is greater than the epidemic strength).
+We consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level. \jd{I'm not sure we need to be worried about weller2002condom, nor about population vs.~individual level effects. Many estimates of efficacy are higher than 80\%, and it's certainly possible to imagine an intervention that involves education about condom use.}
+Assuming that condoms act as a physical barrier, and that condom use will on average remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$  (\figref{condom}A).
+The estimated strength of such an intervention is simply the average of $L$: $\theta=4$, whereas the estimated strength of the epidemic increases as the proportion of early transmission decreases (\figref{condom}B).
+Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention. 
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/figure3.pdf}
