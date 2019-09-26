@@ -146,7 +146,9 @@ We can then show that $\phi$ is a (sort of) mean satisfying:
 \end{equation}
 The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
-\section{Intervention strategies for HIV}
+\section{Example: HIV}
+
+\jd{I'd like to be even less detailed about HIV, and maybe do an explicit comparison with measles or Ebola. The idea I'd love to get across is that the two ways of thinking can both be helpful to intuition, and that which one fits better will depend on the disease and on the available data. I will work on making that part explicit.}
 
 In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for the Human immunodeficiency virus (HIV). 
 These examples are meant to provide neither precise nor accurate estimates of the effectiveness of intervention strategies; 
@@ -160,7 +162,7 @@ K(\tau) = \mathcal R \left(\tsub{p}{early} \tsub{f}{early}(\tau) + (1-\tsub{p}{e
 The first component, $\tsub{f}{early}(\tau)$, models early HIV transmission during the acute infection stage.
 We assume that $\tsub{f}{early}(\tau)$ has a mean of 3 months \citep{hollingsworth2008hiv} and a shape parameter of 3.
 The second component, $\tsub{f}{late}$, models HIV transmission during the asymptomatic stage and the disease stage (after progression to Acquired Immune Deficiency Syndrome (AIDS)).
-We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \swp{need to cite something and/or change this value} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
+We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \swp{need to cite something and/or change this value} \jd{Happy to use any value you can cite, or to help search} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
 Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
 \begin{figure}[!t]
@@ -208,24 +210,21 @@ We assume $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau h(\sigma) d\sigma \right
 \end{figure}
 
 On the other hand, consider a test-and-treat strategy in which infected individuals are identified and put to clinical care (e.g., antiretroviral therapy).
-We can model this intervention $\tsub{L}{test}$ as a saturating function that begins at 1 and plateaus at a sufficiently high value (such that identified individuals are effectively no longer infectious);
-in particular, we assume that all individuals will be identified and put to treatment within the first 5 years since their infection (\figref{test}A).
-Under this assumption, the strength of intervention decreases as the proportion of early transmission increases but is always higher than the epidemic strength; 
-however, it is unclear why this should be the case.
+We assume that the rate of identification and removal is initially constant. Thus, the proportion continuing to transmit declines exponentially, and the effect of intervention $\tsub{L}{test}$ increases exponentially.
+\jd{Can you remind me the functional form that we used?}
+However, we assume removal eventually saturates, to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment
+\jd{I'm not sure the advantage of the tsub; I kind of feel like we can communicate in context without subscripts.} (\figref{test}A).
+Under this assumption, the strength of intervention decreases as the proportion of early transmission increases but is always higher than the epidemic strength; however, it is unclear why this should be the case. \jd{Ref Eaton}
 
 Using the speed-based decomposition allows us to understand the problem much more clearly.
 The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because individuals are actively getting tested and treated); 
 the hazard rate goes down soon after the peak and reaches 0 after about 5 years because infected individuals who have access to medical care would have been identified within the first 5 years or so.
 The speed of epidemic stays constant regardless of the proportion of the early transmission because epidemic speed corrresponds to the observed growth rate.
-The speed of intervention stays roughly constant but slightly increases as proportion of early transmission increases \swp{because?}.
-This framework clearly demonstrates that test-and-treat intervention will be effective regardless of the proportion of early transmission.
+The speed of intervention stays roughly constant but slightly increases as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
+
+This framework provides an intuitive underpinning for the originally surprising result of Eaton: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
 
 \section{Discussion}
-
-
-
-
-
 
 \bibliography{speedstrength}
 
