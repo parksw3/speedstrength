@@ -19,6 +19,9 @@ $(ms)/Makefile:
 
 alldirs += doc
 
+# figure/figure1.pdf three-panel R v ρ for HIV
+# figure/figure2.pdf Strength-like condoms
+# figure/figure3.pdf Two perspectives on HIV intervention
 ### Makestuff rules
 
 -include $(ms)/git.mk
