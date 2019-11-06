@@ -57,7 +57,7 @@ $\RR$ is also of interest because it provides a \emph{prima facie} prediction ab
 
 Like epidemic strength, epidemic speed measures how disease spreads in the population. 
 Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's ``strength'' on the same scale as the reproductive number. 
-We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. \jd{Tried to clarify in your direction.}
+We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
 We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
 \section{Methods}
@@ -72,7 +72,7 @@ i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
 In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ -- notably, the proportion of the population susceptible.
 Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time, thus we will assume $K(\tau, t) \equiv K(\tau)$. 
-This means we are neglecting changes in susceptible proportion through time;
+Importantly, this means we are neglecting changes in susceptible proportion through time;
 under this assumption, the renewal equation is equivalent to the Von Foerster equations, outlined in \cite{fraser2004factors}.
 
 \subsection{Strength-based decomposition}
@@ -108,14 +108,16 @@ We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is
 \end{equation}
 In this more general case, we have again that the disease cannot spread when $\theta \geq \RR$. 
 
+\jd{I'm wondering if we should be diagrammatic about these decompositions. I guess you've seen some of the pictures I show during talks about constant-speed and constant-strength interventions and the relationship to generation intervals.}
+
 \subsection{Speed-based decomposition}
 
-The Euler-Lokta equation allows us to calculate the initial exponential growth rate $r$ of an epidemic given an infection kernel $K$:
+The Euler-Lotka equation allows us to calculate the initial exponential growth rate $r$ of an epidemic given an infection kernel $K$:
 \begin{equation}
 	1 = \int K(\tau) \exp(-r\tau) d\tau
 	\eqlab{euler}
 \end{equation}
-By analogy with the strength-based factorization \eqref{strength}, we can rewrite the Euler-Lotka equation \eqref{euler} as a speed-based factorization:
+By analogy with the strength-based factorization \eqref{strength}, we can rewrite \eqref{euler} as a speed-based factorization:
 \begin{equation}
 K(\tau) = b(\tau)\exp(r\tau)
 \end{equation}
@@ -142,7 +144,7 @@ We can then show that $\phi$ is a (sort of) mean satisfying:
 \begin{equation}
 	1 = \left\langle \frac{\exp(\phi \tau) }{\exp\left(\int_0^\tau h(\sigma) d\sigma\right)} \right\rangle_{b(\tau)}
 \end{equation}
-The speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
+Specifically, the speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
 \section{Example: HIV}
 
