@@ -45,17 +45,25 @@ Talk about speed-like and strength-like estimates of an epidemic (e.g., HIV grow
 
 \section{Introduction}
 
-An epidemic can be characterized by its \emph{speed} and \emph{strength}.
+An epidemic can be described by its \emph{speed} and \emph{strength}.
 The speed of an epidemic, often characterized by the exponential growth rate $r$, measures how \emph{fast} an epidemic grows, at the population level. 
-The strength of an epidemic, often characterized by the reproductive number $\RR$, measures how many new cases are caused by a typical \emph{individual} case.
+The strength of an epidemic, often characterized by the basic reproductive number $\RR_0$, measures how many new cases are caused by a typical \emph{individual} case in a fully susceptible population \citep{anderson1991infectious, diekmann1990definition}.
 Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
-Much research has prioritized estimates of the reproductive number, because it has a threshold value, $\RR=1$ that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts. 
+Much research has prioritized estimates of the reproductive number, because it has a threshold value, $\RR_0=1$ that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts.
 The insight that a case must on average cause at least one new case under good conditions for a disease persist goes back $>100$ years \citep{ross1911prevention};
 the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
-$\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, miller2012note}. 
+$\RR_0$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, miller2012note}.
+
+The study of measles dynamics provides a key example for which the characterization of an epidemic via the reproduction number has been successful.
+One of the earliest estimates of the measles $\RR_0$ comes from \cite{anderson1982directly} nearly 40 years ago, who gave a range of $14 - 18$.
+This, combined with the mean age of infection (4.6 years) and the mean age of vaccination (2.2 years), allowed them to predict that approximately 96\% of the new birth cohort had to be vaccinated to eradicate measles.
 
 Like epidemic strength, epidemic speed measures how disease spreads in the population. 
+\swp{Ebola}
+
+\swp{Eaton and Hallett}
+
 Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's ``strength'' on the same scale as the reproductive number. 
 We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
 We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
