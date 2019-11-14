@@ -51,4 +51,4 @@ g2 <- ggplot(earlydata) +
 
 gtot <- arrangeGrob(g1, g2, nrow=1)
 
-ggsave("figure2.pdf", gtot, width=8, height=3)
+ggsave("condom.pdf", gtot, width=8, height=3)

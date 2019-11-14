@@ -70,4 +70,4 @@ g3 <- ggplot(earlydata) +
 
 gtot <- arrangeGrob(g1, g2, g3, nrow=1)
 
-ggsave("figure1.pdf", gtot, width=8, height=3)
+ggsave("HIV.pdf", gtot, width=8, height=3)

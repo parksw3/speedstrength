@@ -104,4 +104,4 @@ g4 <- ggplot(speeddata) +
 
 gtot <- arrangeGrob(g1, g2, g3, g4, nrow=2)
 
-ggsave("figure3.pdf", gtot, width=8, height=6)
+ggsave("test_and_treat.pdf", gtot, width=8, height=6)

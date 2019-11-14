@@ -43,6 +43,8 @@ Add a bigger perspective from Eaton and Hallett (SWP can start on that if time).
 
 Talk about speed-like and strength-like estimates of an epidemic (e.g., HIV growth rate vs.~measles mean susceptibility) and of an intervention.
 
+\swp{r strategy vs K strategy somewhere}
+
 \section{Introduction}
 
 An epidemic can be described by its \emph{speed} and \emph{strength}.
@@ -60,18 +62,19 @@ One of the earliest estimates of the measles $\RR_0$ comes from \cite{anderson19
 This, combined with the mean age of infection (4.6 years) and the mean age of vaccination (2.2 years), allowed them to predict that approximately 96\% of the new birth cohort had to be vaccinated to eradicate measles.
 Since then, measles control policies have revolved around targetting this critical vaccination threshold \citep{venczel2003measles, wolfson2007has, takahashi2015reduced}.
 \swp{More citations later}
+\swp{I think I need to end the paragraph more braodly so that it feels like strength vs speed comparison...}
 
 Like epidemic strength, epidemic speed measures how disease spreads in a population.
-Despite the prevailing focus on the basic reproduction number in literature \swp{CITE}, 
-relying on epidemic speed can be sometimes more effective in characterizing the course of an epidemic and evoluating intervention strategies.
-In particular, the exponential growth rate can be directly measured from incidence data even early in an epidemic \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating}, whereas the basic reproduction number can be difficult to estimate \citep{weitz2015modeling};
-in these scenarios, intervention strategies should seek to reduce the epidemic speed.
-The West African Ebola outbreak in 2014 provides a key example for this perspective: 
-many researchers tried to estimate the basic reproduction number but the major intervention strategies involved slowing down the epidemic by identifying infected individuals and isolating them \citep{pandey2014strategies}.
+Despite the prevailing focus on the basic reproduction number in literature \swp{CITE},
+using epidemic speed can be sometimes more effective in characterizing the course of an epidemic and evoluating intervention strategies.
+Early in an outbreak, the exponential growth rate can be directly measured from incidence data \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating}, even though the basic reproduction number can be difficult to estimate \citep{weitz2015modeling}.
+In these scenarios, we expect control efforts that seek to reduce the epidemic speed to be more effective.
+The West African Ebola outbreak in 2014 provides an example for this perspective: 
+many researchers tried to estimate the basic reproduction number but the major strategies involved slowing down the epidemic by identifying infected individuals and isolating them \citep{pandey2014strategies}.
+Strategies that relied on reducing the epidemic strength (e.g., Ebola vaccine trials) were not implemented until much later and had relatively small effect on controlling the outbreak.
+\swp{More citations later}
 
-
-
-\swp{Eaton and Hallett}
+\swp{Eaton and Hallett?}
 
 Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's ``strength'' on the same scale as the reproductive number. 
 We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
@@ -94,15 +97,29 @@ under this assumption, the renewal equation is equivalent to the Von Foerster eq
 
 \subsection{Strength-based decomposition}
 
+\begin{figure}[!t]
+\includegraphics[width=\textwidth]{../figure/constant_intervention.pdf}
+\caption{
+\textbf{Effects of constant strength and speed intervention on infection kernels.}
+Ebola-like gamma infection kernel $K(\tau)$ (mean: 16.2 days, CV: 0.58, and $\RR_0$: 1.5) is shown in black \citep{park2019practical}.
+The infection kernel after applying each intervention strategy $\hat K(\tau)$ is shown in red.
+(A) A constant strength intervention with $\theta = 1.5$ is applied to Ebola-like infection kernel.
+A constant strength intervention reduces the density by a constant proportion: $\hat K(\tau) = K(\tau)/\theta$; the resulting distribution is equivalent to the intrinsic generation-intervla distribution ($\hat K(\tau) = g(\tau)$) when the strength of intervention matches the strength of epidemic ($\theta = \mathcal R$).
+(B) A constant speed intervention with $\phi \approx 0.0267\,\mathrm{days}^{-1}$ is applied to Ebola-like infection kernel.
+A constant speed intervention reduces the density exponentially: $\hat K(\tau) = K(\tau) \exp(-\phi \tau)$; the resulting distribution is equivalent to the initial backward generation-interval distribution ($\hat K(\tau) = b(\tau)$) when the speed of intervention matches the speed of epidemic ($\phi = r$).
+}
+\figlab{constant}
+\end{figure}
+
 Assuming that the infection kernel $K$ doesn't change with time, we write:
 \begin{equation}
 	K(\tau) = \RR g(\tau),
 	\eqlab{strength}
 \end{equation}
-where $g(\tau)$ is the ``intrinsic'' generation-interval distribution (giving the relative infectiousness of the average individual as a function of time since infection) \citep{champredon2015intrinsic}. 
+where $g(\tau)$ is the ``intrinsic'' generation-interval distribution (giving the relative infectiousness of an average individual as a function of time since infection) \citep{champredon2015intrinsic}. 
 Since $g$ is a distribution, it integrates to 1, and the reproduction number $\RR$ is thus the integral of $K$.
 
-Imagine a control measure that proportionally reduces $K$, for example by protecting a fixed fraction of susceptibles. We then have:
+Imagine a control measure that proportionally reduces $K$, for example by protecting a fixed fraction of susceptibles (\figref{constant}A). We then have:
 \begin{equation}
 	\hat K(\tau) = (\RR/\theta) g(\tau).
 \end{equation}
@@ -126,6 +143,7 @@ We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is
 In this more general case, we have again that the disease cannot spread when $\theta \geq \RR$. 
 
 \jd{I'm wondering if we should be diagrammatic about these decompositions. I guess you've seen some of the pictures I show during talks about constant-speed and constant-strength interventions and the relationship to generation intervals.}
+\swp{I tried}
 
 \subsection{Speed-based decomposition}
 
@@ -140,7 +158,7 @@ K(\tau) = b(\tau)\exp(r\tau)
 \end{equation}
 Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times (measured from the infectee's point of view) when the disease spreads exponentially \citep{champredon2015intrinsic, britton2019estimation}.
 
-Now imagine an intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation, for example by identifying and isolating infectious individuals.
+Now imagine an intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation (\figref{constant}B), for example by identifying and isolating infectious individuals.
 We then have:
 \begin{equation}
 	\hat K(\tau) = K(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
@@ -183,7 +201,7 @@ We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \swp{need to cite s
 Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
 \begin{figure}[!t]
-\includegraphics[width=\textwidth]{../figure/figure1.pdf}
+\includegraphics[width=\textwidth]{../figure/HIV.pdf}
 \caption{
 \textbf{The infection kernel of the HIV.}
 A. The infection kernel of the HIV is approximated using a sum of two gamma distributions. We assume that the baseline proportion of early transmission is 23\% \citep{hayes2006amplified}.
@@ -199,7 +217,7 @@ Further increasing the amount of early transmission reduces the mean generation 
 therefore, we expect stronger (but not necessarily faster) intervention to be required in order to control the disease when there is more early transmission.
 
 \begin{figure}[!t]
-\includegraphics[width=\textwidth]{../figure/figure2.pdf}
+\includegraphics[width=\textwidth]{../figure/condom.pdf}
 \caption{
 \textbf{Understanding condom intervention using strength-based decomposition.}
 A. Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the proportional reduction $L$ due to condom use is constant across the course of infection. 
@@ -214,7 +232,7 @@ The estimated strength of such an intervention is simply the average of $L$: $\t
 Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention. 
 
 \begin{figure}[!t]
-\includegraphics[width=\textwidth]{../figure/figure3.pdf}
+\includegraphics[width=\textwidth]{../figure/test_and_treat.pdf}
 \caption{
 \textbf{Understanding test-and-treat intervention using strength- and speed-based decomposition.}
 A. Test-and-treat intervention $\tsub{L}{test}$ starts at 1 and saturates after about 5 years.
@@ -242,6 +260,8 @@ The speed of intervention stays roughly constant but slightly increases as propo
 This framework provides an intuitive underpinning for the originally surprising result of Eaton: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
 
 \section{Discussion}
+
+
 
 \bibliography{speedstrength}
 
