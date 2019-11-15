@@ -65,16 +65,21 @@ Since then, measles control policies have revolved around targetting this critic
 \swp{I think I need to end the paragraph more braodly so that it feels like strength vs speed comparison...}
 
 Like epidemic strength, epidemic speed measures how disease spreads in a population.
-Despite the prevailing focus on the basic reproduction number in literature \swp{CITE},
-using epidemic speed can be sometimes more effective in characterizing the course of an epidemic and evoluating intervention strategies.
+Despite the prevailing focus on the basic reproduction number in literature,
+using the growth rate can be sometimes more effective in characterizing the course of an epidemic and evoluating intervention strategies.
 Early in an outbreak, the exponential growth rate can be directly measured from incidence data \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating}, even though the basic reproduction number can be difficult to estimate \citep{weitz2015modeling}.
 In these scenarios, we expect control efforts that seek to reduce the epidemic speed to be more effective.
 The West African Ebola outbreak in 2014 provides an example for this perspective: 
 many researchers tried to estimate the basic reproduction number but the major strategies involved slowing down the epidemic by identifying infected individuals and isolating them \citep{pandey2014strategies}.
-Strategies that relied on reducing the epidemic strength (e.g., Ebola vaccine trials) were not implemented until much later and had relatively small effect on controlling the outbreak.
+Strategies that relies on reducing the epidemic strength (e.g., Ebola vaccine trials) were not implemented until much later and had relatively small effect on controlling the outbreak.
 \swp{More citations later}
 
-\swp{Eaton and Hallett?}
+Whether strength- or speed-based perspective is more useful depends on the disease as well as the focal intervention strategy.
+For example, main strategies for controlling the Human immunodeficiency virus (HIV) epidemic are condom, pre-exposure prophylaxis (PrEP), and antiretroviral therapy (ART).
+Like vaccine, condom and PrEP are reduce the mean susceptibility of the population, which in turn reduce the average number of secondary cases. Therefore, they are strength-like.
+On the other hand, ART relies on identifying infected individuals and treating them. This is speed-like because its effectiveness depends on how fast infected individuals can be put on treatment.
+\cite{eaton2014proportion} used a detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART and gave a strength-based interpretation: increasing the amount of early transmission decreases the basic reproduction number, which negatively correlates with the outcome of the ART intervention. 
+However, there's a simple speed-based intuition behind this phenomenon: we expect to be able to control the outbreak if we can identify infected individuals and put them on ART faster than the \emph{observed} rate at which new incidence is generated -- this observed rate does not depend on the amount of early transmission.
 
 Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's ``strength'' on the same scale as the reproductive number. 
 We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
@@ -249,7 +254,7 @@ We assume that the rate of identification and removal is initially constant. Thu
 \jd{Can you remind me the functional form that we used?}
 However, we assume removal eventually saturates, to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment
 \jd{I'm not sure the advantage of the tsub; I kind of feel like we can communicate in context without subscripts.} (\figref{test}A).
-Under this assumption, the strength of intervention decreases as the proportion of early transmission increases but is always higher than the epidemic strength; however, it is unclear why this should be the case. \jd{Ref Eaton}
+Under this assumption, the strength of intervention decreases as the proportion of early transmission increases but is always higher than the epidemic strength \citep{eaton2014proportion}.
 
 Using the speed-based decomposition allows us to understand the problem much more clearly.
 The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because individuals are actively getting tested and treated); 
