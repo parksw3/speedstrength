@@ -65,10 +65,10 @@ g2 <- ggplot(earlydata) +
 	)
 
 g3 <- ggplot(tt) +
-	geom_line(aes(time/12, hazRate), col=2) +
-	geom_hline(aes(yintercept=phiFun(b_base, tt)), lty=2, col=2) +
+	geom_line(aes(time/12, hazRate*12), col=2) +
+	geom_hline(aes(yintercept=phiFun(b_base, tt)*12), lty=2, col=2) +
 	scale_x_continuous("Time (years)") +
-	scale_y_continuous(expression(h[test])) +
+	scale_y_continuous(expression(h[test]~(year^{-1}))) +
 	ggtitle("C") +
 	theme(
 		panel.grid = element_blank(),
@@ -92,7 +92,7 @@ g4 <- ggplot(speeddata) +
 	geom_line(aes(early, speed, col="Intervention")) +
 	geom_hline(aes(yintercept=coef(lfit)[[2]], col="Epidemic" )) +
 	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.42), expand=c(0, 0)) +
-	scale_y_continuous(expression(Speed~(year^{-1})) , limits=c(0.3, 0.8)) +
+	scale_y_continuous(expression(Speed~(year^{-1})), limits=c(0, 0.8), expand=c(0, 0)) +
 	scale_color_manual(values=c("black", "red")) +
 	ggtitle("D") +
 	theme(
