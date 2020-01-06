@@ -53,6 +53,10 @@ et al. 1996). R0 is appropriate as an index of fitness if the population
 is regulated by density-dependent juvenile mortality (Mylius and
 Diekmann 1995).}
 
+\section*{Abstract}
+
+
+
 \section{Introduction}
 
 An epidemic can be described by its \emph{speed} and \emph{strength}.
@@ -259,12 +263,15 @@ In particular, we recapitulate the result of \cite{eaton2014proportion} who used
 While they gave a strength-based argument for the result --  increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion} -- there is a simple speed-based intuition behind this phenomenon: in principle, we can control the outbreak if we can identify infected individuals and put them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the amount of early transmission.
 While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
 
-The contrast between strength- and speed-based perspectives in characterizing an epidemic and its control can be also found in studies of the West African Ebola Outbreak in 2014.
+The contrast between strength- and speed-based perspectives in characterizing an epidemic and its control can be widely found in studies of the West African Ebola Outbreak in 2014.
 Early in the outbreak, many researchers tried to estimate the basic reproductive number and made policy suggestions based on their estimates \citep{althaus2014estimating, fisman2014early, gomes2014assessing, pandey2014strategies, shaman2014inference, towers2014temporal, who2014ebola}.
-For example, \cite{pandey2014strategies} estimated $\mathcal R_0$ for the Liberian outbreak to be 1.63 and calculated that restricting post-burial transmission can reduce $\mathcal R_0$ below 1 but restricting hospital and community transmission cannot (thus using a strength-based framework).
-However, the strength of an epidemic cannot be reliably estimated early in an outbreak \citep{weitz2015modeling}.
-Its speed can be directly measured from the incidence time series instead \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating} and provides a better perspective for understanding the initial spread.
-In fact, intervention strategies that played major role in controlling the Ebola outbreak were speed-like, such as identifying infected individuals and isolating them \citep{pandey2014strategies}.
+For example, \cite{pandey2014strategies} estimated $\mathcal R_0$ for the Liberian outbreak to be 1.63 and calculated that restricting post-burial transmission can reduce $\mathcal R_0$ below 1 but restricting hospital and community transmission cannot.
+While these calculations are purely strength-based, these intervention strategies have both strength- and speed-like components: the effectiveness of safe burial practices depends on its ability to reduce the overall transmissibility (strength-like) as well as the amount of time it takes for a deceased individual to be buried (speed-like).
+
+\cite{weitz2015modeling} later demonstrated that the strength of the Ebola outbreak cannot be reliably estimated early in an outbreak.
+Instead, its speed can be directly measured from the incidence time series \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating} and can provide a better framework for understanding the initial spread.
+Many intervention strategies that played major role in controlling the Ebola outbreak were, in fact, speed-like: identifying and isolating infected individuals, contact-tracing, etc. \citep{pandey2014strategies}.
+Like the test-and-treat intervention for HIV, the effectiveness of these strategies would not have depended on the uncertainty in the underlying disease generation time (which would have been propagated from the uncertainty in the amount of post-burial transmission).
 
 
 
