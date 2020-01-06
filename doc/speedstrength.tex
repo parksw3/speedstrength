@@ -56,7 +56,7 @@ Diekmann 1995).}
 \section{Introduction}
 
 An epidemic can be described by its \emph{speed} and \emph{strength}.
-The speed of an epidemic, often characterized by the exponential growth rate $r$, measures how \emph{fast} an epidemic grows, at the population level \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating}. 
+The speed of an epidemic, often characterized by the exponential growth rate $r$, measures how \emph{fast} an epidemic grows, at the population level. 
 The strength of an epidemic, often characterized by the basic reproductive number $\RR_0$, measures how many new cases are caused by a typical \emph{individual} case in a fully susceptible population \citep{anderson1991infectious, diekmann1990definition}.
 Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
@@ -194,14 +194,14 @@ Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 \textbf{The infection kernel of the HIV.}
 A. The infection kernel of the HIV is approximated using a sum of two gamma distributions. We assume that the baseline proportion of early transmission is 23\% \citep{hayes2006amplified}.
 B. Time series of HIV prevalence in pregnant women in South Africa, 1990 - 2010 \citep{barron2013eliminating}. The initial exponential growth rate of the HIV is estimated by fitting a straight line to log-prevalence (1990 - 1997) by minimizing the sum of squares.
-C. Increase in the estimate of the amount of early transmission reduces the estimate of the reproduction number.
+C. Increase in the estimate of the amount of early transmission reduces the estimate of the reproductive number.
 }
 \figlab{example}
 \end{figure}
 
 As our baseline scenario (\figref{example}A), we assume that early transmission is responsible for 23\% of the total transmission \citep{hayes2006amplified}.
-Based on the growth rate estimate ($0.452\,\mathrm{year}^{-1}$; \figref{example}B) from HIV prevalence in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproduction number is $3.17$.
-Increase in the estimate of the amount of early transmission shortens the mean generation time, which in turn decreases the reproduction number (\figref{example}C).
+Based on the growth rate estimate ($0.452\,\mathrm{year}^{-1}$; \figref{example}B) from HIV prevalence in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproductive number is $3.17$.
+Increase in the estimate of the amount of early transmission shortens the mean generation time, which in turn decreases the reproductive number (\figref{example}C).
 Therefore, we expect stronger (but not necessarily faster) intervention to be required in order to control the disease when there is less early transmission.
 
 \begin{figure}[!t]
@@ -250,20 +250,21 @@ This framework provides an intuitive underpinning for the originally surprising 
 
 \section{Discussion}
 
-The effectiveness of an epidemic intervention is often measured by its ability to reduce the basic reproduction below 1.
-In this study, we extend this idea by defining the strength of an intervention on the same scale as the strength of an epidemic (i.e., basic reproduction number $\mathcal R_0$) and the speed of an intervention on the same scale as the speed of an epidemic (i.e., exponential growth rate $r$).
+The effectiveness of an epidemic intervention is often measured by its ability to reduce the basic reproductive below 1.
+In this study, we extend this idea by defining the strength of an intervention on the same scale as the strength of an epidemic (i.e., basic reproductive number $\mathcal R_0$) and the speed of an intervention on the same scale as the speed of an epidemic (i.e., exponential growth rate $r$).
 We show that an intervention can successfully contain an epidemic if either its strength or speed is greater than their corresponding measures of the epidemic.
 
 We compare two HIV intervention strategies (condom intervention and test-and-treat intervention) to demonstrate that both strength- and speed-based frameworks can be useful in evaluating the effectiveness of an epidemic intervention.
 In particular, we recapitulate the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART.
-While they gave a strength-based argument for the result --  increasing the amount of early transmission decreases the basic reproduction number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion} -- there is a simple speed-based intuition behind this phenomenon: in principle, we can control the outbreak if we can identify infected individuals and put them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the amount of early transmission.
+While they gave a strength-based argument for the result --  increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion} -- there is a simple speed-based intuition behind this phenomenon: in principle, we can control the outbreak if we can identify infected individuals and put them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the amount of early transmission.
 While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
 
-The contrast between strength- and speed-based perspectives in characterizing an epidemic and its control can be widely found in studies of the West African Ebola Outbreak in 2014.
-Early in the outbreak, many researchers tried to estimate the basic reproduction number and made policy suggestions based on their ability to reduce the basic reproduction number below 1 \citep{althaus2014estimating, fisman2014early, gomes2014assessing, pandey2014strategies, shaman2014inference, towers2014temporal, who2014ebola}.
-
-
-
+The contrast between strength- and speed-based perspectives in characterizing an epidemic and its control can be also found in studies of the West African Ebola Outbreak in 2014.
+Early in the outbreak, many researchers tried to estimate the basic reproductive number and made policy suggestions based on their estimates \citep{althaus2014estimating, fisman2014early, gomes2014assessing, pandey2014strategies, shaman2014inference, towers2014temporal, who2014ebola}.
+For example, \cite{pandey2014strategies} estimated $\mathcal R_0$ for the Liberian outbreak to be 1.63 and calculated that restricting post-burial transmission can reduce $\mathcal R_0$ below 1 but restricting hospital and community transmission cannot (thus using a strength-based framework).
+However, the strength of an epidemic cannot be reliably estimated early in an outbreak \citep{weitz2015modeling}.
+Its speed can be directly measured from the incidence time series instead \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating} and provides a better perspective for understanding the initial spread.
+In fact, intervention strategies that played major role in controlling the Ebola outbreak were speed-like, such as identifying infected individuals and isolating them \citep{pandey2014strategies}.
 
 
 
