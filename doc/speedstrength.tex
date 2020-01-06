@@ -3,7 +3,7 @@
 \usepackage[]{color}
 \usepackage[top=1in,left=1in, right = 1in, footskip=1in]{geometry}
 
-\title{Speed and strength of epidemic intervention}
+\title{Speed and strength of an epidemic intervention}
 \author{Jonathan Dushoff, Sang Woo Park}
 
 \usepackage{tabularx}
@@ -41,11 +41,17 @@
 
 \section*{To do}
 
-Add a bigger perspective from Eaton and Hallett (SWP can start on that if time). Look also (less important) and Bellan and Dushoff's follow-up to Hollingsworth.
+Add a bigger perspective from Eaton and Hallett (SWP can start on that if time). Look also (less important) and Bellan and Dushoff's follow-up to Hollingsworth. \swp{You have so many papers with Bellan... I can't figure out which one you're talking about... I added some stuff from Eaton and Hallett in the discussion}
 
 Talk about speed-like and strength-like estimates of an epidemic (e.g., HIV growth rate vs.~measles mean susceptibility) and of an intervention.
 
-\swp{r strategy vs K strategy somewhere}
+\swp{Where do we want to add this idea from Fred Adler: The mechanism of density regulation can determine which index of fitness
+is appropriate. For example, r is a valid fitness criterion under
+density regulation if the population is regulated by density-dependent
+effects that affect each individual (or age class) identically (Pasztor
+et al. 1996). R0 is appropriate as an index of fitness if the population
+is regulated by density-dependent juvenile mortality (Mylius and
+Diekmann 1995).}
 
 \section{Introduction}
 
@@ -218,30 +224,48 @@ Thus, the predicted effectiveness of the condom intervention will depend strongl
 \caption{
 \textbf{Understanding test-and-treat intervention using strength- and speed-based decomposition.}
 A. The effectiveness of test-and-treat intervention is thought to increase exponentially until it saturates after about 5 years.
+The dashed line represents the strength of the intervention.
 B. Increase in the estimated amount of early transmission decreases the estimated strength of an epidemic as well as the estimated strength of test-and-treat intervention.
 C. The hazard rate of test-and-treat intervention stays roughly constant for the first few years and gradually decreases until it reaches zero after about 5 years.
+The dashed line represents the speed of the intervention.
 D. The estimated amount of early transmission does not affect the observed speed of an epidemic but affects the estimated speed of intervention.
 Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
 }
 \figlab{test}
 \end{figure}
 
-On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy \citep{garnett2009treating, nah2017test}.
+On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy (ART) \citep{garnett2009treating, nah2017test}.
 We assume that the rate of identification and removal is initially constant.
 Thus, the proportion continuing to transmit declines exponentially, and the effect of intervention $\tsub{L}{test}$ increases exponentially.
 However, we assume removal eventually saturates, to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment
 (\figref{test}A; see caption for the functional form of $\tsub{L}{test}$).
-Under this assumption, the strength of intervention decreases as the proportion of early transmission increases but is always higher than the epidemic strength \citep{eaton2014proportion}.
+Under this assumption, the strength of intervention decreases as the proportion of early transmission increases but is always higher than the epidemic strength.
 
 Using the speed-based decomposition allows us to understand the problem much more clearly.
 The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because individuals are actively getting tested and treated); 
 the hazard rate goes down soon after the peak and reaches 0 after about 5 years because infected individuals who have access to medical care would have been identified within the first 5 years or so.
 The speed of epidemic stays constant regardless of the proportion of the early transmission because epidemic speed corrresponds to the observed growth rate.
 The speed of intervention stays roughly constant but slightly increases as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
-
 This framework provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
 
 \section{Discussion}
+
+The effectiveness of an epidemic intervention is often measured by its ability to reduce the basic reproduction below 1.
+In this study, we extend this idea by defining the strength of an intervention on the same scale as the strength of an epidemic (i.e., basic reproduction number $\mathcal R_0$) and the speed of an intervention on the same scale as the speed of an epidemic (i.e., exponential growth rate $r$).
+We show that an intervention can successfully contain an epidemic if either its strength or speed is greater than their corresponding measures of the epidemic.
+
+We compare two HIV intervention strategies (condom intervention and test-and-treat intervention) to demonstrate that both strength- and speed-based frameworks can be useful in evaluating the effectiveness of an epidemic intervention.
+In particular, we recapitulate the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART.
+While they gave a strength-based argument for the result --  increasing the amount of early transmission decreases the basic reproduction number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion} -- there is a simple speed-based intuition behind this phenomenon: in principle, we can control the outbreak if we can identify infected individuals and put them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the amount of early transmission.
+While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
+
+The contrast between strength- and speed-based perspectives in characterizing an epidemic and its control can be widely found in studies of the West African Ebola Outbreak in 2014.
+Early in the outbreak, many researchers tried to estimate the basic reproduction number and made policy suggestions based on their ability to reduce the basic reproduction number below 1 \citep{althaus2014estimating, fisman2014early, gomes2014assessing, pandey2014strategies, shaman2014inference, towers2014temporal, who2014ebola}.
+
+
+
+
+
 
 \bibliography{speedstrength}
 
