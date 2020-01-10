@@ -30,6 +30,7 @@
 \newcommand{\RR}{\ensuremath{{\mathcal R}}}
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
 \newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
+%% jd: Nice command
 
 \newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
 \newcommand{\figlab}[1]{\label{fig:#1}}
@@ -59,6 +60,8 @@ Diekmann 1995).}
 
 \section{Introduction}
 
+\jd{The whole ``basic'' thing is tricky; we want to linearize for an invading epidemic, but we don't want to assume that we've linearized at the DFE. That said, for our main examples, Ebola and HIV, the DFE is the relevant one.}
+
 An epidemic can be described by its \emph{speed} and \emph{strength}.
 The speed of an epidemic, often characterized by the exponential growth rate $r$, measures how \emph{fast} an epidemic grows, at the population level. 
 The strength of an epidemic, often characterized by the basic reproductive number $\RR_0$, measures how many new cases are caused by a typical \emph{individual} case in a fully susceptible population \citep{anderson1991infectious, diekmann1990definition}.
@@ -70,7 +73,7 @@ the idea of averaging by defining a `typical' case was formalized 30 years ago \
 $\RR_0$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
 
 Here, we generalize the idea of a threshold for successful intervention by measuring an intervention's ``strength'' on the same scale as the reproductive number. 
-We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR_0=1$ and a corresponding minimal intervention strength, and the threshold $r=0$ and a corresponding minimal intervention speed. 
+We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR_0=1$ and a corresponding minimal intervention strength required for elimination, and the threshold $r=0$ and a corresponding minimal intervention speed. 
 We argue that the historical primacy of $\RR_0$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
 \section{Methods}
@@ -85,10 +88,12 @@ i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
 In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ -- notably, the proportion of the population susceptible, $S(t)$.
 Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time, thus we will assume $K(\tau, t) \equiv K(\tau)$.
-Importantly, this means we are neglecting changes in susceptible proportion through time (i.e., $S(t) \approx 1$);
-under this assumption, the renewal equation is equivalent to the Von Foerster equations, outlined in \cite{fraser2004factors}.
+Importantly, this means we are neglecting changes in susceptible proportion through time (i.e., $S(t) \approx 1$ \jd{Not necessarily. This is exactly what I meant by my ``basic'' comment.});
+under this assumption, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
 
 \subsection{Strength-based decomposition}
+
+\jd{I would like to hyphenate constant-strength and constant-speed when they are used as adjectives.}
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/constant_intervention.pdf}
@@ -96,10 +101,10 @@ under this assumption, the renewal equation is equivalent to the Von Foerster eq
 \textbf{Effects of constant strength and speed intervention on infection kernels.}
 Ebola-like gamma infection kernel $K(\tau)$ (mean: 16.2 days, CV: 0.58, and $\RR_0$: 1.5) is shown in black \citep{park2019practical}.
 The infection kernel after applying each intervention strategy $\hat K(\tau)$ is shown in red.
-(A) A constant strength intervention with $\theta = 1.5$ is applied to Ebola-like infection kernel.
-A constant strength intervention reduces the density by a constant proportion: $\hat K(\tau) = K(\tau)/\theta$; the resulting distribution is equivalent to the intrinsic generation-intervla distribution ($\hat K(\tau) = g(\tau)$) when the strength of intervention matches the strength of epidemic ($\theta = \mathcal R$).
-(B) A constant speed intervention with $\phi \approx 0.0267\,\mathrm{days}^{-1}$ is applied to Ebola-like infection kernel.
-A constant speed intervention reduces the density exponentially: $\hat K(\tau) = K(\tau) \exp(-\phi \tau)$; the resulting distribution is equivalent to the initial backward generation-interval distribution ($\hat K(\tau) = b(\tau)$) when the speed of intervention matches the speed of epidemic ($\phi = r$).
+(A) A constant strength intervention with $\theta = 1.5$ is applied to an Ebola-like infection kernel.
+A constant strength intervention reduces the density by a constant proportion: $\hat K(\tau) = K(\tau)/\theta$; when the strength of intervention matches the strength of epidemic ($\theta = \mathcal R$), the resulting distribution is equivalent to the intrinsic generation-interval distribution ($\hat K(\tau) = g(\tau)$).
+(B) A constant speed intervention with $\phi \approx 0.0267/\mathrm{day}$ is applied to the same kernel.
+A constant speed intervention reduces the density exponentially: $\hat K(\tau) = K(\tau) \exp(-\phi \tau)$; when the speed of intervention matches the speed of epidemic ($\phi = r$), the resulting distribution is equivalent to the initial backward generation-interval distribution ($\hat K(\tau) = b(\tau)$). 
 }
 \figlab{constant}
 \end{figure}
@@ -110,7 +115,7 @@ Assuming that the infection kernel $K$ doesn't change with time, we write:
 	\eqlab{strength}
 \end{equation}
 where $g(\tau)$ is the ``intrinsic'' generation-interval distribution.
-The generation intervel is defined as the time between when a person becomes infected and when that person infects another person \citep{svensson2007note};
+The generation interval is defined as the time between when a person becomes infected and when that person infects another person \citep{svensson2007note};
 therefore, the intrinsic generation-interval distribution $g(\tau)$ gives the relative infectiousness of an average individual as a function of time since infection \citep{champredon2015intrinsic}. 
 Since $g$ is a distribution, it integrates to 1, and the basic reproductive number $\RR_0$ is thus the integral of $K$.
 
@@ -177,9 +182,9 @@ Specifically, the speed $\phi$ is a mean of the hazard $h$ in the sense that an 
 
 \jd{I'd like to be even less detailed about HIV, and maybe do an explicit comparison with measles or Ebola. The idea I'd love to get across is that the two ways of thinking can both be helpful to intuition, and that which one fits better will depend on the disease and on the available data. I will work on making that part explicit.}
 
-In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for the Human immunodeficiency virus (HIV). 
-These examples are meant to provide neither precise nor accurate estimates of the effectiveness of intervention strategies; 
-instead, we use these examples to demonstrate how strength- and speed-based decompositions can help us better evaluate each control strategy under different scenarios.
+In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for the human immunodeficiency virus (HIV). 
+These examples are not meant to provide specific estimates of the effectiveness of intervention strategies; 
+instead, we use these examples to demonstrate how strength- and speed-based decompositions can help us better evaluate control strategies under different scenarios.
 In particular, we study how the amount of early HIV transmission affects our decision.
 
 We model the infection kernel of the HIV as a sum of two gamma distributions:
@@ -189,7 +194,7 @@ K(\tau) = \mathcal R \left(\tsub{p}{early} \tsub{f}{early}(\tau) + (1-\tsub{p}{e
 The first component, $\tsub{f}{early}(\tau)$, models early HIV transmission during the acute infection stage.
 We assume that $\tsub{f}{early}(\tau)$ has a mean of 3 months \citep{hollingsworth2008hiv} and a shape parameter of 3.
 The second component, $\tsub{f}{late}$, models HIV transmission during the asymptomatic stage and the disease stage (after progression to Acquired Immune Deficiency Syndrome (AIDS)).
-We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years to reflect its long incubation period \citep{brookmeyer1989censoring, nishiura2019estimating} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
+We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years to reflect its \jd{long incubation period: not sure what this means; is it necessary?} \citep{brookmeyer1989censoring, nishiura2019estimating} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
 Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
 \begin{figure}[!t]

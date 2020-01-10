@@ -31,4 +31,5 @@ Sources += notes.md
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
+-include $(ms)/texdeps.mk
 
