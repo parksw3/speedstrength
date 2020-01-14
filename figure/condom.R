@@ -14,12 +14,12 @@ lfit <- lm(log(prevalence)~year, data=hiv_ts[1:8,])
 g1 <- ggplot() +
 	geom_hline(yintercept=yintercept, col=2) +
 	scale_x_continuous("Time (years)") +
-	scale_y_continuous(expression(L[condom])) +
+	scale_y_continuous(expression(L[condom]), limits=c(3, 5)) +
 	ggtitle("A") +
 	theme(
 		panel.grid = element_blank(),
 		panel.border = element_blank(),
-		axis.line = element_line()
+		axis.line.y = element_line()
 	)
 
 early <- seq(from=0.1, to=0.4, by=0.01)
@@ -38,8 +38,8 @@ g2 <- ggplot(earlydata) +
 	geom_line(aes(early, R0, col="Epidemic")) +
 	geom_hline(aes(yintercept=yintercept, col="Intervention")) +
 	scale_color_manual(values=c("black", "red")) +
-	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.42), expand=c(0, 0)) +
-	scale_y_continuous("Strength") +
+	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.4), expand=c(0, 0)) +
+	scale_y_log10("Strength", limits=c(1, 8), expand=c(0, 0), breaks=c(1, 2, 4, 8)) +
 	ggtitle("B") +
 	theme(
 		legend.position=c(0.85, 0.9),

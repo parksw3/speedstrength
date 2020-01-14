@@ -98,13 +98,13 @@ under this assumption, the renewal equation is equivalent to the Von Foerster eq
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/constant_intervention.pdf}
 \caption{
-\textbf{Effects of constant strength and speed intervention on infection kernels.}
+\textbf{Effects of constant-strength and constant-speed intervention on infection kernels.}
 Ebola-like gamma infection kernel $K(\tau)$ (mean: 16.2 days, CV: 0.58, and $\RR_0$: 1.5) is shown in black \citep{park2019practical}.
 The infection kernel after applying each intervention strategy $\hat K(\tau)$ is shown in red.
-(A) A constant strength intervention with $\theta = 1.5$ is applied to an Ebola-like infection kernel.
-A constant strength intervention reduces the density by a constant proportion: $\hat K(\tau) = K(\tau)/\theta$; when the strength of intervention matches the strength of epidemic ($\theta = \mathcal R$), the resulting distribution is equivalent to the intrinsic generation-interval distribution ($\hat K(\tau) = g(\tau)$).
-(B) A constant speed intervention with $\phi \approx 0.0267/\mathrm{day}$ is applied to the same kernel.
-A constant speed intervention reduces the density exponentially: $\hat K(\tau) = K(\tau) \exp(-\phi \tau)$; when the speed of intervention matches the speed of epidemic ($\phi = r$), the resulting distribution is equivalent to the initial backward generation-interval distribution ($\hat K(\tau) = b(\tau)$). 
+(A) A constant-strength intervention with $\theta = 1.5$ is applied to an Ebola-like infection kernel.
+A constant-strength intervention reduces the density by a constant proportion: $\hat K(\tau) = K(\tau)/\theta$; when the strength of intervention matches the strength of epidemic ($\theta = \mathcal R$), the resulting distribution is equivalent to the intrinsic generation-interval distribution ($\hat K(\tau) = g(\tau)$).
+(B) A constant-speed intervention with $\phi \approx 0.0267/\mathrm{day}$ is applied to the same kernel.
+A constant-speed intervention reduces the density exponentially: $\hat K(\tau) = K(\tau) \exp(-\phi \tau)$; when the speed of intervention matches the speed of epidemic ($\phi = r$), the resulting distribution is equivalent to the initial backward generation-interval distribution ($\hat K(\tau) = b(\tau)$). 
 }
 \figlab{constant}
 \end{figure}
@@ -176,6 +176,7 @@ We define the speed of a general intervention to be $\phi = r - \hat r$.
 We can then show that $\phi$ is a (sort of) mean satisfying:
 \begin{equation}
 	1 = \left\langle \frac{\exp(\phi \tau) }{\exp\left(\int_0^\tau h(\sigma) d\sigma\right)} \right\rangle_{b(\tau)}
+	\eqlab{speedMean}
 \end{equation}
 Specifically, the speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
@@ -198,13 +199,14 @@ The second component, $\tsub{f}{late}$, models HIV transmission during the asymp
 We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \citep{brookmeyer1989censoring, nishiura2019estimating} and a shape parameter of 2 (this vaguely approximates the wide generation-interval distribution of the HIV \citep{fraser2004factors}).
 Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
-\begin{figure}[!t]
+\begin{figure}[!th]
 \includegraphics[width=\textwidth]{../figure/HIV.pdf}
 \caption{
 \textbf{The infection kernel of the HIV.}
 A. The infection kernel of the HIV is approximated using a sum of two gamma distributions. We assume that the baseline proportion of early transmission is 23\% \citep{hayes2006amplified}.
 B. Time series of HIV prevalence in pregnant women in South Africa, 1990 - 2010 \citep{barron2013eliminating}. The initial exponential growth rate of the HIV is estimated by fitting a straight line to log-prevalence (1990 - 1997) by minimizing the sum of squares.
 C. Increase in the estimate of the amount of early transmission reduces the estimate of the reproductive number.
+Black circle indicates the baseline scenario.
 }
 \figlab{example}
 \end{figure}
@@ -213,6 +215,11 @@ As our baseline scenario (\figref{example}A), we assume that early transmission 
 Based on the growth rate estimate ($0.452\,\mathrm{year}^{-1}$; \figref{example}B) from HIV prevalence in pregnant women in South Africa \citep{barron2013eliminating}, our baseline reproductive number is $3.17$.
 Increase in the estimate of the amount of early transmission shortens the mean generation time, which in turn decreases the reproductive number (\figref{example}C).
 Therefore, we expect stronger (but not necessarily faster) intervention to be required in order to control the disease when there is less early transmission.
+
+First, we consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level.
+Assuming that condoms act as a physical barrier, and that condom use will on average remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$  (\figref{condom}A).
+The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$: $\theta=4$, whereas the estimated strength of the epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
+Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/condom.pdf}
@@ -224,21 +231,18 @@ B. The estimated amount of early transmission affects estimated strength of the 
 \figlab{condom}
 \end{figure}
 
-First, we consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level.
-Assuming that condoms act as a physical barrier, and that condom use will on average remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$  (\figref{condom}A).
-The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$: $\theta=4$, whereas the estimated strength of the epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
-Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/test_and_treat.pdf}
 \caption{
 \textbf{Understanding test-and-treat intervention using strength- and speed-based decomposition.}
-\jd{We should work on visual implication of quantitative effects: does strength work on a log scale? If not, try at least a scale that goes down to zero.}
-A. The effectiveness of test-and-treat intervention is assumed to increase super-exponentially at first, and then saturate. The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) \jd{For what value of early transmission?}.
+\swp{We should just say exponentially. I see where you're coming from but the super-exponentiality seems negligible. Plotting on a log scale shows that it's approximately linear.}
+A. The effectiveness of test-and-treat intervention is assumed to increase super-exponentially at first, and then saturate. The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
 B. Increase in the estimated amount of early transmission decreases the estimated strength of an epidemic as well as the estimated strength of test-and-treat intervention.
-C. The hazard rate correesponding to the strength curve in A). 
-The dashed line shows the corresponding effective speed of the intervention (from \eqref{speedMean}) \jd{For what value of early transmission?}.
+C. The hazard rate correesponding to the strength curve in (A). 
+The dashed line shows the corresponding effective speed of the intervention (from \eqref{speedMean}) assuming 23\% early transmission.
 D. The estimated amount of early transmission does not affect the observed speed of an epidemic but affects the estimated speed of intervention.
+Black and red circles indicates the baseline scenarios.
 Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
 }
 \figlab{test}

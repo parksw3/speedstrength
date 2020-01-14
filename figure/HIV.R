@@ -55,11 +55,11 @@ earlydata <- data.frame(
 
 g3 <- ggplot(earlydata) +
 	geom_line(aes(early, R0)) +
-	geom_point(aes(0.23, 3.17)) +
-	geom_segment(aes(x=0.23, y=2, xend=0.23, yend=3.17), lty=2) +
+	geom_point(aes(0.23, 3.17), size=5) +
+	geom_segment(aes(x=0.23, y=0, xend=0.23, yend=3.17), lty=2) +
 	geom_segment(aes(x=0, y=3.17, xend=0.23, yend=3.17), lty=2) +
-	scale_x_continuous("Proportion of early transmission") +
-	scale_y_continuous("Reproduction number", expand=c(0, 0)) +
+	scale_x_continuous("Proportion of early transmission", expand=c(0, 0)) +
+	scale_y_continuous("Reproduction number", limits=c(0, 5), expand=c(0, 0)) +
 	ggtitle("C") +
 	theme(
 		legend.position="none",
