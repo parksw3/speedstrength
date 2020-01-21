@@ -37,6 +37,8 @@ earlydata <- data.frame(
 g2 <- ggplot(earlydata) +
 	geom_line(aes(early, R0, col="Epidemic")) +
 	geom_hline(aes(yintercept=yintercept, col="Intervention")) +
+  geom_point(data=earlydata[earlydata$early==0.23,], aes(early, R0), size=5) +
+  geom_point(aes(x=0.23, y=yintercept), size=5, col="red") +
 	scale_color_manual(values=c("black", "red")) +
 	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.4), expand=c(0, 0)) +
 	scale_y_log10("Strength", limits=c(1, 8), expand=c(0, 0), breaks=c(1, 2, 4, 8)) +

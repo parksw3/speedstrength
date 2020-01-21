@@ -203,10 +203,10 @@ Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 \includegraphics[width=\textwidth]{../figure/HIV.pdf}
 \caption{
 \textbf{The infection kernel of the HIV.}
-A. The infection kernel of the HIV is approximated using a sum of two gamma distributions. We assume that the baseline proportion of early transmission is 23\% \citep{hayes2006amplified}.
-B. Time series of HIV prevalence in pregnant women in South Africa, 1990 - 2010 \citep{barron2013eliminating}. The initial exponential growth rate of the HIV is estimated by fitting a straight line to log-prevalence (1990 - 1997) by minimizing the sum of squares.
-C. Increase in the estimate of the amount of early transmission reduces the estimate of the reproductive number.
-Black circle indicates the baseline scenario.
+(A) The infection kernel of the HIV is approximated using a sum of two gamma distributions. We assume that the baseline proportion of early transmission is 23\% \citep{hayes2006amplified}.
+(B) Time series of HIV prevalence in pregnant women in South Africa, 1990 - 2010 \citep{barron2013eliminating}. The initial exponential growth rate of the HIV is estimated by fitting a straight line to log-prevalence (1990 - 1997) by minimizing the sum of squares.
+(C) Increase in the estimate of the amount of early transmission reduces the estimate of the reproductive number.
+The black circle indicates the baseline scenario.
 }
 \figlab{example}
 \end{figure}
@@ -225,8 +225,9 @@ Thus, the predicted effectiveness of the condom intervention will depend strongl
 \includegraphics[width=\textwidth]{../figure/condom.pdf}
 \caption{
 \textbf{Understanding condom intervention using strength-based decomposition.}
-A. Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the proportional reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
-B. The estimated amount of early transmission affects estimated strength of the epidemic but not of a condom-based intervention.
+(A) Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the proportional reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
+(B) The estimated amount of early transmission affects estimated strength of the epidemic but not of a condom-based intervention.
+The black and red circles indicate the baseline scenario.
 }
 \figlab{condom}
 \end{figure}
@@ -237,12 +238,12 @@ B. The estimated amount of early transmission affects estimated strength of the 
 \caption{
 \textbf{Understanding test-and-treat intervention using strength- and speed-based decomposition.}
 \swp{We should just say exponentially. I see where you're coming from but the super-exponentiality seems negligible. Plotting on a log scale shows that it's approximately linear.}
-A. The effectiveness of test-and-treat intervention is assumed to increase super-exponentially at first, and then saturate. The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
-B. Increase in the estimated amount of early transmission decreases the estimated strength of an epidemic as well as the estimated strength of test-and-treat intervention.
-C. The hazard rate correesponding to the strength curve in (A). 
+(A) The effectiveness of test-and-treat intervention is assumed to increase super-exponentially at first, and then saturate. The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
+(B) Increase in the estimated amount of early transmission decreases the estimated strength of an epidemic as well as the estimated strength of test-and-treat intervention.
+(C) The hazard rate correesponding to the strength curve in (A). 
 The dashed line shows the corresponding effective speed of the intervention (from \eqref{speedMean}) assuming 23\% early transmission.
-D. The estimated amount of early transmission does not affect the observed speed of an epidemic but affects the estimated speed of intervention.
-Black and red circles indicates the baseline scenarios.
+(D) The estimated amount of early transmission does not affect the observed speed of an epidemic but affects the estimated speed of intervention.
+The black and red circles indicate the baseline scenario.
 Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
 }
 \figlab{test}
