@@ -216,6 +216,7 @@ $\tsub{p}{early} = 0.23$.  We assume that the initial speed of the epidemic is $
 When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \Ro\ decreases (\figref{example}C).
 Therefore, as \pEarly\ gets smaller, we expect stronger intervention to be required in order to control the disease.
 
+We compare two different possible intervention strategies to shed light on the speed and strenght decompositions.
 First, we consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level.
 Assuming that condoms act as a physical barrier, and that condom use will on average remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$  (\figref{condom}A).
 The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$: $\theta=4$, whereas the estimated strength of the epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
@@ -257,17 +258,17 @@ However, we assume removal eventually saturates, to account for the effects of p
 Under this assumption, the strength of intervention decreases with the proportion of early transmission in a manner roughly similar to the epidemic strength.
 In this scenario, we predict that the intervention remains effective over the range of considered parameters.
 
-Using the speed-based decomposition allows us to understand the situation much more clearly.
+Using the speed-based decomposition provides a valuable perspective on this situation.
 The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because sexually active individuals are the most likely to seek testing); 
 the assumed hazard rate goes down after a few months to reflect the satuaration assumptions discussed above. 
-The speed of epidemic stays constant regardless of the proportion of the early transmission because epidemic speed corrresponds to the observed growth rate.
-The speed of intervention stays roughly constant but slightly increases as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
+The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
+The effective speed of the intervention stays relatively constant, because \jd{WHY? Can we understand this part better? I was going to say it is driven by the hazard of early detection, but that hazard is higher than I expected compared to the speed.}  It increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 This framework provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
 
 \section{Discussion}
 
-The effectiveness of an epidemic intervention is often measured by its ability to reduce the basic reproductive below 1.
-In this study, we extend this idea by defining the strength of an intervention on the same scale as the strength of an epidemic (i.e., basic reproductive number $\mathcal R_0$) and the speed of an intervention on the same scale as the speed of an epidemic (i.e., exponential growth rate $r$).
+The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive below 1.
+In this study, we extend this idea by first defining the strength of an intervention on the same scale as the strength of an epidemic (i.e., basic reproductive number $\mathcal R_0$); and then constructing a parallel interpretation which measures the speed of an intervention on the same scale as the speed of an epidemic (i.e., exponential growth rate $r$).
 We show that an intervention can successfully contain an epidemic if either its strength or speed is greater than their corresponding measures of the epidemic.
 
 We compare two HIV intervention strategies (condom intervention and test-and-treat intervention) to demonstrate that both strength- and speed-based frameworks can be useful in evaluating the effectiveness of an epidemic intervention.
