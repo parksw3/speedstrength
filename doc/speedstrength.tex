@@ -238,17 +238,18 @@ The black and red circles indicate the baseline scenario.
 \includegraphics[width=\textwidth]{../figure/test_and_treat.pdf}
 \caption{
 \textbf{Understanding test-and-treat intervention using strength- and speed-based decomposition.}
-\swp{We should just say exponentially. I see where you're coming from but the super-exponentiality seems negligible. Plotting on a log scale shows that it's approximately linear.}
-(A) The effectiveness of test-and-treat intervention is assumed to increase super-exponentially at first, and then saturate. The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
+(A) The strength of the test-and-treat intervention (calculated from the assumed hazard, (C)). The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
 (B) Increase in the estimated amount of early transmission decreases the estimated strength of an epidemic as well as the estimated strength of test-and-treat intervention.
-(C) The hazard rate correesponding to the strength curve in (A). 
+(C) The assumed hazard for the test-and-treat intervention. 
 The dashed line shows the corresponding effective speed of the intervention (from \eqref{speedMean}) assuming 23\% early transmission.
-(D) The estimated amount of early transmission does not affect the observed speed of an epidemic but affects the estimated speed of intervention.
-The black and red circles indicate the baseline scenario.
+(D) The estimated amount of early transmission has little effect on the effective speed of intervention, and none on the speed of the epidemic estimated from incidence data.
+Circles indicate the baseline scenario.
 Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
 }
 \figlab{test}
 \end{figure}
+
+\jd{I'm horrified that you would suggest saying ``exponentially'' in a non-technical sense in a scientific paper. Should we think about showing one or three generation intervals in panels a and c (intrinsic and backward respectively) to help people think about averaging?}
 
 On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy (ART) \citep{garnett2009treating, nah2017test}.
 We assume that the rate of identification and removal is initially constant.
