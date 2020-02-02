@@ -46,14 +46,6 @@ Add a bigger perspective from Eaton and Hallett (SWP can start on that if time).
 
 Talk about speed-like and strength-like estimates of an epidemic (e.g., HIV growth rate vs.~measles mean susceptibility) and of an intervention.
 
-\swp{Where do we want to add this idea from Fred Adler: The mechanism of density regulation can determine which index of fitness
-is appropriate. For example, r is a valid fitness criterion under
-density regulation if the population is regulated by density-dependent
-effects that affect each individual (or age class) identically (Pasztor
-et al. 1996). R0 is appropriate as an index of fitness if the population
-is regulated by density-dependent juvenile mortality (Mylius and
-Diekmann 1995).}
-
 \section*{Abstract}
 
 
@@ -280,18 +272,12 @@ we can control an outbreak if we can identify infected individuals and enroll th
 On the other hand, the original explanation of the result relied on a strength-based arugment: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
 While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
 
-
-
-The contrast between strength- and speed-based perspectives in characterizing an epidemic and its control can be widely found in studies of the West African Ebola Outbreak in 2014.
-Early in the outbreak, many researchers tried to estimate the basic reproductive number and made policy suggestions based on their estimates \citep{althaus2014estimating, fisman2014early, gomes2014assessing, pandey2014strategies, shaman2014inference, towers2014temporal, who2014ebola}.
-For example, \cite{pandey2014strategies} estimated $\mathcal R_0$ for the Liberian outbreak to be 1.63 and calculated that restricting post-burial transmission can reduce $\mathcal R_0$ below 1 but restricting hospital and community transmission cannot.
-While these calculations are purely strength-based, these intervention strategies have both strength- and speed-like components: the effectiveness of safe burial practices depends on its ability to reduce the overall transmissibility (strength-like) as well as the amount of time it takes for a deceased individual to be buried (speed-like).
-
-\cite{weitz2015modeling} later demonstrated that the strength of the Ebola outbreak cannot be reliably estimated early in an outbreak.
-Instead, its speed can be directly measured from the incidence time series \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating} and can provide a better framework for understanding the initial spread.
-Many intervention strategies that played major role in controlling the Ebola outbreak were, in fact, speed-like: identifying and isolating infected individuals, contact-tracing, etc. \citep{pandey2014strategies}.
-Like the test-and-treat intervention for HIV, the effectiveness of these strategies would not have depended on the uncertainty in the underlying disease generation time (which would have been propagated from the uncertainty in the amount of post-burial transmission).
-
+The contrast between speed- and strength-based perspectives is prevalent in other areas of ecology and epidemiology:
+the instantaneous per capita rate of increase $r$ (speed) and expected life time reproductive success $R_0$ (strength) can both be valid measures of fitness, depending on the mechanism of density dependence \citep{pasztor1996r0};
+whether a species selects for $r$-strategy (speed) or $K$-strategy (strength) relies on ?? \swp{I've never read MacArthur and Wilson and I can't find the book online. Have you read it, JD? Can we cite it?};
+and emerging pathogens initially select for high virulence to maximize the growth rate $r$ (speed) but later select for intermediate virulence to maximize the basic reproductive number $\mathcal R_0$ (strength) \citep{bull2008invasion, bolker2010transient}.
+Although this list is not exhaustive, it clearly demonstrates that considering both perspectives can reveal important biological insight for a wide range of applications.
+We strongly suggest that infectious disease modelers 
 
 \bibliography{speedstrength}
 
