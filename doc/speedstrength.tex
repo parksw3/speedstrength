@@ -63,8 +63,8 @@ Diekmann 1995).}
 \jd{The whole ``basic'' thing is tricky; we want to linearize for an invading epidemic, but we don't want to assume that we've linearized at the DFE. That said, for our main examples, Ebola and HIV, the DFE is the relevant one.}
 
 An epidemic can be described by its \emph{speed} and \emph{strength}.
-The speed of an epidemic, often characterized by the exponential growth rate $r$, measures how \emph{fast} an epidemic grows, at the population level. 
-Epidemic is characterized by the reproductive number \RR, which measures how many new cases are caused by a typical \emph{individual} case.
+The speed of an epidemic is characterized by the exponential growth rate $r$, which measures how \emph{fast} an epidemic grows at the population level.
+The strength of an epidemic is characterized by the reproductive number \RR, which measures how many new cases are caused by a typical \emph{individual} case.
 Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
  in a fully susceptible population \citep{anderson1991infectious, diekmann1990definition}
@@ -250,6 +250,7 @@ Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau)
 \end{figure}
 
 \jd{I'm horrified that you would suggest saying ``exponentially'' in a non-technical sense in a scientific paper. Should we think about showing one or three generation intervals in panels a and c (intrinsic and backward respectively) to help people think about averaging?}
+\swp{I meant to say approximately exponentially. Based on panel a, it does look like it grows approximately linearly on a log-scale and this rate approximately matches the maximum hazard rate.}
 
 On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy (ART) \citep{garnett2009treating, nah2017test}.
 We assume that the rate of identification and removal is initially constant.
@@ -265,16 +266,17 @@ the assumed hazard rate goes down after a few months to reflect the satuaration 
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
 The effective speed of the intervention stays relatively constant, because \jd{WHY? Can we understand this part better? I was going to say it is driven by the hazard of early detection, but that hazard is higher than I expected compared to the speed.}  It increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 This framework provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
+\swp{I have an explanation. The backward GI distribution is incredibly narrow. Its mean is 0.97 years but the distribution peaks around 0.2 years. Therefore, the inital superexponentiality actually matters quite a lot when we try to average it out, and therefore we get something that's much lower than the peak hazard. If we made the initial $h$ constant, rather than starting it from 0, the speed of intervention would match the hazard of early detection much better.}
 
 \section{Discussion}
 
-The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive below 1.
+The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number below 1.
 In this study, we extend this idea by first defining the strength of an intervention on the same scale as the strength of an epidemic (i.e., basic reproductive number $\mathcal R_0$); and then constructing a parallel interpretation which measures the speed of an intervention on the same scale as the speed of an epidemic (i.e., exponential growth rate $r$).
 We show that an intervention can successfully contain an epidemic if either its strength or speed is greater than their corresponding measures of the epidemic.
 
 We compare two HIV intervention strategies (condom intervention and test-and-treat intervention) to demonstrate that both strength- and speed-based frameworks can be useful in evaluating the effectiveness of an epidemic intervention.
 In particular, we recapitulate the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART.
-While they gave a strength-based argument for the result --  increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion} -- there is a simple speed-based intuition behind this phenomenon: in principle, we can control the outbreak if we can identify infected individuals and put them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the amount of early transmission.
+While they gave a strength-based argument for the result --  increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion} -- there is a simple speed-based intuition behind this phenomenon: in principle, we can control an outbreak if we can identify infected individuals and treat them with ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the amount of early transmission.
 While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
 
 The contrast between strength- and speed-based perspectives in characterizing an epidemic and its control can be widely found in studies of the West African Ebola Outbreak in 2014.
@@ -286,7 +288,6 @@ While these calculations are purely strength-based, these intervention strategie
 Instead, its speed can be directly measured from the incidence time series \citep{chowell2003sars, mills2004transmissibility, nishiura2009transmission, nishiura2010pros, ma2014estimating} and can provide a better framework for understanding the initial spread.
 Many intervention strategies that played major role in controlling the Ebola outbreak were, in fact, speed-like: identifying and isolating infected individuals, contact-tracing, etc. \citep{pandey2014strategies}.
 Like the test-and-treat intervention for HIV, the effectiveness of these strategies would not have depended on the uncertainty in the underlying disease generation time (which would have been propagated from the uncertainty in the amount of post-burial transmission).
-
 
 
 \bibliography{speedstrength}
