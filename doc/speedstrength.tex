@@ -126,7 +126,7 @@ The post-intervention reproductive number is thus:
 \begin{equation}
 	\Rhat = \int \hat K(\tau) d\tau
 \end{equation}
-This framework generalizes the work of \cite{fraser2004factors} who made parametric assumptions about the shape of $1/L(\tau)$.
+This framework generalizes the work of \cite{fraser2004factors} who made parametric assumptions about the shape of $L(\tau)$. 
 
 We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by generation-interval distribution:
 \begin{equation}
@@ -173,8 +173,6 @@ We can then show that $\phi$ is a (sort of) mean satisfying the implicit equatio
 Specifically, the speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
 
 \section{Example: Human immunodeficiency virus (HIV)}
-
-\jd{I'd like to be even less detailed about HIV, and maybe do an explicit comparison with measles or Ebola. The idea I'd love to get across is that the two ways of thinking can both be helpful to intuition, and that which one fits better will depend on the disease and on the available data. I will work on making that part explicit.}
 
 In this section, we use both strength- and speed-based decompositions to compare different intervention strategies for the human immunodeficiency virus (HIV). 
 In particular, we study how the amount of early HIV transmission affects estimates of intervention effectiveness. 
@@ -241,9 +239,6 @@ Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau)
 \figlab{test}
 \end{figure}
 
-\jd{I'm horrified that you would suggest saying ``exponentially'' in a non-technical sense in a scientific paper. Should we think about showing one or three generation intervals in panels a and c (intrinsic and backward respectively) to help people think about averaging?}
-\swp{I meant to say approximately exponentially. Based on panel a, it does look like it grows approximately linearly on a log-scale and this rate approximately matches the maximum hazard rate.}
-
 On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy (ART) \citep{garnett2009treating, nah2017test}.
 We assume that the rate of identification and removal is initially constant.
 Thus, the proportion continuing to transmit declines exponentially, and the effect of intervention $\tsub{L}{test}$ increases exponentially.
@@ -254,11 +249,12 @@ In this scenario, we predict that the intervention remains effective over the ra
 
 Using the speed-based decomposition provides a valuable perspective on this situation.
 The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because sexually active individuals are the most likely to seek testing); 
-the assumed hazard rate goes down after a few months to reflect the satuaration assumptions discussed above. 
+the assumed hazard rate goes down after a few months to reflect the saturation assumptions discussed above. 
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
-The effective speed of the intervention stays relatively constant, because \jd{WHY? Can we understand this part better? I was going to say it is driven by the hazard of early detection, but that hazard is higher than I expected compared to the speed.}  It increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
+The effective speed of the intervention stays relatively constant, in part because the backward generation-interval distributions for different  scenarios are relatively similar. \jd{Good? I'm tempted to say more, but also want to stay simple}  It increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 This framework provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
 \swp{I have an explanation. The backward GI distribution is incredibly narrow. Its mean is 0.97 years but the distribution peaks around 0.2 years. Therefore, the inital superexponentiality actually matters quite a lot when we try to average it out, and therefore we get something that's much lower than the peak hazard. If we made the initial $h$ constant, rather than starting it from 0, the speed of intervention would match the hazard of early detection much better.}
+\jd{Thanks. I think it would be good to look at three intrinsic and three backward GIs to get an idea of how the averaging works (and of whether we should include such GIs in a figure).
 
 \section{Discussion}
 
