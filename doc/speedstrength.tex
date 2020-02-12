@@ -254,26 +254,33 @@ The estimated epidemic speed depends only on the observed growth rate -- it does
 The effective speed of the intervention stays relatively constant, in part because the backward generation-interval distributions for different  scenarios are relatively similar. \jd{Good? I'm tempted to say more, but also want to stay simple}  It increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 This framework provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
 \swp{I have an explanation. The backward GI distribution is incredibly narrow. Its mean is 0.97 years but the distribution peaks around 0.2 years. Therefore, the inital superexponentiality actually matters quite a lot when we try to average it out, and therefore we get something that's much lower than the peak hazard. If we made the initial $h$ constant, rather than starting it from 0, the speed of intervention would match the hazard of early detection much better.}
-\jd{Thanks. I think it would be good to look at three intrinsic and three backward GIs to get an idea of how the averaging works (and of whether we should include such GIs in a figure).
+\jd{Thanks. I think it would be good to look at three intrinsic and three backward GIs to get an idea of how the averaging works (and of whether we should include such GIs in a figure).}
 
 \section{Discussion}
 
-The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number below 1.
-In this study, we extended this idea by first defining the strength of an intervention on the same scale as the strength of an epidemic (i.e., basic reproductive number $\mathcal R_0$); and then constructing a parallel interpretation which measures the speed of an intervention on the same scale as the speed of an epidemic (i.e., exponential growth rate $r$).
-We showed that an intervention can successfully contain an epidemic if either its strength or speed is greater than their corresponding measures of the epidemic.
+The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number -- \Rx, or outbreak ``strength'' -- below 1. The exponential growth rate -- $r$, or outbreak ``speed'' -- is often seen just as a stepping stone to \Rx\, or even overlooked entirely (ParkPreprint for examples?).
+We argue that \Rx\ and $r$ provide equally valid, complementary perspectives on epidemic control, and that there are situations where each provides a clearer picture than the other.
 
-We compared two HIV intervention strategies (condom intervention and test-and-treat intervention) to demonstrate that both strength- and speed-based frameworks can be useful in evaluating the effectiveness of an epidemic intervention.
+In this study, we:
+first extended the standard paradigm of \Rx\ as critical parameter for control, by defining the strength of an intervention on the same scale as \Rx, the strength of the epidemic; 
+then constructed a parallel interpretation which measures the speed of an intervention on the same scale as $r$, the speed of an epidemic.
+We thus showed that the standard paradigm for \Ro\ and control has a natural parallel interpretation in terms of $r$. 
+
+To illustrate this idea, we used simple assumptions to explore the effects of two HIV intervention strategies (condoms and test-and-treat), using both strength- and speed-based frameworks.
 In particular, we provided an alternative explanation for the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART:
 we can control an outbreak if we can identify infected individuals and enroll them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the amount of early transmission.
 On the other hand, the original explanation of the result relied on a strength-based arugment: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
 While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
 
+\jd{I don't like this as a close; maybe we have to mention some of it \ldots.}
+\jd{We definitely need to cite pasztor1996r0. I'm less interested in the Bull and MacArthur evolutionary stuff, which seems tangential to me. I wonder what's a good thing to cite for the over-emphasis on big R? I kind of feel like the stampede to estimate big R while looking past little R in Ebola and CovID should be part of our story here.}
 The contrast between speed- and strength-based perspectives is prevalent in other areas of ecology and epidemiology:
 the instantaneous per capita rate of increase $r$ (speed) and expected life time reproductive success $R_0$ (strength) can both be valid measures of fitness, depending on the mechanism of density dependence \citep{pasztor1996r0};
 whether a species selects for $r$-strategy (speed) or $K$-strategy (strength) relies on ?? \swp{I've never read MacArthur and Wilson and I can't find the book online. Have you read it, JD? Can we cite it?};
 and emerging pathogens initially select for high virulence to maximize the growth rate $r$ (speed) but later select for intermediate virulence to maximize the basic reproductive number $\mathcal R_0$ (strength) \citep{bull2008invasion, bolker2010transient}.
 Although this list is not exhaustive, it clearly demonstrates that considering both perspectives can reveal important biological insight for a wide range of applications.
-We strongly suggest that infectious disease modelers 
+
+We suggest that infectious disease modelers should be aware of the advantages (and complementarity) of these two frameworks when analyzing disease outbreaks.
 
 \bibliography{speedstrength}
 
