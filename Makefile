@@ -1,4 +1,5 @@
 # speedstrength
+## DO YOU MEAN TO BE IN THE docs subdirectory?
 ## Target
 current: target
 -include target.mk
