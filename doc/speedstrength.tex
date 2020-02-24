@@ -42,6 +42,12 @@
 
 \section*{Abstract}
 
+While an epidemic can be characterized by its speed (i.e., the exponential growth rate $r$) and strength (i.e., the reproduction number \RR), the effectiveness of an intervention strategy is often, if not always, determined by its ability to reduce \RR\ below 1.
+Here, we generalize this idea by measuring the speed and strength of intervention on the same scale as the speed and strength of an epidemic, respectively.
+We show that an epidemic can be contained if the speed or strength of intervention is greater than their corresponding counterparts.
+Finally, we compare two intervention strategies for HIV -- namely condom intervention and test-and-treat intervention -- to demonstrate that both speed- and strength-based perspectives can be useful for evaluating intervention strategies under different scenarios.
+
+
 \section{Introduction}
 
 An epidemic can be described by its \emph{speed} and \emph{strength}.
@@ -49,8 +55,8 @@ The speed of an epidemic is characterized by the exponential growth rate $r$, wh
 The strength of an epidemic is characterized by the reproductive number \RR, which measures how many new cases are caused by a typical \emph{individual} case.
 Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
-Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population, called \Ro, because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
-The insight that a case must on average cause at least one new case under good conditions for a disease persist goes back $>100$ years \citep{ross1911prevention};
+Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population, called the \emph{basic} reproductive number \Ro, because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
+The insight that a case must on average cause at least one new case under good conditions for a disease to persist goes back $>100$ years \citep{ross1911prevention};
 the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
 
@@ -69,7 +75,8 @@ i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 \end{equation}
 Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
 In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ -- notably, the proportion of the population susceptible, $S(t)$.
-Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time, thus we will assume $K(\tau, t) \equiv K(\tau)$.
+Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time.
+Thus, we will assume $K(\tau, t) \equiv K(\tau)$.
 Importantly, this means we are neglecting changes in susceptible proportion through time: $S(t) \approx S(0)$.
 Under this assumption, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
 
@@ -191,13 +198,13 @@ The black circle indicates the baseline scenario.
 \end{figure}
 
 The infection kernel is shown in (\figref{example}A) for our baseline value of  
-$\tsub{p}{early} = 0.23$.  We assume that the initial speed of the epidemic is $r=0.452\,\mathrm{year}^{-1}$; \citep{barron2013eliminating} (see \figref{example}B), and ask what value of $\Ro$ would produce this rate of growth.
+$\tsub{p}{early} = 0.23$.  We assume that the initial speed of the epidemic is $r=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\Ro$ would produce this rate of growth.
 When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \Ro\ decreases (\figref{example}C).
 Therefore, as \pEarly\ gets smaller, we expect stronger intervention to be required in order to control the disease.
 
 We compare two different possible intervention strategies to shed light on the speed and strenght decompositions.
 First, we consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level.
-Assuming that condoms act as a physical barrier, and that condom use will on average remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$  (\figref{condom}A).
+Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$  (\figref{condom}A).
 The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
 Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
 
@@ -252,24 +259,28 @@ We argue that \Rx\ and $r$ provide equally valid, complementary perspectives on 
 In this study, we:
 first extended the standard paradigm of \Rx\ as critical parameter for control, by defining the strength of an intervention on the same scale as \Rx, the strength of the epidemic; 
 then constructed a parallel interpretation which measures the speed of an intervention on the same scale as $r$, the speed of an epidemic.
-We thus showed that the standard paradigm for \Ro\ and control has a natural parallel interpretation in terms of $r$.
+We thus showed that the standard paradigm for \Rx\ and control has a natural parallel interpretation in terms of $r$.
 
 To illustrate this idea, we used simple assumptions to explore the effects of two HIV intervention strategies (condoms and test-and-treat), using both strength- and speed-based frameworks.
 In particular, we provided an alternative explanation for the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART:
 we can control an outbreak if we can identify infected individuals and enroll them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the estimates of the amount of early transmission.
 On the other hand, the original explanation of the result relied on a strength-based arugment: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
+
 While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
+Whether strength- or speed-based perspective is more appropriate depends on the disease as well as the intervention strategies.
+For newly invading pathogens, we expect the speed-based perspective to be almost always better.
+When an epidemic is growing exponentially, the basic reproductive number cannot be estimated with confidence \citep{weitz2015modeling}, especially when there is large uncertainty in the shape of the generation-interval distribution \citep{park2020reconciling}.
+
 
 The contrast between speed- and strength-based perspectives can be found in other literature as well.
 For example, whether the instantaneous per capita rate of increase $r$ (speed) or expected life time reproductive success $R_0$ (strength) is the correct measures of fitness depends on the mechanism of density dependence \citep{pasztor1996r0}.
 When population is regulated by affecting all individuals identically, $r$ is a valid measure \citep{pasztor1996r0}.
 When population is regulated by affecting density-dependent juvenile mortality, $R_0$ is a valid measure \citep{mylius1995evolutionarily}.
-Even though the contrast between two perspectives was introduced in ecology more than 20 years ago, it is still rare in epidemiology.
+Even though the contrast between the strength- and speed-based perspectives was formalized in theoretical ecology more than 20 years ago, it is still rare in theoretical epidemiology.
 
 Responses to the 2014 Ebola Outbreak in West Africa and the recent COVID-19 outbreak clearly demonstrate the lack of emphasis on the speed of an epidemic.
 During the early phases of both outbreaks, many disease modelers tried to estimate $\mathcal R_0$ but overlooked $r$.
-For example, only 1 out of 7 preliminary analyses of the COVID-19 outbreak that were published as preprints between January 23--26, 2020 reported the doubling time \citep{bedfordncov, imaincov, liuncov, majumderncov, readncov, riouncov, zhaoncov}.
-When an epidemic is growing exponentially, however, the basic reproductive number may not be identifiable \citep{taylor2016stochasticity}.
+For example, only 1 out of 7 preliminary analyses of the COVID-19 outbreak that were published as preprints between January 23--26, 2020 reported the doubling time of an epidemic \citep{bedfordncov, imaincov, liuncov, majumderncov, readncov, riouncov, zhaoncov}.
 We suggest that infectious disease modelers should be aware of the advantages (and complementarity) of these two frameworks when analyzing disease outbreaks.
 
 \bibliography{speedstrength}
