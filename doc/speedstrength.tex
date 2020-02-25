@@ -42,11 +42,11 @@
 
 \section*{Abstract}
 
-While an epidemic can be characterized by its speed (i.e., the exponential growth rate $r$) and strength (i.e., the reproduction number \RR), the effectiveness of an intervention strategy is often, if not always, determined by its ability to reduce \RR\ below 1.
+While an epidemic can be characterized by its speed (i.e., the exponential growth rate $r$) and strength (i.e., the reproductive number \RR), the effectiveness of an intervention strategy is often, if not always, determined by its ability to reduce \RR\ below 1.
 Here, we generalize this idea by measuring the speed and strength of intervention on the same scale as the speed and strength of an epidemic, respectively.
 We show that an epidemic can be contained if the speed or strength of intervention is greater than their corresponding counterparts.
 Finally, we compare two intervention strategies for HIV -- namely condom intervention and test-and-treat intervention -- to demonstrate that both speed- and strength-based perspectives can be useful for evaluating intervention strategies under different scenarios.
-
+We suggest that disease modelers should refrain from putting too much emphasis on the reproductive number but rather consider both speed- and strength-based perspectives.
 
 \section{Introduction}
 
@@ -253,24 +253,28 @@ This framework provides an intuitive underpinning for the originally surprising 
 
 \section{Discussion}
 
-The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number -- \Rx, or outbreak ``strength'' -- below 1. The exponential growth rate -- $r$, or outbreak ``speed'' -- is often seen just as a stepping stone to \Rx\, or even overlooked entirely \citep{park2020reconciling}.
-We argue that \Rx\ and $r$ provide equally valid, complementary perspectives on epidemic control, and that there are situations where each provides a clearer picture than the other.
+The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number -- \RR, or outbreak ``strength'' -- below 1. The exponential growth rate -- $r$, or outbreak ``speed'' -- is often seen just as a stepping stone to \RR\, or even overlooked entirely \citep{park2020reconciling}.
+We argue that \RR\ and $r$ provide equally valid, complementary perspectives on epidemic control, and that there are situations where each provides a clearer picture than the other.
 
 In this study, we:
-first extended the standard paradigm of \Rx\ as critical parameter for control, by defining the strength of an intervention on the same scale as \Rx, the strength of the epidemic; 
+first extended the standard paradigm of \RR\ as critical parameter for control, by defining the strength of an intervention on the same scale as \RR, the strength of the epidemic; 
 then constructed a parallel interpretation which measures the speed of an intervention on the same scale as $r$, the speed of an epidemic.
-We thus showed that the standard paradigm for \Rx\ and control has a natural parallel interpretation in terms of $r$.
+We thus showed that the standard paradigm for \RR\ and control has a natural parallel interpretation in terms of $r$.
 
 To illustrate this idea, we used simple assumptions to explore the effects of two HIV intervention strategies (condoms and test-and-treat), using both strength- and speed-based frameworks.
 In particular, we provided an alternative explanation for the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART:
 we can control an outbreak if we can identify infected individuals and enroll them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the estimates of the amount of early transmission.
-On the other hand, the original explanation of the result relied on a strength-based arugment: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
+The original explanation of the result relied on a strength-based arugment: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
 
-While both strength- and speed-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other, depending on the situation.
-Whether strength- or speed-based perspective is more appropriate depends on the disease as well as the intervention strategies.
-For newly invading pathogens, we expect the speed-based perspective to be almost always better.
-When an epidemic is growing exponentially, the basic reproductive number cannot be estimated with confidence \citep{weitz2015modeling}, especially when there is large uncertainty in the shape of the generation-interval distribution \citep{park2020reconciling}.
-
+While both speed- and strength-based frameworks give the same conclusion about the outcome of an intervention, one can provide a clearer interpretation of the outcome than the other.
+Which is more appropriate depends on disease dynamics as well as intervention strategies.
+We expect the speed-based framework to be better at characterizing newly invading pathogens and evaluating intervention strategies that seek to slow down transmission at the individual-level:
+when an epidemic is growing exponentially, the reproductive number cannot be estimated with confidence \citep{weitz2015modeling}, especially when there is large uncertainty in the shape of the generation-interval distribution \citep{park2020reconciling},
+whereas the exponential growth rate can be directly measured from incidence curves \citep{ma2014estimating}.
+On the other hand, we expect the strength-based framework to be better for characterizing endemic diseases and evaluating intervention strategies that seek to reduce the overall transmission at the population-level:
+(i) the endemic equilibrium is determined by the reproductive number and (ii) the long-term outcomes of vaccine-like interventions are typically independent of how fast the intervention is implemented.
+There are also cases where both speed- and strength-based perspectives are equally important:
+controlling an outbreak via active-vaccination requires rapid distribution (speed-like) of efficacious vaccine (strength-like).
 
 The contrast between speed- and strength-based perspectives can be found in other literature as well.
 For example, whether the instantaneous per capita rate of increase $r$ (speed) or expected life time reproductive success $R_0$ (strength) is the correct measures of fitness depends on the mechanism of density dependence \citep{pasztor1996r0}.
