@@ -42,12 +42,13 @@
 
 \section*{Abstract}
 
-Epidemics can be characterized by speed (i.e., the exponential growth rate $r$) or strength (i.e., the reproductive number \RR).
+An epidemic can be characterized by speed (i.e., the exponential growth rate $r$) or strength (i.e., the reproductive number \RR).
 Disease modelers have historically placed much more emphasis in strength, in part because the effectiveness of an intervention strategy is typically evaluated on this scale.  
 Here we develop a mathematical framework for this classic, strength-based paradigm and show that there is a corresponding speed-based paradigm which can provide complementary insights.
 In particular, we note that $r=0$ is a threshold for disease spread, just like $\RR=1$, and show that we can measure the speed and strength of an intervention on the same scale as the speed and strength of an epidemic, respectively.
 We argue that, just as the strength-based paradigm provides the clearest insight into certain questions, the speed-based paradigm provides the clearest view in other cases.
-As an example, we show that evaluating the prospects of test-and-treat interventions against HIV can be done more clearly on the strength than speed scale, given uncertainty in the proportion of HIV spread that happens early in the course of infection. 
+\swp{We argue that the speed-based paradigm provides the clearest insight into certain questionsm just as the strength-based paradigm provides view in other cases.}
+As an example, we show that evaluating the prospects of ``test-and-treat'' interventions \swp{(i.e., identifying infected individuals and putting them to clinical care, such as antiretroviral therapy)} against the human immunodeficiency virus (HIV) can be done more clearly on the strength than speed scale, given uncertainty in the proportion of HIV spread that happens early in the course of infection. \swp{you mean speed than strength, right?}
 We suggest that disease modelers should refrain from putting too much emphasis on the reproductive number at the expense of the exponential growth rate, but instead look at these as complementary approaches.
 
 \section{Introduction}
@@ -237,24 +238,25 @@ Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau)
 \figlab{test}
 \end{figure}
 
-On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy (ART) \citep{garnett2009treating, nah2017test}.
-We assume that the rate of identification and removal is initially constant.
-Thus, the proportion continuing to transmit declines exponentially, and the effect of intervention $\tsub{L}{test}$ increases exponentially.
+On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy (ART) \citep{garnett2009treating, granich2009universal, nah2017test}.
+We assume that the rate of identification and removal is initially constant \swp{is approximately constant in the beginning}. 
+Thus, the proportion continuing to transmit declines \swp{approximately} exponentially, and the effect of intervention $\tsub{L}{test}$ increases \swp{approximately} exponentially.
 However, we assume that removal eventually saturates, to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment
 (\figref{test}A; see caption for the functional form of $\tsub{L}{test}$).
-Under this assumption, the strength of intervention decreases with the proportion of early transmission in a manner roughly similar to the epidemic strength.
+Under this assumption, the strength of intervention decreases with the proportion of early transmission in a manner roughly similar to the epidemic strength (\figref{test}B).
 In this scenario, we predict that the intervention remains effective over the range of considered parameters.
 
 Using the speed-based decomposition provides a valuable perspective on this situation.
 The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because sexually active individuals are the most likely to seek testing); 
-the assumed hazard rate goes down after a few months to reflect the saturation assumptions discussed above. 
+the assumed hazard rate goes down after a few months to reflect the saturation assumptions discussed above (\figref{test}C). 
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
 The effective speed of the intervention stays relatively constant, in part because the backward generation-interval distributions for different  scenarios are relatively similar.
-The intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
+The intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important (\figref{test}D).
 This framework provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
 
 \section{Discussion}
 
+\swp{can we combine the first two paragraphs into one paragraph? The second paragraph is just 2 sentences long...}
 The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number -- \RR, or outbreak ``strength'' -- below 1. The exponential growth rate -- $r$, or outbreak ``speed'' -- is often seen just as a stepping stone to \RR\, or even overlooked entirely \citep{park2020reconciling}.
 We argue that \RR\ and $r$ provide equally valid, complementary perspectives on epidemic control, and that there are situations where each provides a clearer picture than the other.
 
@@ -271,10 +273,11 @@ The original explanation of the result relied on a strength-based arugment: incr
 While both speed- and strength-based frameworks give the same conclusion about the outcome of an intervention, sometimes one provides a clearer understanding of the outcome than the other.
 For example, we expect the speed-based framework to be clearer for characterizing newly invading pathogens: when an epidemic is growing exponentially, the reproductive number cannot be estimated with confidence \citep{weitz2015modeling}, especially when there is large uncertainty in the shape of the generation-interval distribution \citep{park2020reconciling},
 Conversely, we expect the strength-based framework to be clearer for evaluating established pathogens (based on the effective proportion of the population susceptible).
-For interventions, we expect the strength-based framework to be clearer for evaluating intervention strategies that seek to reduce the overall transmission at the population level, while the speed-based framework may be clearer for interventions that work at the individual level, like test-and-treat for HIV, or contact-tracing and quarantine for COVID-19.
-In other cases, such as real-time rollout of vaccines during an outbreak, both speed and strength approaches might be similarly uncertain because the result depends both on the speed of the rollout and the (strength-like) final coverage.
+For interventions, we expect the speed-based framework to be clearer for evaluating intervention strategies that work at the individual level, like test-and-treat for HIV \citep{granich2009universa}, or contact-tracing and quarantine for COVID-19; we expect the strength-based framework to be clearer for intervention strategies that seek to reduce the overall transmission at the population level.
+\swp{I switched the orders between speed and strength to remain consistent with the way previous sentences are organized.}
+In other cases, such as real-time rollout of vaccines during an outbreak, both speed and strength approaches might be similarly uncertain because the result depends both on the speed of the rollout and the (strength-like) final coverage \citep{shah2018mumps}.
 
-Some practical questions lend themselves more naturally to one approach or another. For example, in the classic case of vaccination to eliminate a previously established childhood disease, both disease spread and intervention can be clearly characterized using strength. In our HIV example, both the HIV epidemic and the test-and-treat intervention can be clearly characterized using speed. Other cases, such as social distancing (strength-like) in the early stages of COVID-19 (clear speed) may not fit so neatly into either paradigm, however.
+Some practical questions lend themselves more naturally to one approach or another. For example, in the classic case of vaccination to eliminate a previously established childhood disease, both disease spread and intervention can be clearly characterized using strength \citep{anderson1985vaccination}. In our HIV example, both the HIV epidemic and the test-and-treat intervention can be clearly characterized using speed. Other cases, such as social distancing (strength-like) in the early stages of COVID-19 (clear speed) may not fit so neatly into either paradigm, however.
 
 There is an analogy here with measures of fitness in theoretical ecology.
 For example, when a population is regulated by density dependence that affects all individuals identically, $r$ may be the best measure of fitness \citep{pasztor1996r0}, 
