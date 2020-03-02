@@ -141,7 +141,7 @@ Imagine a control measure that proportionally reduces $K$, for example, by prote
 \begin{equation}
 	\hat K(\tau) = (\RR/\theta) g(\tau).
 \end{equation}
-Since $g$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention $\theta$ is larger than the strength of spread $\RR$.
+Since $g$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease) is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention $\theta$ is larger than the strength of spread $\RR$.
 
 We generalize this idea by allowing an intervention strategy to reduce $K$ by different proportions over the course of an individual infection. We write the post-intervention kernel:
 \begin{equation}
@@ -179,7 +179,7 @@ We then have:
 \begin{equation}
 	\hat K(\tau) = K(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
 \end{equation}
-Since $b$ is a distribution (which integrates to 1), the reduction needed to prevent invasion (or to eliminate disease)  is exactly $\phi=r$. 
+Since $b$ is a distribution (which integrates to 1), the reduction needed to prevent invasion (or to eliminate disease) is exactly $\phi=r$. 
 We call $\phi$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is faster than the speed of spread.
 
 We generalize this idea by allowing the hazard rate $h(\tau)$ at which $K$ is reduced to vary through time, thus:
@@ -228,13 +228,13 @@ The black circle indicates the baseline scenario.
 \end{figure}
 
 The infection kernel is shown in (\figref{example}A) for our baseline value of  
-$\tsub{p}{early} = 0.23$.  We assume that the initial speed of the epidemic is $r=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\Ro$ would produce this rate of growth.
+$\tsub{p}{early} = 0.23$. We assume that the initial speed of the epidemic is $r=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\Ro$ would produce this rate of growth.
 When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \Ro\ decreases (\figref{example}C).
 Therefore, as \pEarly\ gets smaller, we expect stronger intervention to be required in order to control the disease.
 
 We compare two different possible intervention strategies to shed light on the speed and strenght decompositions.
 First, we consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level.
-Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$  (\figref{condom}A).
+Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$ (\figref{condom}A).
 The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
 Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
 
@@ -278,7 +278,7 @@ In our scenario, we predict that the intervention remains effective over the ran
 
 Though there is a clear intuition for why both strengths increase as early transmission goes down, the speed paradigm provides insight into why these two increases are so close to parallel.
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
-For the test-and-treat intervention, the effective epidemic speed also stays relatively constant (\figref{test}D), in part because we have (plausibly) assumed that hazard stays relatively constant for a few key months, and in part because the backward generation-interval distributions for different  scenarios are relatively similar.
+For the test-and-treat intervention, the effective epidemic speed also stays relatively constant (\figref{test}D), in part because we have (plausibly) assumed that hazard stays relatively constant for a few key months, and in part because the backward generation-interval distributions for different scenarios are relatively similar.
 The intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 Thus, the speed paradigm provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission.
 
