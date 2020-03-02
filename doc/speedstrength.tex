@@ -70,9 +70,8 @@ Disease modelers have historically placed much more emphasis in strength, in par
 Here we develop a mathematical framework for this classic, strength-based paradigm and show that there is a corresponding speed-based paradigm which can provide complementary insights.
 In particular, we note that $r=0$ is a threshold for disease spread, just like $\RR=1$, and show that we can measure the speed and strength of an intervention on the same scale as the speed and strength of an epidemic, respectively.
 We argue that, just as the strength-based paradigm provides the clearest insight into certain questions, the speed-based paradigm provides the clearest view in other cases.
-\swp{We argue that the speed-based paradigm provides the clearest insight into certain questionsm just as the strength-based paradigm provides view in other cases.}
 As an example, we show that evaluating the prospects of ``test-and-treat'' interventions against the human immunodeficiency virus (HIV) can be done more clearly on the speed than strength scale, given uncertainty in the proportion of HIV spread that happens early in the course of infection. 
-We suggest that disease modelers should refrain from putting too much emphasis on the reproductive number at the expense of the exponential growth rate, but instead look at these as complementary approaches.
+We suggest that disease modelers should avoid over-emphasizing the reproductive number at the expense of the exponential growth rate, but instead look at these as complementary measures.
 
 \pagebreak
 
@@ -247,6 +246,7 @@ The black and red circles indicate the baseline scenario.
 \figlab{condom}
 \end{figure}
 
+%% \jd{For next version, consider making \figref{condom} a four-panel figure like \figref{test}.
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/test_and_treat.pdf}
@@ -263,15 +263,25 @@ Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau)
 \figlab{test}
 \end{figure}
 
-On the other hand, consider a ``test-and-treat'' strategy in which infected individuals are identified and put to clinical care, such as antiretroviral therapy (ART) \citep{garnett2009treating, granich2009universal, nah2017test}.
-We assume that the rate of identification and removal is approximately constant for newly infected individuals; thus, the proportion continuing to transmit declines approximately exponentially.
+Next, we consider a ``test-and-treat'' strategy in which infected individuals are identified, linked to care and receive antiretroviral therapy (ART) with the goal of both preserving health and preventing transmission through viral suppression. \citep{garnett2009treating, granich2009universal, nah2017test}.
+Our assumptions for this scenario are shown in \figref{test}.
+We assume that the hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but increases very quickly (because sexually active individuals are the most likely to seek testing); 
+after a few months, the assumed hazard rate goes down to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment \figref{test}(C). The corresponding strength of intervention $L$ is shown in \figref{test}(A) and details of the assumption are given in the caption.
+
+In this example, we see that the 
+
+The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
+The effective speed of the intervention stays relatively constant, in part because the backward generation-interval distributions for different  scenarios are relatively similar.
+The intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important (\figref{test}D).
+This framework provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission because early transmission has no effect on the estimated speed of the epidemic, and little on the estimated speed of the intervention.
+
+
 However, we assume that removal eventually saturates, to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment
 (\figref{test}A; see caption for the functional form of $\tsub{L}{test}$).
 Under this assumption, the strength of intervention decreases with the proportion of early transmission in a manner roughly similar to the epidemic strength (\figref{test}B).
 In this scenario, we predict that the intervention remains effective over the range of considered parameters.
 
 Using the speed-based decomposition provides a valuable perspective on this situation.
-The hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because infected individuals don't have a way to know that they have HIV when they're infected) but peaks very fast (because sexually active individuals are the most likely to seek testing); 
 the assumed hazard rate goes down after a few months to reflect the saturation assumptions discussed above (\figref{test}C). 
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
 The effective speed of the intervention stays relatively constant, in part because the backward generation-interval distributions for different  scenarios are relatively similar.
