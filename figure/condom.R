@@ -7,19 +7,20 @@ source("../R/HIVfuns.R")
 source("../R/kernel.R")
 
 h_base <- HIVgen(earlyProp = 0.23, step=0.1)
-yintercept <- 4 ## arbitrary value
+yintercept <- 4 ## Assumption about condom effectiveness
 
 lfit <- lm(log(prevalence)~year, data=hiv_ts[1:8,])
 
 g1 <- ggplot() +
 	geom_hline(yintercept=yintercept, col=2) +
-	scale_x_continuous("Time (years)") +
+	scale_x_continuous("Time since infection") +
 	scale_y_continuous(expression(L[condom]), limits=c(3, 5)) +
 	ggtitle("A") +
 	theme(
-		panel.grid = element_blank(),
-		panel.border = element_blank(),
-		axis.line.y = element_line()
+		panel.grid = element_blank()
+		, panel.border = element_blank()
+		, axis.line.y = element_line()
+		## , axis.line.x = element_line()
 	)
 
 early <- seq(from=0.1, to=0.4, by=0.01)

@@ -10,6 +10,9 @@ vim_session:
 
 ######################################################################
 
+Sources += condom.R
+
+Ignore += condom.pdf
 ## condom.pdf: condom.R
 condom.pdf: condom.Rout ;
 condom.Rout: condom.R
