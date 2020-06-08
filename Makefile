@@ -19,6 +19,7 @@ $(ms)/Makefile:
 ######################################################################
 
 alldirs += doc figure R
+Ignore += $(alldirs)
 
 # figure/figure1.pdf three-panel R v ρ for HIV
 # figure/figure2.pdf Strength-like condoms
