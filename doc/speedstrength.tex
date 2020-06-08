@@ -70,9 +70,9 @@ Sang Woo Park\textsuperscript{4}
 
 An epidemic can be characterized by its speed (i.e., the exponential growth rate $r$) and strength (i.e., the reproductive number \RR).
 Disease modelers have historically placed much more emphasis on strength, in part because the effectiveness of an intervention strategy is typically evaluated on this scale.  
-Here, we develop a mathematical framework for this classic, strength-based paradigm and show that there is a corresponding speed-based paradigm which can provide complementary insights.
+Here, we develop a mathematical framework for the classic, strength-based paradigm and show that there is a corresponding speed-based paradigm which can provide complementary insights.
 In particular, we note that $r=0$ is a threshold for disease spread, just like $\RR=1$, and show that we can measure the speed and strength of an intervention on the same scale as the speed and strength of an epidemic, respectively.
-We argue that, just as the strength-based paradigm provides the clearest insight into certain questions, the speed-based paradigm provides the clearest view in other cases.
+We argue that, while the strength-based paradigm provides the clearest insight into certain questions, the speed-based paradigm provides the clearest view in other cases.
 As an example, we show that evaluating the prospects of ``test-and-treat'' interventions against the human immunodeficiency virus (HIV) can be done more clearly on the speed than strength scale, given uncertainty in the proportion of HIV spread that happens early in the course of infection. 
 We suggest that disease modelers should avoid over-emphasizing the reproductive number at the expense of the exponential growth rate, but instead look at these as complementary measures.
 
@@ -85,7 +85,7 @@ The speed of an epidemic is characterized by the exponential growth rate $r$, wh
 The strength of an epidemic is characterized by the reproductive number \RR, which measures how many new cases are caused by a typical \emph{individual} case.
 Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
-Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population, called the \emph{basic} reproductive number \Ro, because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
+Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population -- called the \emph{basic} reproductive number \Ro, because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
 The insight that a case must on average cause at least one new case under good conditions for a disease to persist goes back $>100$ years \citep{ross1911prevention};
 the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
@@ -107,7 +107,7 @@ Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect a
 In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ -- notably, the proportion of the population susceptible, $S(t)$.
 Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time.
 Thus, we will assume $K(\tau, t) \equiv K(\tau)$.
-Importantly, this means we are neglecting changes in susceptible proportion through time: $S(t) \approx S(0)$.
+Importantly, this means we are neglecting changes in susceptible proportion through time: that is, assuming that $S(t) \approx S(0)$.
 Under this assumption, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
 
 \subsection{Strength-based decomposition}
@@ -140,7 +140,7 @@ Imagine a control measure that proportionally reduces $K$, for example, by prote
 \begin{equation}
 	\hat K(\tau) = (\RR/\theta) g(\tau).
 \end{equation}
-Since $g$ is a distribution, the reduction needed to prevent invasion (or to eliminate disease) is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention $\theta$ is larger than the strength of spread $\RR$.
+Since $g$ integrates to 1, the reduction needed to prevent invasion (or to eliminate disease) is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention $\theta$ is larger than the strength of spread $\RR$.
 
 We generalize this idea by allowing an intervention strategy to reduce $K$ by different proportions over the course of an individual infection. We write the post-intervention kernel:
 \begin{equation}
@@ -277,8 +277,9 @@ In our scenario, we predict that the intervention remains effective over the ran
 
 Though there is a clear intuition for why both strengths increase as early transmission goes down, the speed paradigm provides insight into why these two increases are so close to parallel.
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
-For the test-and-treat intervention, the effective epidemic speed also stays relatively constant (\figref{test}D), in part because we have (plausibly) assumed that hazard stays relatively constant for a few key months, and in part because the backward generation-interval distributions for different scenarios are relatively similar.
-The intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
+For the test-and-treat intervention, the effective intervention speed also stays relatively constant (\figref{test}D), in part because we have (plausibly) assumed that hazard stays relatively constant for a few key months, and in part because the backward generation-interval distributions for different scenarios are relatively similar.
+The effective intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
+\jd{Above s.~does not match the picture. Is this something we can figure out? Or should we just drop the s.?}
 Thus, the speed paradigm provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission.
 
 \section{Discussion}
@@ -292,7 +293,7 @@ then constructed a parallel interpretation which measures the speed of an interv
 We thus showed that the standard paradigm for \RR\ and control has a natural parallel interpretation in terms of $r$.
 
 To illustrate this idea, we used simple assumptions to explore the effects of two HIV intervention strategies (condoms and test-and-treat), using both strength- and speed-based frameworks.
-In particular, we provided an alternative explanation for the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission does not affect the effectiveness of the ART:
+In particular, we provided an alternative explanation for the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission has little effect on predicted effectiveness of a test and treat intervention:
 we can control an outbreak if we can identify infected individuals and enroll them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the estimates of the amount of early transmission.
 The original explanation of the result relied on a strength-based argument: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
 
