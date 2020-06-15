@@ -85,7 +85,7 @@ The speed of an epidemic is characterized by the exponential growth rate $r$, wh
 The strength of an epidemic is characterized by the reproductive number \RR, which measures how many new cases are caused by a typical \emph{individual} case.
 Knowing the speed and strength of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
-Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population -- called the \emph{basic} reproductive number \Ro, because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
+Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population -- called the \emph{basic} reproductive number \Ro\, --- because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
 The insight that a case must on average cause at least one new case under good conditions for a disease to persist goes back $>100$ years \citep{ross1911prevention};
 the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
@@ -94,7 +94,7 @@ Here, we show that $r$ can also serve as a threshold, and also provide a useful 
 We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength required for elimination, and the threshold $r=0$ and a corresponding minimal intervention speed. 
 We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
-\section{Methods}
+\section{Mathematical theory}
 
 \subsection{Epidemic model}
 
@@ -104,7 +104,7 @@ In our model, disease incidence at time $t$ is given by:
 i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 \end{equation}
 Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
-In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ -- notably, the proportion of the population susceptible, $S(t)$.
+In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ --- notably, the proportion of the population susceptible, $S(t)$.
 Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time.
 Thus, we will assume $K(\tau, t) \equiv K(\tau)$.
 Importantly, this means we are neglecting changes in susceptible proportion through time: that is, assuming that $S(t) \approx S(0)$.
@@ -134,7 +134,7 @@ Assuming that the infection kernel $K$ doesn't change with time, we write:
 where $g(\tau)$ is the ``intrinsic'' generation-interval distribution.
 The generation interval is defined as the time between when a person becomes infected and when that person infects another person \citep{svensson2007note};
 therefore, the intrinsic generation-interval distribution $g(\tau)$ gives the relative infectiousness of an average individual as a function of time since infection \citep{champredon2015intrinsic}. 
-Since $g$ is a distribution, it integrates to 1, and the basic reproductive number $\RR$ is thus the integral of $K$.
+Since $g$ is a distribution, it integrates to 1, and the basic reproductive number $\Ro$ is thus the integral of $K$.
 
 Imagine a control measure that proportionally reduces $K$, for example, by protecting a fixed fraction of susceptibles through vaccination (\figref{constant}A). We then have:
 \begin{equation}
@@ -149,11 +149,11 @@ We generalize this idea by allowing an intervention strategy to reduce $K$ by di
 where $L(\tau)$ is the average proportional reduction for an individual infected time $\tau$ ago.
 The post-intervention reproductive number is thus:
 \begin{equation}
-	\Rhat = \int \hat K(\tau) d\tau
+	\Rhat = \int \hat K(\tau) d\tau.
 \end{equation}
 This framework generalizes the work of \cite{fraser2004factors} who made parametric assumptions about the shape of $L(\tau)$. 
 
-We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by generation-interval distribution:
+We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by the intrinsic generation-interval distribution:
 \begin{equation}
 	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)}.
 	\eqlab{strengthMean}
@@ -227,15 +227,15 @@ The black circle indicates the baseline scenario.
 \end{figure}
 
 The infection kernel is shown in (\figref{example}A) for our baseline value of  
-$\tsub{p}{early} = 0.23$. We assume that the initial speed of the epidemic is $r=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\Ro$ would produce this rate of growth.
-When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \Ro\ decreases (\figref{example}C).
+$\tsub{p}{early} = 0.23$. We assume that the initial speed of the epidemic is $r=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\RR$ would produce this rate of growth.
+When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \RR\ decreases (\figref{example}C).
 Therefore, as \pEarly\ gets smaller, we expect stronger intervention to be required in order to control the disease.
 
 We compare two different possible intervention strategies to shed light on the speed and strength decompositions.
 First, we consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level.
 Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$ (\figref{condom}A).
-The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic decreases as the proportion of early transmission increases (\figref{condom}B).
-Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
+The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic \RR\ decreases as the proportion of early transmission \pEarly\ increases (\figref{condom}B).
+Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if the amount of early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/condom.pdf}
@@ -268,7 +268,7 @@ Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau)
 Next, we consider a ``test-and-treat'' strategy in which infected individuals are identified, linked to care and receive antiretroviral therapy (ART) with the goal of both preserving health and preventing transmission through viral suppression. \citep{garnett2009treating, granich2009universal, nah2017test}.
 Our assumptions for this scenario are shown in \figref{test}.
 We assume that the hazard rate $\tsub{h}{test}$ of this intervention starts at 0 (because there is no way for newly infected individuals to know that they have HIV) but increases very quickly (because sexually active individuals are the most likely to seek testing); 
-after a few months, the assumed hazard rate goes down to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment (\figref{test}C). The corresponding strength of intervention $L$ is shown in \figref{test}A and details of the assumption are given in the caption.
+after a few months, the assumed hazard rate goes down to account for the effects of people who avoid identification, persistent treatment failures, and the possibility of rare transmission even under effective treatment (\figref{test}C). The corresponding strength of intervention $\tsub{L}{test}$ is shown in \figref{test}A and details of the assumption are given in the caption.
 
 In this example, we see that, as \pEarly\ goes down and our estimate of epidemic strength increases, the estimate of intervention strength increases roughly in parallel. The increase in intervention strength makes sense, as we have more time to reach people on average before they transmit: this is the core of the result of \cite{eaton2014proportion}. 
 In our scenario, we predict that the intervention remains effective over the range of considered parameters.
@@ -283,7 +283,7 @@ Thus, the speed paradigm provides an intuitive underpinning for the originally s
 
 \section{Discussion}
 
-The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number -- \RR, or outbreak ``strength'' -- below 1. The exponential growth rate -- $r$, or outbreak ``speed'' -- is often seen just as a stepping stone to \RR\, or even overlooked entirely \citep{park2020reconciling}.
+The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number --- \RR, or outbreak ``strength'' --- below 1. The exponential growth rate --- $r$, or outbreak ``speed'' --- is often seen just as a stepping stone to \RR\, or even overlooked entirely \citep{park2020reconciling}.
 We argue that \RR\ and $r$ provide equally valid, complementary perspectives on epidemic control, and that there are situations where each provides a clearer picture than the other.
 
 In this study, we:
