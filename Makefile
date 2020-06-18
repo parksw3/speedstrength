@@ -18,6 +18,8 @@ $(ms)/Makefile:
 
 ######################################################################
 
+Sources += cover.let submit.md
+
 alldirs += doc figure R
 Ignore += $(alldirs)
 
