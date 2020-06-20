@@ -23,6 +23,7 @@ $(ms)/Makefile:
 Sources += *.tex
 
 ## speedstrength.pdf: speedstrength.tex
+## speedstrength.tex.texcount: speedstrength.tex
 
 ######################################################################
 
@@ -40,4 +41,5 @@ head.txt: speedstrength.tex abstract.pl
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 -include $(ms)/texdeps.mk
+-include $(ms)/utils.mk
 
