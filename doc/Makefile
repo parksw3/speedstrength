@@ -24,8 +24,6 @@ Sources += *.tex
 
 ## speedstrength.pdf: speedstrength.tex
 
-Sources += notes.md
-
 ######################################################################
 
 ## Abstract text
