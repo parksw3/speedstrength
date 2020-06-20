@@ -26,9 +26,11 @@ Sources += *.tex
 
 ######################################################################
 
-## Abstract text
+## Clean up heading text for submission
 
-abstract.txt: speedstrength.tex abstract.pl
+Sources += abstract.pl
+Ignore += head.txt
+head.txt: speedstrength.tex abstract.pl
 	$(PUSH)
 
 ######################################################################
