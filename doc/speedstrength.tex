@@ -22,7 +22,7 @@
 
 \newcommand{\etal}{\textit{et al.}}
 
-\newcommand{\comment}{}
+\newcommand{\comment}{RENEW}
 \renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
 \renewcommand{\comment}[3]{}
 
@@ -77,13 +77,6 @@ We argue that, while the strength-based paradigm provides the clearest insight i
 As an example, we show that evaluating the prospects of ``test-and-treat'' interventions against the human immunodeficiency virus (HIV) can be done more clearly on the speed than strength scale, given uncertainty in the proportion of HIV spread that happens early in the course of infection. 
 We suggest that disease modelers should avoid over-emphasizing the reproductive number at the expense of the exponential growth rate, but instead look at these as complementary measures.
 
-\section*{Significance statement}
-
-Researchers studying infectious-disease outbreaks often focus primarily on the reproductive number, which measures the ``strength'' of transmission --- the number of new infections caused by an infected individual.
-Less theoretical and modeling attention is paid to the exponential growth rate, which measures epidemic ``speed''. 
-We argue that this difference in emphasis is largely artificial: both strength and speed have thresholds for spread and provide frameworks to compare effectiveness of intervention.
-We generalize the classic, strength-based paradigm and show that there is a corresponding speed-based paradigm which can provide complementary insights.
-We provide specific examples from HIV and other diseases to demonstrate the value of both perspectives.
 
 \pagebreak
 
@@ -257,7 +250,7 @@ The black and red circles indicate the baseline scenario.
 \figlab{condom}
 \end{figure}
 
-\jd{For next version, consider making \figref{condom} a four-panel figure like \figref{test}.}
+%% \jd{For next version, consider making \figref{condom} a four-panel figure like \figref{test}.}
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{../figure/test_and_treat.pdf}
@@ -282,7 +275,7 @@ after a few months, the assumed hazard rate goes down to account for the effects
 In this example, we see that, as \pEarly\ goes down and our estimate of epidemic strength increases, the estimate of intervention strength increases roughly in parallel. The increase in intervention strength makes sense, as we have more time to reach people on average before they transmit: this is the core of the result of \cite{eaton2014proportion}. 
 In our scenario, we predict that the intervention remains effective over the range of considered parameters.
 
-\jd{Let's look at some GIs: high, medium and low \pEarly $\times$ intrinsic, backward}
+%% \jd{Let's look at some GIs: high, medium and low \pEarly $\times$ intrinsic, backward}
 
 Though there is a clear intuition for why both strengths increase as early transmission goes down, the speed paradigm provides insight into why these two increases are so close to parallel.
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.

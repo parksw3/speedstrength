@@ -20,14 +20,17 @@ $(ms)/Makefile:
 
 ######################################################################
 
-Sources += *.tex
+Sources += $(wildcard *.tex)
 
+## Include: significance.tex ## Drafted for PNAS
 ## speedstrength.pdf: speedstrength.tex
 ## speedstrength.tex.texcount: speedstrength.tex
 
 ######################################################################
 
 ## Clean up heading text for submission
+
+Sources += reviewers.txt
 
 Sources += abstract.pl
 Ignore += head.txt
