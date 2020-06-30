@@ -18,7 +18,7 @@ $(ms)/Makefile:
 
 ######################################################################
 
-Sources += cover.let submit.md
+Sources += cover.let submit.md reviewers.txt contribs.txt
 
 alldirs += doc/ figure/ R/
 Ignore += $(alldirs)
