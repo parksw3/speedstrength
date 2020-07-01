@@ -4,21 +4,21 @@
 CORR newmac
 
 BLK
-2020 Jun 17
+2020 Jun 30
 
 BLK 
 Editorial Board
-Proceedings of the National Academy of Sciences
+Proceedings of the Royal Society
 
 Dear Editors:
 
-Please accept the enclosed manuscript, “Speed and strength of an epidemic intervention,” for consideration for publication in PNAS. We feel this manuscript has an important message about conceptual framing of controlling disease outbreaks, with both long-term theoretical implications, and direct applications to current outbreaks like COVID-19, HIV and canine rabies.
+Please accept the enclosed manuscript, “Speed and strength of an epidemic intervention,” for consideration for publication in PRSB. We feel this manuscript has an important message about conceptual framing of controlling disease outbreaks, with both long-term theoretical implications, and direct applications to current outbreaks like COVID-19, HIV and canine rabies.
 
 Mathematical epidemiology has historically emphasized estimating the reproduction number $R$ -- defined as the average number of secondary cases caused by a primary case. One can think of this as measuring the “strength” of a disease’s ability to invade a given environment. The associated exponential rate of growth $r$ – the “speed” of the invasion – is often overlooked, or explicitly characterized as less important.
 
 We show that some of the arguments for the primacy of big $R$ – in particular, the argument that it provides a threshold for epidemic control and a metric for control efforts – could apply just as well to little $r$. We show that there is a duality between the threshold/control paradigm for strength, and a parallel paradigm based on speed. We show further that the paradigms are complementary; sometimes one is clearer for framing a particular problem (like strength in the case of measles vaccination, or speed in the case of treatment interventions against HIV), and sometimes neither has a clear advantage.
 
-The manuscript and its findings should be of interest to a broad range of readers, particularly given the recent discussion around speed- and strength-based characterization of the SARS-CoV-2 pandemic among mathematical epidemiologists. 
+The manuscript and its findings should be of interest to a broad range of readers, particularly given the recent discussion around speed- and strength-based characterization of the SARS-CoV-2 pandemic among epidemiologists. 
 
 Thank you for your consideration of this submission.
 
