@@ -30,7 +30,7 @@ Sources += $(wildcard *.tex)
 
 ## Clean up heading text for submission
 
-Sources += reviewers.txt
+## Sources += reviewers.txt ## Moved to ../
 
 Sources += abstract.pl
 Ignore += head.txt
