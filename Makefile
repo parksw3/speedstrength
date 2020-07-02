@@ -20,7 +20,7 @@ $(ms)/Makefile:
 
 Sources += cover.let submit.md reviewers.txt contribs.txt
 
-alldirs += doc/ figure/ R/
+alldirs += doc figure R
 Ignore += $(alldirs)
 
 # figure/figure1.pdf three-panel R v ρ for HIV
