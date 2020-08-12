@@ -37,6 +37,11 @@ Ignore += head.txt
 head.txt: speedstrength.tex abstract.pl
 	$(PUSH)
 
+Sources += $(wildcard *.md)
+
+prsb_instructions.md:
+prsb_reviews.md:
+
 ######################################################################
 
 ### Makestuff
