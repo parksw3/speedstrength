@@ -41,6 +41,7 @@ Sources += $(wildcard *.md)
 
 prsb_instructions.md:
 prsb_reviews.md:
+prsb_responses.md:
 
 ######################################################################
 
