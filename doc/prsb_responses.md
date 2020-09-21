@@ -1,8 +1,9 @@
 
 ## Referee: 1
 
-> One additional reference that might be worth mentioning is O. Diekmann, H. Heesterbeek, and H. Metz,The legacy of Kermack and McKendrick,
-> in Epidemic Models, Their Structure and Relation to Data (D. Mollinson, ed.) (1995), pp.95-115.
+> One additional reference that might be worth mentioning is O. Diekmann, H. Heesterbeek, and H. Metz,The legacy of Kermack and McKendrick, in Epidemic Models, Their Structure and Relation to Data (D. Mollinson, ed.) (1995), pp.95-115.
+
+Thanks. We are looking for this article.
 
 ## Referee: 2
 
@@ -10,11 +11,15 @@
 
 > In my view this paper could bring these ideas to light in infectious disease more thoroughly and compellingly with an expanded application section, a section on the relationship to data and/or estimation from data, improved and expanded section on interventions and the distinct views provided by (and usefulness of) the two distinct frameworks, and/or with some extension of the results to population dynamics that differ from constant rate exponential growth or decay. As it stands it feels quite minimal, though I appreciate the appeal of the conceptual point.
 
-We have done shit, but we also feel that this paper is badly needed in our field even though the ideas may be better known in other fields.
+Thanks for this feedback. We have expanded the application section. We feel that issues 
 
 > Near equation (9) the authors need to make a more explicit link with survival analysis so that we are clear on why we multiply K by survival functions. Survival functions multiply in the sense that if there are two hazards at rates lambda1 and lambda2 then the survival function is S(t) = S1(t) S2(t) . But K(tau) is proportional to the density g(tau), and is not a survival function. What is the interpretation of the density times the survival function? Why would the interventions not change the density directly, so that g becomes ghat (and then this would impact the hazard rate and survival function via the usual relationship S(t) = \int_t ^\infty ( ghat (x) dx )  ) ?
 
+We have expanded (9) into two steps and attempted to explain the logic clearly.
+
 > In practice what is the need for equations (6) and (12)? Both essentially re-write the other equations; are these averages that can be linked to estimates from data, for example?
+
+We think that the value of (6) and (12 -- now 13) is conceptual. We have added explanations following these derivations. In retrospect, we believe that Ss 2.2 and 2.3 were written in too "mathematical" a style: we got a bit carried away with the formal parallelism. The new version is still short, but engages more with the biological concepts.
 
 > Presumably both frameworks give a decline when the growth rate is negative and growth when it is positive. Therefore they would never contradict each other as to whether an intervention was sufficient or not - is this correct? This should be made explicit. It would also be good to more explicitly state and discuss what the differences are. I realize that this is in the discussion and in some sense in Figure 4, but I found the discussion section vague, particularly since the analysis is only relevant for the case of exponential growth. In particular, where would the two frameworks give different estimates of the uncertainty surrounding the benefits of an intervention, or the comparison between two interventions? On a minor note, since condoms are ultimately an individual choice applied to individual (potential) transmission events, why are they a population-level intervention whereas test and treat is deemed individual? More details on why the two frameworks give different intuition or analytical capacity would be good.
 

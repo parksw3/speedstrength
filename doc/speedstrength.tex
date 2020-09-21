@@ -33,6 +33,10 @@
 \newcommand{\Ro}{\Rx{0}}
 \newcommand{\RR}{\ensuremath{{\mathcal R}}}
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
+
+\newcommand{\rr}{\ensuremath{{r}}}
+\newcommand{\rhat}{\ensuremath{{\hat\rr}}}
+
 \newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
 \newcommand{\pEarly}{\ensuremath{\tsub{p}{early}}}
 
@@ -92,9 +96,10 @@ The insight that a case must on average cause at least one new case under good c
 the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
 
-Here, we show that $r$ can also serve as a threshold, and also provide a useful metric for difficulty of elimination (cf. \cite{ferretti2020quantifying}). We first generalize the idea that \RR\ measures the difficulty of elimination by showing we can measure an intervention's ``strength'' on the same scale as the reproductive number. 
+Here, we argue that the dominance of \RR\ over $r$ in the disease-dynamics literature is excessive: $r$ has been under-rated as a metric. Like \RR\,  $r$ can also serve as a threshold, and we show that it can also provide a useful metric for difficulty of elimination (cf. \cite{ferretti2020quantifying}). 
+We first generalize the idea that \RR\ measures the difficulty of elimination by showing we can measure an intervention's ``strength'' on the same scale as the reproductive number. 
 We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the threshold $\RR=1$ and a corresponding minimal intervention strength required for elimination, and the threshold $r=0$ and a corresponding minimal intervention speed. 
-We argue that the historical primacy of $\RR$ over $r$ is partly artificial, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
+We argue that the primacy of $\RR$ over $r$ is partly due to history, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
 \section{Mathematical theory}
 
@@ -153,16 +158,19 @@ The post-intervention reproductive number is thus:
 \begin{equation}
 	\Rhat = \int \hat K(\tau) d\tau.
 \end{equation}
-This framework generalizes the work of \cite{fraser2004factors} who made parametric assumptions about the shape of $L(\tau)$. 
+This framework generalizes the work of \cite{fraser2004factors}, who made parametric assumptions about the shape of $L(\tau)$. 
 
 We define the strength of the intervention $L$ to be $\theta = \RR/\Rhat$. It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau)$ weighted by the intrinsic generation-interval distribution:
 \begin{equation}
 	\theta = 1/\langle 1/L(\tau) \rangle_{g(\tau)}.
 	\eqlab{strengthMean}
 \end{equation}
-In this more general case, we have again that the disease cannot spread when $\theta \geq \RR$.
+
+Again, we have that the disease cannot spread when $\theta \geq \RR$. In other words, $\theta$ generalizes the well-known idea that \RR\ is a metric for how hard a disease is to eliminate: we can measure the ``strength'' of a control measure, and the control measure must be at least as ``strong'' as the disease (as measured by \RR) to achieve elimination.
 
 \subsection{Speed-based decomposition}
+
+The above decomposition generalizes the argument that \RR\ is the key parameter in evaluating whether a disease can be controlled -- one of the main foundations of historical primacy of \RR. But we can in fact do an analogous decomposition based on speed, and place \rr\ in a similar role.
 
 The Euler-Lotka equation allows us to calculate the initial exponential growth rate $r$ of an epidemic given an infection kernel $K$:
 \begin{equation}
@@ -172,11 +180,18 @@ The Euler-Lotka equation allows us to calculate the initial exponential growth r
 By analogy with the strength-based factorization \eqref{strengthFactors}, we can rewrite \eqref{euler} as a speed-based factorization:
 \begin{equation}
 K(\tau) = b(\tau)\exp(r\tau)
+\eqlab{Kback}
 \end{equation}
 Like $g$, $b$ is a distribution: in this case the initial backward generation interval, which gives the distribution of realized generation times (measured from the infectee's point of view) when the disease spreads exponentially \citep{champredon2015intrinsic, britton2019estimation}.
 
-Now imagine an intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation (\figref{constant}B), for example, by identifying and isolating infectious individuals.
+Now imagine an idealized intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation (\figref{constant}B), for example, by identifying and isolating infectious individuals.
 We then have:
+\begin{equation}
+	\hat K(\tau) = K(\tau)\exp(-\phi\tau)
+\end{equation}
+The interpretation is that average infectiousness for under this control regime is the product of the original infectiousness $K(\tau)$ (at age of infection $\tau$) and the probability $\exp(-\phi\tau)$ of escaping the hazard of control up to that time.
+
+Substituting \eqref{Kback}:
 \begin{equation}
 	\hat K(\tau) = K(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
 \end{equation}
@@ -275,13 +290,13 @@ after a few months, the assumed hazard rate goes down to account for the effects
 In this example, we see that, as \pEarly\ goes down and our estimate of epidemic strength increases, the estimate of intervention strength increases roughly in parallel. The increase in intervention strength makes sense, as we have more time to reach people on average before they transmit: this is the core of the result of \cite{eaton2014proportion}. 
 In our scenario, we predict that the intervention remains effective over the range of considered parameters.
 
-%% \jd{Let's look at some GIs: high, medium and low \pEarly $\times$ intrinsic, backward}
-
 Though there is a clear intuition for why both strengths increase as early transmission goes down, the speed paradigm provides insight into why these two increases are so close to parallel.
 The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
 For the test-and-treat intervention, the effective intervention speed also stays relatively constant (\figref{test}D), in part because we have (plausibly) assumed that hazard stays relatively constant for a few key months, and in part because the backward generation-interval distributions for different scenarios are relatively similar.
 The effective intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 Thus, the speed paradigm provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission.
+
+\section{Other examples}
 
 \section{Discussion}
 

@@ -9,14 +9,14 @@ current: target
 Sources += Makefile
 
 ms = makestuff
-Ignore += $(ms)
-Makefile: $(ms)/Makefile
+Ignore += makestuff
+Makefile: makestuff/Makefile
 	touch $@
-$(ms)/Makefile:
+makestuff/Makefile:
 	ls ../makestuff/Makefile && /bin/ln -s ../makestuff 
 
--include $(ms)/perl.def
--include $(ms)/os.mk
+-include makestuff/perl.def
+-include makestuff/os.mk
 
 ######################################################################
 
@@ -39,16 +39,27 @@ head.txt: speedstrength.tex abstract.pl
 
 Sources += $(wildcard *.md)
 
+Ignore += prsb_responses.gh.html
+prsb_responses.gh.html: prsb_responses.md
+prsb_responses.html: prsb_responses.md
+
 prsb_instructions.md:
 prsb_reviews.md:
-prsb_responses.md:
+
+## resources/dhm_chapter.pdf
+resources: dir=~/Dropbox/archive/speedstrength
+resources:
+	$(linkdirname)
+resources/%:
+	$(MAKE) resources
 
 ######################################################################
 
 ### Makestuff
 
--include $(ms)/git.mk
--include $(ms)/visual.mk
--include $(ms)/texdeps.mk
--include $(ms)/utils.mk
+-include makestuff/git.mk
+-include makestuff/visual.mk
+-include makestuff/texdeps.mk
+-include makestuff/utils.mk
+-include makestuff/pandoc.mk
 
