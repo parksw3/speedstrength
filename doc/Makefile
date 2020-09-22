@@ -43,6 +43,7 @@ Sources += $(wildcard *.md)
 
 Ignore += prsb_responses.gh.html
 prsb_responses.gh.html: prsb_responses.md
+Ignore += prsb_responses.html
 prsb_responses.html: prsb_responses.md
 
 prsb_instructions.md:
