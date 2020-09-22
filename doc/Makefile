@@ -25,6 +25,7 @@ Sources += $(wildcard *.tex)
 ## Include: significance.tex ## Drafted for PNAS
 ## speedstrength.pdf: speedstrength.tex
 ## speedstrength.tex.texcount: speedstrength.tex
+speedstrength.bbl: speedstrength.bib
 
 ######################################################################
 

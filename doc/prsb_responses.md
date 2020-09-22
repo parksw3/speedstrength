@@ -1,9 +1,11 @@
 
+
+
 ## Referee: 1
 
 > One additional reference that might be worth mentioning is O. Diekmann, H. Heesterbeek, and H. Metz,The legacy of Kermack and McKendrick, in Epidemic Models, Their Structure and Relation to Data (D. Mollinson, ed.) (1995), pp.95-115.
 
-Thanks. We are looking for this article.
+Thanks. We now cite this article as an early mentioner of the little-r threshold.
 
 ## Referee: 2
 
