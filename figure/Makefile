@@ -10,12 +10,33 @@ vim_session:
 
 ######################################################################
 
+## Daniel figures
+## constant_intervention.pdf HIV.pdf condom.pdf test_and_treat.pdf
+
 Sources += condom.R
 
 Ignore += condom.pdf
 ## condom.pdf: condom.R
-condom.pdf: condom.Rout ;
-condom.Rout: condom.R
+%.pdf: %.Rout ;
+constant_intervention.Rout HIV.Rout condom.Rout test_and_treat.Rout: %.Rout: %.R
+	$(run-R)
+
+######################################################################
+
+automatic_makeR = defined
+
+R/%: R ;
+R: dir=../
+R:
+	$(linkdir)
+
+hivstrength.Rout: hivstrength.R R/data.R R/HIVfuns.R R/kernel.R
+
+tt.Rout: tt.R R/data.R R/HIVfuns.R R/kernel.R
+
+gencontrol.Rout: gencontrol.R R/kernel.R
+
+HIVexample.Rout: HIVexample.R R/data.R R/HIVfuns.R R/kernel.R
 
 ######################################################################
 
@@ -31,7 +52,7 @@ makestuff/Makefile:
 
 -include makestuff/os.mk
 
--include makestuff/wrapR.mk
+-include makestuff/makeR.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
