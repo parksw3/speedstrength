@@ -23,7 +23,10 @@ makestuff/Makefile:
 Sources += $(wildcard *.tex)
 
 ## Include: significance.tex ## Drafted for PNAS
+
 ## speedstrength.pdf: speedstrength.tex
+## prsb_responses.html: prsb_responses.md response.css
+
 ## speedstrength.tex.texcount: speedstrength.tex
 Sources += speedstrength.bib
 speedstrength.bbl: speedstrength.bib

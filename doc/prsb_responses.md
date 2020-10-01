@@ -11,7 +11,9 @@ Thanks. We now cite this article as an early mentioner of the little-r threshold
 
 > In my view this paper could bring these ideas to light in infectious disease more thoroughly and compellingly with an expanded application section, a section on the relationship to data and/or estimation from data, improved and expanded section on interventions and the distinct views provided by (and usefulness of) the two distinct frameworks, and/or with some extension of the results to population dynamics that differ from constant rate exponential growth or decay. As it stands it feels quite minimal, though I appreciate the appeal of the conceptual point.
 
-Thanks for this feedback. We have expanded the application section. We also address more explicitly the link between the parameters of the initial phase and the prospects for long-term control. We feel that issues dealing directly with non-exponential disease dynamcis are complicated enough for another paper.
+Thanks for this feedback. We agree that these ideas are similar to ideas that have been discussed in the ecological context, but also feel that this is a perspective sorely lacking in the disease-modeling world.
+
+We have expanded the application section. We also address more explicitly the link between the parameters of the initial phase and the prospects for long-term control. We feel that issues dealing directly with non-exponential disease dynamcis are complicated enough for another paper.
 
 > Near equation (9) the authors need to make a more explicit link with survival analysis so that we are clear on why we multiply K by survival functions. Survival functions multiply in the sense that if there are two hazards at rates lambda1 and lambda2 then the survival function is S(t) = S1(t) S2(t) . But K(tau) is proportional to the density g(tau), and is not a survival function. What is the interpretation of the density times the survival function? Why would the interventions not change the density directly, so that g becomes ghat (and then this would impact the hazard rate and survival function via the usual relationship S(t) = \int_t ^\infty ( ghat (x) dx )  ) ?
 
