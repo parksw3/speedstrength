@@ -58,5 +58,5 @@ p2 <- ggplot(data=g1) +
     legend.title = element_blank()
   )
 
-grid.arrange(arrangeGrob(p1, p2, nrow=1))
+grid.arrange(p1, p2, nrow=1)
 

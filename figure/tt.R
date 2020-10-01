@@ -107,5 +107,5 @@ g4 <- ggplot(speeddata) +
 		axis.line = element_line()
 	)
 
-grid.arrange(arrangeGrob(g1, g2, g3, g4, nrow=2))
+grid.arrange(g1, g2, g3, g4, nrow=2)
 

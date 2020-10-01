@@ -56,5 +56,5 @@ g2 <- ggplot(earlydata) +
 		axis.line = element_line()
 	)
 
-grid.arrange(arrangeGrob(g1, g2, nrow=1))
+grid.arrange(g1, g2, nrow=1)
 

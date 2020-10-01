@@ -23,6 +23,8 @@ constant_intervention.Rout HIV.Rout condom.Rout test_and_treat.Rout: %.Rout: %.R
 
 ######################################################################
 
+newfigs: hivstrength.Rout.pdf tt.Rout.pdf gencontrol.Rout.pdf HIVexample.Rout.pdf
+
 automatic_makeR = defined
 
 R/%: R ;
