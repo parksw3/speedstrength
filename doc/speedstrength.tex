@@ -153,7 +153,7 @@ We generalize this idea by allowing an intervention strategy to reduce $K$ by di
 \begin{equation}
 	\hat K(\tau) = K(\tau)/L(\tau), 
 \end{equation}
-where $L(\tau)$ is the average proportional reduction for an individual infected time $\tau$ ago.
+where $L(\tau)$ is the average multiplicative reduction for an individual infected time $\tau$ ago.
 The post-intervention reproductive number is thus:
 \begin{equation}
 	\Rhat = \int \hat K(\tau) d\tau.
@@ -250,7 +250,7 @@ Therefore, as \pEarly\ gets smaller, we expect stronger intervention to be requi
 
 We compare two different possible intervention strategies to shed light on the speed and strength decompositions.
 First, we consider a condom intervention that reduces HIV transmission by approximately 75\% at the population level.
-Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the proportional reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$ (\figref{condom}A).
+Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the multiplicative reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$ (\figref{condom}A).
 The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic \RR\ decreases as the proportion of early transmission \pEarly\ increases (\figref{condom}B).
 Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if the amount of early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
 
@@ -258,7 +258,7 @@ Thus, the predicted effectiveness of the condom intervention will depend strongl
 \includegraphics[width=\textwidth]{../figure/condom.pdf}
 \caption{
 \textbf{Evaluating a condom intervention using strength-based decomposition.}
-(A) Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the proportional reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
+(A) Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the multiplicative reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
 (B) The estimated amount of early transmission affects estimated strength of the epidemic but not of a condom-based intervention.
 The black and red circles indicate the baseline scenario.
 }
@@ -296,7 +296,13 @@ For the test-and-treat intervention, the effective intervention speed also stays
 The effective intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 Thus, the speed paradigm provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission.
 
+We reiterate that a complete calculation using the same assumptions under either paradigm will necessarily provide consistent answers. But in this particular case, the speed paradigm provides an answer whose causes are easier to understand. We argue that it is therefore easier to assess the assumptions underlying the necessarily incomplete assumptions that are made in reality.
+
 \section{Other examples}
+
+\subsection{COVID-19}
+
+There has been a great deal of discussion of the importance of pre-symptomatic  transmission of COVID-19. Pre-symptomatic transmission is likely to be hard to detect, and therefore hard to prevent. Thus, it might be supposed that an increase in the estimated importance of pre-symptomatic transmission would lead to an increase in the estimated difficulty 
 
 \section{Discussion}
 
@@ -324,9 +330,9 @@ When comparing interventions with epidemic parameters to evaluate strategies, th
 
 There is an analogy here with measures of fitness in theoretical ecology.
 For example, when a population is regulated by density dependence that affects all individuals identically, $r$ may be the best measure of fitness \citep{pasztor1996r0}, 
-but when regulation primarily affects juveniles mortality, \RR\ is likely to be superior \citep{mylius1995evolutionarily}.
-The importance of speed-based perspectives are still rarely recognized in the case of infectious disease, however. 
+but when regulation primarily affects juvenile mortality, \RR\ is likely to be superior \citep{mylius1995evolutionarily}.
 
+The importance of speed-based perspectives are still rarely recognized in the case of infectious disease, however. 
 Responses to the 2014 Ebola Outbreak in West Africa and the recent COVID-19 outbreak show an over-emphasis on strength at the expense of speed:   
 during the early phases of both outbreaks, many disease modelers tried to estimate $\mathcal R_0$ but overlooked $r$.
 For example, only 1 out of 7 preliminary analyses of the COVID-19 outbreak that were published as preprints between January 23--26, 2020 reported the doubling time of an epidemic \citep{bedfordncov, imaincov, liuncov, majumderncov, readncov, riouncov, zhaoncov}.

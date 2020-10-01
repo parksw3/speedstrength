@@ -43,8 +43,11 @@ Sources += $(wildcard *.md)
 
 Ignore += prsb_responses.gh.html
 prsb_responses.gh.html: prsb_responses.md
+
 Ignore += prsb_responses.html
-prsb_responses.html: prsb_responses.md
+prsb_responses.html: prsb_responses.md response.css
+	pandoc --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart -s -c response.css -o $@ $<
+
 
 prsb_instructions.md:
 prsb_reviews.md:
