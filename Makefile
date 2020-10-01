@@ -23,11 +23,6 @@ Sources += cover.let submit.md reviewers.txt contribs.txt
 alldirs += doc figure R
 Ignore += $(alldirs)
 
-# figure/figure1.pdf three-panel R v ρ for HIV
-# figure/figure2.pdf Strength-like condoms
-# figure/figure3.pdf Two perspectives on HIV intervention
-### Makestuff rules
-
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
