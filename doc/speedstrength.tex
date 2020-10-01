@@ -1,7 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[]{graphicx}
-\usepackage[]{color}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{color}
 \usepackage[top=1in,left=1in, right = 1in, footskip=1in]{geometry}
 
 \title{Speed and strength of an epidemic intervention}
@@ -120,7 +121,7 @@ Under this assumption, the renewal equation is equivalent to the Von Foerster eq
 \subsection{Strength-based decomposition}
 
 \begin{figure}[!t]
-\includegraphics[width=\textwidth]{../figure/constant_intervention.pdf}
+\includegraphics[width=\textwidth]{figure/gencontrol.Rout.pdf}
 \caption{
 \textbf{Effects of constant-strength and constant-speed intervention on infection kernels.}
 Ebola-like gamma infection kernel $K(\tau)$ (mean: 16.2 days, CV: 0.58, and \Ro: 1.5) is shown in black \citep{park2019practical}.
@@ -232,7 +233,7 @@ We assume that $\tsub{f}{late}(\tau)$ has a mean of 10 years \citep{brookmeyer19
 Finally, $\tsub{p}{early}$ is the proportion of early HIV transmission.
 
 \begin{figure}[!th]
-\includegraphics[width=\textwidth]{../figure/HIV.pdf}
+\includegraphics[width=\textwidth]{figure/HIVexample.Rout.pdf}
 \caption{
 \textbf{The infection kernel of the HIV.}
 (A) The infection kernel of the HIV is approximated using a sum of two gamma distributions. We assume that the baseline proportion of early transmission is 23\% \citep{hayes2006amplified}.
@@ -255,7 +256,7 @@ The estimated strength of such an intervention is simply the average of $\tsub{L
 Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if the amount of early transmission is low, we expect disease spread to be too strong to be controlled completely by our intervention.
 
 \begin{figure}[!t]
-\includegraphics[width=\textwidth]{../figure/condom.pdf}
+\includegraphics[width=\textwidth]{figure/hivstrength.Rout.pdf}
 \caption{
 \textbf{Evaluating a condom intervention using strength-based decomposition.}
 (A) Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the multiplicative reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
@@ -268,7 +269,7 @@ The black and red circles indicate the baseline scenario.
 %% \jd{For next version, consider making \figref{condom} a four-panel figure like \figref{test}.}
 
 \begin{figure}[!t]
-\includegraphics[width=\textwidth]{../figure/test_and_treat.pdf}
+\includegraphics[width=\textwidth]{figure/tt.Rout.pdf}
 \caption{
 \textbf{Evaluating a test-and-treat intervention using strength- and speed-based decomposition.}
 (A) The strength of the test-and-treat intervention (calculated from the assumed hazard, (C)). The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.

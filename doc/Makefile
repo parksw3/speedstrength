@@ -64,6 +64,13 @@ resources/%:
 
 ######################################################################
 
+## Automake
+
+pardirs += figure
+
+figure/%:
+	$(makethere)
+
 ### Makestuff
 
 -include makestuff/git.mk
