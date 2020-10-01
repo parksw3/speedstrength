@@ -13,7 +13,7 @@ vim_session:
 ## Daniel figures
 ## constant_intervention.pdf HIV.pdf condom.pdf test_and_treat.pdf
 
-Sources += condom.R
+Sources += $(wildcard *.R)
 
 Ignore += condom.pdf
 ## condom.pdf: condom.R
