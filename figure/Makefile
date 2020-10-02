@@ -40,6 +40,8 @@ gencontrol.Rout: gencontrol.R R/kernel.R
 
 HIVexample.Rout: HIVexample.R R/data.R R/HIVfuns.R R/kernel.R
 
+coronaexample.Rout: coronaexample.R R/data.R R/corona.R R/kernel.R
+
 ######################################################################
 
 ### Makestuff
