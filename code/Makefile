@@ -1,3 +1,4 @@
+
 ## This is the speedstrength code subdirectory
 
 current: target
@@ -29,7 +30,12 @@ condom.Rout: condom.R data.R HIVfuns.R kernel.R
 
 tt.Rout: tt.R data.R HIVfuns.R kernel.R
 
-coronaexample.Rout: coronaexample.R corona.R kernel.R
+coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda
+
+legacy = coronafuns kernel
+legacytargets = $(legacy:%=%.Rout)
+$(legacytargets): %.Rout: %.R
+	$(run-R)
 
 ######################################################################
 

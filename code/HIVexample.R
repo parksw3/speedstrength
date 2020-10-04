@@ -1,4 +1,3 @@
-
 library(tidyr)
 library(dplyr)
 library(ggplot2); theme_set(theme_bw())
@@ -10,10 +9,12 @@ makeGraphics(width=8, height=3)
 
 h_base <- HIVgen(earlyProp = 0.23, step=0.1)
 
+scale <- 12 ## Intervals are months, plots and time series are in years
+
 g1 <- ggplot(h_base) +
-	geom_line(aes(time/12, density)) +
+	geom_line(aes(time/scale, density*scale)) +
 	scale_x_continuous("Generation time (years)") +
-	scale_y_continuous("Density", expand=c(0, 0)) +
+	scale_y_continuous("Density (per year)", expand=c(0, 0)) +
 	ggtitle("A") +
 	theme(
 		legend.position=c(0.9, 0.9),
@@ -23,15 +24,18 @@ g1 <- ggplot(h_base) +
 		axis.line = element_line()
 	)
 
+## Parameters from fit to prevalence ts
 lfit <- lm(log(prevalence)~year, data=hiv_ts[1:8,])
+p0 <- coef(lfit)[[1]]
+rfity <- coef(lfit)[[2]]
+rfitm <- coef(lfit)[[2]]/scale
 
 coef(lfit)
 
-pp <- predict(lfit, se=TRUE)
-
+## Prevalence time plot
 g2 <- ggplot(hiv_ts) +
 	geom_point(aes(year, prevalence)) +
-	stat_function(fun=function(x) exp(coef(lfit)[1] + coef(lfit)[2] * x)) +
+	stat_function(fun=function(x) exp(p0 + rfity*x)) +
 	scale_x_continuous("Year") +
 	scale_y_continuous("HIV prevalence", limits=c(0, 0.328), expand=c(0, 0)) +
 	ggtitle("B") +
@@ -41,13 +45,13 @@ g2 <- ggplot(hiv_ts) +
 		axis.line = element_line()
 	)
 
-r2R(h_base, coef(lfit)[2]/12)
+r2R(h_base, rfitm)
 
 early <- seq(from=0.1, to=0.4, by=0.01)
 
 R0 <-  sapply(early, function(x) {
 	hh <- HIVgen(earlyProp = x, step=0.1)
-	r2R(hh, coef(lfit)[2]/12)
+	r2R(hh, rfitm)
 })
 
 earlydata <- data.frame(
@@ -55,6 +59,7 @@ earlydata <- data.frame(
 	R0=R0
 )
 
+## R vs. early transmission
 g3 <- ggplot(earlydata) +
 	geom_line(aes(early, R0)) +
 	geom_point(aes(0.23, 3.17), size=5) +
