@@ -20,7 +20,7 @@ $(ms)/Makefile:
 
 Sources += cover.let submit.md reviewers.txt contribs.txt
 
-alldirs += doc figure R code
+alldirs += doc code
 Ignore += $(alldirs)
 
 -include $(ms)/git.mk
