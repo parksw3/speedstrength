@@ -1,7 +1,6 @@
 # Units are days
-
 gen <- function(sat, sMean=5, sShape=3
-	, step = 0.1, window=200
+	, step = 0.1, window=20
 ){
 	time <- seq(step, window, by=step)
 	d0 <- (

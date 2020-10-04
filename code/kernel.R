@@ -119,3 +119,6 @@ intPlot <- function(time, density, strength, R){
 	lines(time, R*density/strength, type="l")
 	par(op)
 }
+
+intervalMoments <- function(g){
+}

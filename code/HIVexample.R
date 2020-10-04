@@ -4,7 +4,7 @@ library(ggplot2); theme_set(theme_bw())
 library(gridExtra)
 
 source("makestuff/makeRfuns.R")
-sourceFiles()
+commandEnvironments()
 makeGraphics(width=8, height=3)
 
 h_base <- HIVgen(earlyProp = 0.23, step=0.1)

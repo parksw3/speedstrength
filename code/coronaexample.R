@@ -14,8 +14,8 @@ g_post <- gen(sat=8)
 print(
 	ggplot(g_pre) +
 	geom_line(aes(time, density)) +
-	scale_x_continuous("Generation time") +
-	scale_y_continuous("Density", expand=c(0, 0)) +
+	scale_x_continuous("Generation time (days)") +
+	scale_y_continuous("Density (per day)", expand=c(0, 0)) +
 	theme(
 		legend.position=c(0.9, 0.9),
 		legend.title=element_blank(),
@@ -23,6 +23,7 @@ print(
 		panel.border = element_blank(),
 		axis.line = element_line()
 	) +
+	geom_line(aes(time, density), data=g_post) +
 	NULL
 )
 

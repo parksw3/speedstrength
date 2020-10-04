@@ -24,7 +24,7 @@ newfigs.pdf: gencontrol.Rout.pdf HIVexample.Rout.pdf condom.Rout.pdf tt.Rout.pdf
 
 gencontrol.Rout: gencontrol.R kernel.R
 
-HIVexample.Rout: HIVexample.R data.R HIVfuns.R kernel.R
+HIVexample.Rout: HIVexample.R data.rda HIVfuns.rda kernel.rda
 
 condom.Rout: condom.R data.R HIVfuns.R kernel.R
 
@@ -32,7 +32,8 @@ tt.Rout: tt.R data.R HIVfuns.R kernel.R
 
 coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda
 
-legacy = coronafuns kernel
+## R scripts that don't use makeR yet.
+legacy = coronafuns kernel data HIVfuns
 legacytargets = $(legacy:%=%.Rout)
 $(legacytargets): %.Rout: %.R
 	$(run-R)
