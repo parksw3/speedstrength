@@ -16,17 +16,6 @@ testingFun <- function(maxRate
 	))
 }
 
-flatFun <- function(L
-					, step = 0.1, window=200
-){
-	time <- seq(step, window, by=step)
-	hazRate <- 0*time
-	return(data.frame(time
-					  , hazRate
-					  , strength = hazRate+L
-	))
-}
-
 HIVgen <- function(earlyProp 
 				   , earlyMean=3, earlyShape=3
 				   , lateMean=120, lateShape=2
