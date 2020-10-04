@@ -8,7 +8,7 @@ current: target
 
 Sources += cover.let contribs.txt
 
-alldirs += code doc
+alldirs += code
 Ignore += $(alldirs)
 
 -include makestuff/perl.def
