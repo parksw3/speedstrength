@@ -120,4 +120,15 @@ intPlot <- function(time, density, strength, R){
 	par(op)
 }
 
-intervalMoments <- function(g){}
+intervalMoments <- function(g){
+	attach(g)
+	s0 <- sum(density)
+	s1 <- sum(time*density)
+	s2 <- sum(time*time*density)
+	detach(g)
+
+	return(c(weight=s0
+		, mean = s1/s0
+		, CV2 = s2*s0/s1^2-1
+	))
+}

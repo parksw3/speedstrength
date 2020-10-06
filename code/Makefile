@@ -24,6 +24,8 @@ newfigs.pdf: gencontrol.Rout.pdf HIVexample.Rout.pdf condom.Rout.pdf tt.Rout.pdf
 
 gencontrol.Rout: gencontrol.R kernel.R
 
+HIVfit.Rout: HIVfit.R data.rda
+
 HIVexample.Rout: HIVexample.R data.rda HIVfuns.rda kernel.rda
 
 condom.Rout: condom.R data.R HIVfuns.R kernel.R

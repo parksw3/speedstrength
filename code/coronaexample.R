@@ -9,7 +9,10 @@ commandEnvironments()
 makeGraphics()
 
 g_pre <- gen(sat=0)
-g_post <- gen(sat=8)
+g_post <- gen(sat=10)
+
+print(intervalMoments(g_pre))
+print(intervalMoments(g_post))
 
 print(
 	ggplot(g_pre) +
