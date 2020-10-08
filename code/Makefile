@@ -40,7 +40,9 @@ tt.Rout: tt.R HIVfuns.rda HIVfit.rda kernel.rda
 
 ######## coronavirus
 
-coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda
+coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda units.rda
+
+######################################################################
 
 ## R scripts that don't use makeR yet.
 legacy = coronafuns kernel data HIVfuns

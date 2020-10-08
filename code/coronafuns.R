@@ -3,8 +3,8 @@
 ## A phenomenological generation interval
 ## A gamma function multiplied by a saturation step
 ## Slow saturation corresponds to less pre-symptomatic transmission
-gen <- function(sat, sMean=5, sShape=3
-	, step = 0.05, window=20
+gen <- function(sat, sMean=5*day, sShape=3
+	, step = 0.05*day, window=20*day
 ){
 	time <- seq(step, window, by=step)
 	d0 <- (
@@ -24,8 +24,8 @@ gen <- function(sat, sMean=5, sShape=3
 ## 	pre-symptomatic scenarios
 
 controlFun <- function(baseRate
-	, sat = 0, decay=0
-	, step = 0.05, window=20
+	, sat = 0*day, decay=0/day
+	, step = 0.05*day, window=20*day
 ){
 	time <- seq(step, window, by=step)
 	hazRate <- baseRate*exp(-decay*time)*time/(time+sat)
