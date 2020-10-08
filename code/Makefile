@@ -18,19 +18,26 @@ automatic_makeR = defined
 
 ## Paper figures
 
+## Make and glance at all current figures
 Ignore += newfigs.pdf
 newfigs.pdf: gencontrol.Rout.pdf HIVexample.Rout.pdf condom.Rout.pdf tt.Rout.pdf
 	$(pdfcat)
 
+## Make the two different GIs from the kernel
 gencontrol.Rout: gencontrol.R kernel.R
 
-HIVfit.Rout: HIVfit.R data.rda
+######## HIV
 
-HIVexample.Rout: HIVexample.R data.rda HIVfuns.rda kernel.rda
+## Fit to the data for use downstream
+HIVfit.Rout: HIVfit.R WHO_data.csv units.rda
 
-condom.Rout: condom.R data.R HIVfuns.R kernel.R
+HIVexample.Rout: HIVexample.R HIVfit.rda HIVfuns.rda kernel.rda units.rda
 
-tt.Rout: tt.R data.R HIVfuns.R kernel.R
+condom.Rout: condom.R HIVfuns.rda HIVfit.rda kernel.rda units.rda
+
+tt.Rout: tt.R HIVfuns.rda HIVfit.rda kernel.rda
+
+######## coronavirus
 
 coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda
 

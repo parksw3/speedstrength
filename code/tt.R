@@ -4,15 +4,13 @@ library(ggplot2); theme_set(theme_bw())
 library(gridExtra)
 
 source("makestuff/makeRfuns.R")
-sourceFiles()
+commandEnvironments()
 makeGraphics(width=8, height=6)
 
 maxRate <- 1/6
 h_base <- HIVgen(earlyProp = 0.23, step=0.1)
 
-lfit <- lm(log(prevalence)~year, data=hiv_ts[1:8,])
-
-b_base <- b0fun(h_base, coef(lfit)[2]/12)
+b_base <- b0fun(h_base, rfitmonth)
 
 tt <- testingFun(maxRate)
 
@@ -32,7 +30,7 @@ early <- seq(from=0.1, to=0.4, by=0.01)
 
 R0 <- sapply(early, function(x) {
 	hh <- HIVgen(earlyProp = x, step=0.1)
-	r2R(hh, coef(lfit)[2]/12)
+	r2R(hh, rfitmonth)
 })
 
 earlydata <- data.frame(
@@ -81,7 +79,7 @@ g3 <- ggplot(tt) +
 
 interspeed <- sapply(early, function(x) {
 	hh <- HIVgen(earlyProp = x, step=0.1)
-	bb <- b0fun(hh, coef(lfit)[2]/12)
+	bb <- b0fun(hh, rfitmonth)
 	
 	phiFun(bb, tt)
 })
@@ -93,9 +91,9 @@ speeddata <- data.frame(
 
 g4 <- ggplot(speeddata) +
 	geom_line(aes(early, speed, col="Intervention")) +
-	geom_hline(aes(yintercept=coef(lfit)[[2]], col="Epidemic" )) +
+	geom_hline(aes(yintercept=rfityear, col="Epidemic" )) +
   geom_point(data=speeddata[speeddata$early==0.23,], aes(early, speed), size=5, col="red") +
-  geom_point(x=0.23, y=coef(lfit)[[2]], size=5) +
+  geom_point(x=0.23, y=rfityear, size=5) +
 	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.42), expand=c(0, 0)) +
 	scale_y_continuous(expression(Speed~(year^{-1})), limits=c(0, 0.8), expand=c(0, 0)) +
 	scale_color_manual(values=c("black", "red")) +

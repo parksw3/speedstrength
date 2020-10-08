@@ -13,8 +13,6 @@ makeGraphics(width=8, height=3)
 h_base <- HIVgen(earlyProp = 0.23, step=0.1)
 yintercept <- 4 ## Assumption about condom effectiveness
 
-lfit <- lm(log(prevalence)~year, data=hiv_ts[1:8,])
-
 g1 <- ggplot() +
 	geom_hline(yintercept=yintercept, col=2) +
 	scale_x_continuous("Time since infection") +
@@ -30,8 +28,8 @@ g1 <- ggplot() +
 early <- seq(from=0.1, to=0.4, by=0.01)
 
 R0 <- sapply(early, function(x) {
-	hh <- HIVgen(earlyProp = x, step=0.1)
-	r2R(hh, coef(lfit)[2]/12)
+	hh <- HIVgen(earlyProp = x)
+	r2R(hh, rfitmonth)
 })
 
 earlydata <- data.frame(

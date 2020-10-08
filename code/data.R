@@ -1,6 +1,5 @@
 ## https://www.who.int/bulletin/volumes/91/1/12-106807/en/
 
-
 hiv_ts <- data.frame(
 	year=1990:2010,
 	prevalence=c(0.8, 1.4, 2.4, 4.3, 7.6, 10.4, 14.2, 17, 22.8,
