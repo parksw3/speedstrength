@@ -54,3 +54,14 @@ print(ggplot()
 	+ geom_line(data=trace, aes(time/day, strength))
 	+ geom_line(data=respond, aes(time/day, strength))
 )
+
+## Intervention speed
+
+r0 <- 0.23/day
+
+phiFun(b0fun(g_pre, r0), flat)*day
+phiFun(b0fun(g_post, r0), flat)*day
+phiFun(b0fun(g_pre, r0), trace)*day
+phiFun(b0fun(g_post, r0), trace)*day
+phiFun(b0fun(g_pre, r0), respond)*day
+phiFun(b0fun(g_post, r0), respond)*day

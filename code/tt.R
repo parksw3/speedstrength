@@ -15,7 +15,7 @@ b_base <- b0fun(h_base, rfitmonth)
 tt <- testingFun(maxRate)
 
 g1 <- ggplot(tt) +
-	geom_line(aes(time/12, strength), col=2) +
+	geom_line(aes(time*month/year, strength), col=2) +
 	geom_hline(yintercept=theFun(h_base, tt), lty=2, col=2) +
 	scale_x_continuous("Time (years)", expand=c(0,0), limits=c(0, 16.5)) +
 	scale_y_log10(expression(L[test])) +
@@ -66,8 +66,8 @@ g2 <- ggplot(earlydata) +
 	)
 
 g3 <- ggplot(tt) +
-	geom_line(aes(time/12, hazRate*12), col=2) +
-	geom_hline(aes(yintercept=phiFun(b_base, tt)*12), lty=2, col=2) +
+	geom_line(aes(time*month/year, hazRate*year/month), col=2) +
+	geom_hline(aes(yintercept=phiFun(b_base, tt)*year/month), lty=2, col=2) +
 	scale_x_continuous("Time (years)", limits=c(0, 16.5), expand=c(0, 0)) +
 	scale_y_continuous(expression(h[test]~(year^{-1}))) +
 	ggtitle("C") +
@@ -86,7 +86,7 @@ interspeed <- sapply(early, function(x) {
 
 speeddata <- data.frame(
 	early=early,
-	speed=interspeed*12
+	speed=interspeed*year/month
 )
 
 g4 <- ggplot(speeddata) +

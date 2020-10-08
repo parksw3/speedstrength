@@ -25,6 +25,8 @@ R2r <- function(g, R){
 	)$root)
 }
 
+### Speed of intervention
+
 # Calculate the arithmetic mean inside the implicit equation for phi
 phiBar <- function(b, L, phi){
 	step <- with(b, time[[2]]-time[[1]])
@@ -33,6 +35,7 @@ phiBar <- function(b, L, phi){
 	}))
 }
 
+### Find the phi that satisfies the equation
 phiFun <- function(b, L){
 	step <- with(b, time[[2]]-time[[1]])
 	return(uniroot(
