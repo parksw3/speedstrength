@@ -3,7 +3,6 @@
 current: target
 -include target.mk
 
-
 ######################################################################
 
 Sources += cover.let contribs.txt
