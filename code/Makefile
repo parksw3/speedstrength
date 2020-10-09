@@ -36,7 +36,7 @@ HIVexample.Rout: HIVexample.R HIVfit.rda HIVfuns.rda kernel.rda units.rda
 
 condom.Rout: condom.R HIVfuns.rda HIVfit.rda kernel.rda units.rda
 
-tt.Rout: tt.R HIVfuns.rda HIVfit.rda kernel.rda
+tt.Rout: tt.R HIVfuns.rda HIVfit.rda kernel.rda units.rda
 
 ######## coronavirus
 
