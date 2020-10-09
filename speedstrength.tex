@@ -262,23 +262,24 @@ Thus, the predicted effectiveness of the condom intervention will depend strongl
 \caption{
 \textbf{Evaluating a condom intervention using strength-based decomposition.}
 (A) Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the multiplicative reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
-(B) The estimated amount of early transmission affects estimated strength of the epidemic but not of a condom-based intervention.
+(B) The estimated amount of early transmission affects estimated epidemic strength \RR, but not intervention strength \Rhat of a condom-based intervention.
 The black and red circles indicate the baseline scenario.
 }
 \figlab{condom}
 \end{figure}
 
-%% \jd{For next version, consider making \figref{condom} a four-panel figure like \figref{test}.}
+\jd{For next version, consider making \figref{condom} a four-panel figure like \figref{test}.}
+\jd{The above is an old comment. I'm not currently loving the idea of including that figure, but I guess we should make it and see?}
 
 \begin{figure}[!t]
 \includegraphics[width=\textwidth]{code/tt.Rout.pdf}
 \caption{
 \textbf{Evaluating a test-and-treat intervention using strength- and speed-based decomposition.}
 (A) The strength of the test-and-treat intervention (calculated from the assumed hazard, (C)). The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
-(B) Increase in the estimated amount of early transmission decreases the estimated strength of an epidemic as well as the estimated strength of test-and-treat intervention.
+(B) Increase in the estimated amount of early transmission decreases the estimated epidemic strength \RR\ as well as the estimated strength of a test-and-treat intervention \Rhat.
 (C) The assumed hazard for the test-and-treat intervention. 
 The dashed line shows the corresponding effective speed of the intervention (from \eqref{speedMean}) assuming 23\% early transmission.
-(D) The estimated amount of early transmission has little effect on the effective speed of intervention, and none on the speed of the epidemic estimated from incidence data.
+(D) The estimated amount of early transmission has little effect on the effective speed of intervention \rhat, and none on the speed of the epidemic estimated from incidence data \rr.
 Circles indicate the baseline scenario.
 Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
 }
@@ -310,13 +311,9 @@ A generation-interval perspective \cite{park2019practical} can be used to challe
 
 For interventions which focus on infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission. 
 More early transmission does not change our estimate of the speed of the epidemic, but it does change our estimate of the \emph{effective} speed of a given control curve. 
-
-Early transmission gives more weight in the calculation of effective speed ($\phi$) to the early period of infection.
+This is because more early transmission gives more weight in the calculation of effective speed ($\phi$) to the early period of infection.
 Thus, if the hazard of control is increasing through time, as might be expected with isolation of symptomatic cases, more early transmission means that the effective speed of control is lower than originally thought, and control will be harder.
 Conversely, if hazard of control decreases through time, as might be expected with isolation of returning travellers, or event-based contact tracing, more early transmission means that control will be easier than originally though.
-
-With sufficiently detailed assumptions, we could do a correct calculation for any scenario in any paradigm. 
-But in these examples, using the more appropriate paradigm for each scenario lets us know what to expect, and may strengthen our intuition for \emph{how} the assumptions lead to the result.
 
 \section{Discussion}
 
@@ -324,7 +321,7 @@ The effectiveness of an epidemic intervention is often measured by its ability t
 We argue that \RR\ and $r$ provide equally valid, complementary perspectives on epidemic control, and that there are situations where each provides a clearer picture than the other.
 
 In this study, we:
-first extended the standard paradigm of \RR\ as critical parameter for control, by defining the strength of an intervention on the same scale as \RR, the strength of the epidemic; 
+first extended the standard paradigm of \RR\ as a critical parameter for control, by defining the strength of an intervention on the same scale as \RR, the strength of the epidemic; 
 then constructed a parallel interpretation which measures the speed of an intervention on the same scale as $r$, the speed of an epidemic.
 We thus showed that the standard paradigm for \RR\ and control has a natural parallel interpretation in terms of $r$.
 
@@ -332,7 +329,9 @@ To illustrate this idea, we used simple assumptions to explore the effects of tw
 In particular, we provided an alternative explanation for the result of \cite{eaton2014proportion} who used detailed mathematical modeling of HIV transmission to show that the amount of early transmission has little effect on predicted effectiveness of a test and treat intervention:
 we can control an outbreak if we can identify infected individuals and enroll them on ART faster than the \emph{observed} rate at which new cases are generated, which does not depend on the estimates of the amount of early transmission.
 The original explanation of the result relied on a strength-based argument: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
-The speed paradigm provides an additional insight: since we expect more early transmission to make our estimate of intervention speed (a little) faster, higher amounts of early transmission (when controlling for the observed initial growth rate) are expected to make control via test-and-treat (a little) easier. 
+The speed paradigm provides an additional insight: since we expect more early transmission to make our estimate of intervention speed (a little) faster, higher amounts of early transmission (when controlling for the observed initial growth rate) are expected to make control via test-and-treat (a little) easier.
+
+We also discussed the question of uncertainties introduced by the unknown magnitude of pre-symptomatic transmission of COVID-19. We showed that the strength-based paradigm provides clear insight into how this uncertainty affects interventions targeted to the general population, while speed-based paradigm is a clearer way to think about interventions targeted to infected people.
 
 While both speed- and strength-based frameworks can give the same conclusion about the outcome of an intervention, sometimes one provides a clearer understanding of a given measure.
 For example, we expect the speed-based framework to be clearer for characterizing newly invading pathogens: when an epidemic is growing exponentially, the reproductive number cannot be estimated with confidence \citep{weitz2015modeling}, especially when there is large uncertainty in the shape of the generation-interval distribution \citep{park2020reconciling}.
@@ -341,6 +340,8 @@ For interventions, we expect the speed-based framework to be clearer for evaluat
 In other cases, such as real-time rollout of vaccines during an outbreak, both speed and strength approaches might be similarly uncertain because the result depends both on the speed of the rollout and the (strength-like) final coverage \citep{shah2018mumps}.
 
 When comparing interventions with epidemic parameters to evaluate strategies, the situation is similar. Some scenarios lend themselves naturally to a single approach. For example, in the classic case of vaccination to eliminate a previously established childhood disease, both disease spread and intervention can be clearly characterized using strength \citep{anderson1985vaccination}. In our HIV example, both the HIV epidemic and the test-and-treat intervention can be best characterized using speed. Other cases, such as using social distancing (a strength-like intervention) in the early stages of COVID-19 (epidemic speed is observed) may not fit so neatly into either paradigm, however.
+With sufficiently detailed assumptions, we could do a correct calculation for any scenario in any paradigm. 
+But in many of these examples, using the more appropriate paradigm for each scenario lets us know what to expect, and may strengthen our intuition for \emph{how} the assumptions lead to the result.
 
 There is an analogy here with measures of fitness in theoretical ecology.
 For example, when a population is regulated by density dependence that affects all individuals identically, $r$ may be the best measure of fitness \citep{pasztor1996r0}, 

@@ -15,6 +15,7 @@ Ignore += $(alldirs)
 ######################################################################
 
 Sources += $(wildcard *.tex)
+Sources += $(wildcard *.css)
 
 ## Include: significance.tex ## Drafted for PNAS
 
