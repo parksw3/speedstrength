@@ -10,11 +10,11 @@ commandEnvironments() ## Read in any environments specified as dependencies
 sourceFiles()
 makeGraphics(width=8, height=3)
 
-h_base <- HIVgen(earlyProp = 0.23, step=0.1)
-yintercept <- 4 ## Assumption about condom effectiveness
+Lcondom <- 4
+h_base <- HIVgen(earlyProp = earlyBase, step=0.1)
 
 g1 <- ggplot() +
-	geom_hline(yintercept=yintercept, col=2) +
+	geom_hline(yintercept=Lcondom, col=2) +
 	scale_x_continuous("Time since infection") +
 	scale_y_continuous(expression(L[condom]), limits=c(3, 5)) +
 	ggtitle("A") +
@@ -39,9 +39,9 @@ earlydata <- data.frame(
 
 g2 <- ggplot(earlydata) +
 	geom_line(aes(early, R0, col="Epidemic")) +
-	geom_hline(aes(yintercept=yintercept, col="Intervention")) +
-  geom_point(data=earlydata[earlydata$early==0.23,], aes(early, R0), size=5) +
-  geom_point(aes(x=0.23, y=yintercept), size=5, col="red") +
+	geom_hline(aes(yintercept=Lcondom, col="Intervention")) +
+  geom_point(data=earlydata[earlydata$early==earlyBase,], aes(early, R0), size=5) +
+  geom_point(aes(x=earlyBase, y=Lcondom), size=5, col="red") +
 	scale_color_manual(values=c("black", "red")) +
 	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.4), expand=c(0, 0)) +
 	scale_y_log10("Strength", limits=c(1, 8), expand=c(0, 0), breaks=c(1, 2, 4, 8)) +

@@ -38,6 +38,8 @@ condom.Rout: condom.R HIVfuns.rda HIVfit.rda kernel.rda units.rda
 
 tt.Rout: tt.R HIVfuns.rda HIVfit.rda kernel.rda units.rda
 
+hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda 
+
 ######## coronavirus
 
 coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda units.rda

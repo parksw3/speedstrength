@@ -8,7 +8,7 @@ commandEnvironments()
 makeGraphics(width=8, height=6)
 
 maxRate <- 1/6
-h_base <- HIVgen(earlyProp = 0.23, step=0.1)
+h_base <- HIVgen(earlyProp = earlyBase, step=0.1)
 
 b_base <- b0fun(h_base, rfitmonth)
 
@@ -26,7 +26,7 @@ g1 <- ggplot(tt) +
 		axis.line = element_line()
 	)
 
-early <- seq(from=0.1, to=0.4, by=0.01)
+early <- seq(from=earlySlow, to=earlyFast, by=0.01)
 
 R0 <- sapply(early, function(x) {
 	hh <- HIVgen(earlyProp = x, step=0.1)
@@ -52,8 +52,8 @@ g2 <- ggplot(earlydata) +
 	geom_line(aes(early, R0, col="Epidemic")) +
 	geom_line(data=strengthdata, aes(early, strength, col="Intervention")) +
 	scale_color_manual(values=c("black", "red")) +
-  geom_point(data=earlydata[earlydata$early==0.23,], aes(early, R0), size=5) +
-  geom_point(data=strengthdata[strengthdata$early==0.23,], aes(early, strength), size=5, col="red") +
+  geom_point(data=earlydata[earlydata$early==earlyBase,], aes(early, R0), size=5) +
+  geom_point(data=strengthdata[strengthdata$early==earlyBase,], aes(early, strength), size=5, col="red") +
 	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.42), expand=c(0, 0)) +
 	scale_y_log10("Strength", limits=c(1, 16), expand=c(0, 0), breaks=c(1, 2, 4, 8, 16)) +
 	ggtitle("B") +
@@ -92,8 +92,8 @@ speeddata <- data.frame(
 g4 <- ggplot(speeddata) +
 	geom_line(aes(early, speed, col="Intervention")) +
 	geom_hline(aes(yintercept=rfityear, col="Epidemic" )) +
-  geom_point(data=speeddata[speeddata$early==0.23,], aes(early, speed), size=5, col="red") +
-  geom_point(x=0.23, y=rfityear, size=5) +
+  geom_point(data=speeddata[speeddata$early==earlyBase,], aes(early, speed), size=5, col="red") +
+  geom_point(x=earlyBase, y=rfityear, size=5) +
 	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.42), expand=c(0, 0)) +
 	scale_y_continuous(expression(Speed~(year^{-1})), limits=c(0, 0.8), expand=c(0, 0)) +
 	scale_color_manual(values=c("black", "red")) +

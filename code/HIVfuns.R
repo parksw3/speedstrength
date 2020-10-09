@@ -1,6 +1,10 @@
 # Units are months
 # Units of g are 1/month, so Sum{step*g) should be 1
 
+earlyFast <- 0.4
+earlyBase <- 0.23
+earlySlow <- 0.1
+
 testingFun <- function(maxRate
 					   , hMean=12, hShape=2, hheight=4
 					   , step = 0.1, window=200

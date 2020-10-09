@@ -7,7 +7,7 @@ source("makestuff/makeRfuns.R")
 commandEnvironments()
 makeGraphics(width=8, height=3)
 
-h_base <- HIVgen(earlyProp = 0.23, step=0.1)
+h_base <- HIVgen(earlyProp = earlyBase, step=0.1)
 
 g1 <- ggplot(h_base) +
 	geom_line(aes(time*month/year, density*year/month)) +
@@ -52,9 +52,9 @@ earlydata <- data.frame(
 ## R vs. early transmission
 g3 <- ggplot(earlydata) +
 	geom_line(aes(early, R0)) +
-	geom_point(aes(0.23, 3.17), size=5) +
-	geom_segment(aes(x=0.23, y=0, xend=0.23, yend=3.17), lty=2) +
-	geom_segment(aes(x=0, y=3.17, xend=0.23, yend=3.17), lty=2) +
+	geom_point(aes(earlyBase, 3.17), size=5) +
+	geom_segment(aes(x=earlyBase, y=0, xend=earlyBase, yend=3.17), lty=2) +
+	geom_segment(aes(x=0, y=3.17, xend=earlyBase, yend=3.17), lty=2) +
 	scale_x_continuous("Proportion of early transmission", expand=c(0, 0)) +
 	scale_y_continuous("Reproduction number", limits=c(0, 5), expand=c(0, 0)) +
 	ggtitle("C") +
