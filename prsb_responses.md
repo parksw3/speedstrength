@@ -33,7 +33,7 @@ We never expect to get a different final answer from the two formalisms; they ar
 
 > On a minor note, since condoms are ultimately an individual choice applied to individual (potential) transmission events, why are they a population-level intervention whereas test and treat is deemed individual? More details on why the two frameworks give different intuition or analytical capacity would be good.
 
-Thanks for this. We talk more about intuition, as discussed above, and we have now also tried to be more clear about what we mean by population-level interventions.
+Thanks for this. We were using individual to mean targeted at infectious individuals, and population to mean targeted at everyone. We have now dropped these shortcuts, and we simply explain this directly.
 
 > In Figures 3 and 4, the black lines are not clear to me - -the strength is defined as R/Rhat and the speed as rhat -r . So what is the strength (or speed) of “the epidemic” (black lines) - what’s Rhat and what’s R? It might be good to have some prevalence curves
 
