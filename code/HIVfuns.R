@@ -6,8 +6,8 @@ earlyBase <- 0.23
 earlySlow <- 0.1
 
 testingFun <- function(maxRate
-					   , hMean=12, hShape=2, hheight=4
-					   , step = 0.1, window=200
+	, hMean=12, hShape=2, hheight=4
+	, step = 0.1, window=200
 ){
 	time <- seq(step, window, by=step)
 	tHaz0 <- dgamma(time, shape=hShape, scale=hMean/hShape)
