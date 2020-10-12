@@ -23,9 +23,9 @@
 
 \newcommand{\etal}{\textit{et al.}}
 
-\newcommand{\comment}{RENEW}
-\renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+\newcommand{\comment}{RENEW the comment command}
 \renewcommand{\comment}[3]{}
+\renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
 
 \newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
 \newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
@@ -100,12 +100,8 @@ $\RR$ is also of interest because it provides a \emph{prima facie} prediction ab
 
 Here, we argue that the dominance of \RR\ over $r$ in the disease-dynamics literature is excessive: $r$ has been under-rated as a metric. Like \RR,  $r$ can serve as a threshold, and we show that it can also provide a useful metric for difficulty of elimination (cf.~\cite{ferretti2020quantifying}). 
 We first generalize the idea that \RR\ measures the difficulty of elimination by showing we can measure an intervention's ``strength'' on the same scale as the reproductive number. 
-We then show that we can likewise measure an intervention's ``speed'', and that there is a duality between the fact that the threshold $\RR=1$ determines the effective strength of intervention required for disease elimination, and the fact that the threshold $r=0$ determines the effective speed of intervention required for elimination. 
-\swp{This sentence is a bit long. How about we break it into two sentences?}
-\swp{
 We then show that we can likewise measure an intervention's ``speed'' on the same scale as the growth rate.
-There is a duality between the thresholds $\RR=1$ and $r=0$, which determine the effective strength and speed of intervention required for disease elimination.
-}
+Thus, there is a dual sense in which \rr\ also measures difficulty of elimination. 
 We argue that the primacy of $\RR$ over $r$ is partly due to history, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
 
 \section{Mathematical theory}
@@ -150,7 +146,7 @@ The generation interval is defined as the time between when a person becomes inf
 therefore, the intrinsic generation-interval distribution $g(\tau)$ gives the relative infectiousness of an average individual as a function of time since infection \citep{champredon2015intrinsic}. 
 Since $g$ is a distribution, it integrates to 1, and the basic reproductive number $\Ro$ is thus the integral of $K$.
 
-Imagine a control measure that proportionally reduces $K$ \swp{by a factor of $\theta$}, for example, by protecting a fixed fraction of susceptibles through vaccination (\figref{constant}A). We then have:
+Imagine a control measure that proportionally reduces $K$ by a factor of $\theta$, for example, by protecting a fixed fraction of susceptibles through vaccination (\figref{constant}A). We then have:
 \begin{equation}
 	\hat K(\tau) = (\RR/\theta) g(\tau).
 \end{equation}
@@ -178,7 +174,7 @@ In other words, $\theta$ generalizes the well-known idea that \RR\ is a metric f
 
 \swp{
 We note that intervention function $L$ and the strength of intervention $\theta$ do not need to be calculated explicitly to determine elimination in many contexts---rather, they are abstractions of the current epidemic modeling practices.
-Modelers typically rely on mechanistic models (often using ordinary differential equations models) to model disease spread and try to determine intervention parameters, such as vaccination proportion, to prevent an outbreak.
+Modelers typically rely on mechanistic models (often based on ordinary differential equations) to model disease spread and try to determine intervention parameters, such as vaccination proportion, to prevent an outbreak.
 By doing so, they make implicit assumptions about the shape of $L$ and therefore $\theta$.
 In these cases, the strength of intervention corresponds to the ratio of the reproduction numbers for the null model without intervention and the model with intervention.
 }
