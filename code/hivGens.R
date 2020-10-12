@@ -11,16 +11,18 @@ base = HIVgen(earlyProp = earlyBase)
 fast = HIVgen(earlyProp = earlyFast)
 slow = HIVgen(earlyProp = earlySlow)
 
-gens <- (
+factor_order <- c("base", "slow", "fast")
+g <- (
 	list(
 		base = base
 		, fast = fast
 		, slow = slow
 	)
 	%>% bind_rows(.id = "type")
+	%>% mutate(type = factor(type, levels=factor_order))
 )
 
-g1 <- (ggplot(gens)
+g1 <- (ggplot(g)
 	+ geom_line(aes(time*month/year, density*year/month, color=type))
 	+ scale_x_continuous("Generation time (years)")
 	+ scale_y_continuous("Density (per year)", expand=c(0, 0))
