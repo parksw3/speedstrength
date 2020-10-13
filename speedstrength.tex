@@ -74,8 +74,6 @@ Sang Woo Park\textsuperscript{4}
 
 \section*{Abstract}
 
-\swp{I also changed the title to strength and speed}
-
 An epidemic can be characterized by its strength (i.e., the reproductive number \RR) and speed (i.e., the exponential growth rate $r$).
 Disease modelers have historically placed much more emphasis on strength, in part because the effectiveness of an intervention strategy is typically evaluated on this scale.  
 Here, we develop a mathematical framework for the classic, strength-based paradigm and show that there is a dual speed-based paradigm which can provide complementary insights.
@@ -173,12 +171,9 @@ It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau
 Again, we have that the disease cannot spread when $\theta \geq \RR$. 
 In other words, $\theta$ generalizes the well-known idea that \RR\ is a metric for how hard a disease is to eliminate: we can measure the ``strength'' of a control measure, this must exceed the strength of the disease (\RR) to achieve elimination.
 
-\swp{
-We note that intervention function $L$ and the strength of intervention $\theta$ do not need to be calculated explicitly to determine elimination in many contexts---rather, they are abstractions of the current epidemic modeling practices.
-Modelers typically rely on mechanistic models (often based on ordinary differential equations) to model disease spread and try to determine intervention parameters, such as vaccination proportion, to prevent an outbreak.
+We note that intervention function $L$ and the strength of intervention $\theta$ need not be calculated explicitly in many contexts: they can usefully be thought of as abstractions of existing modeling practices.
+Modelers typically rely on mechanistic models (often based on ordinary differential equations) to model disease spread and evaluate intervention effects.
 By doing so, they make implicit assumptions about the shape of $L$ and therefore $\theta$.
-In these cases, the strength of intervention corresponds to the ratio of the reproduction numbers for the null model without intervention and the model with intervention.
-}
 
 \subsection{Speed-based decomposition}
 
@@ -225,11 +220,7 @@ We can then show that $\phi$ is a (sort of) mean satisfying the implicit equatio
 	\eqlab{speedMean}
 \end{equation}
 Specifically, the speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
-\swp{
-Like intervention strength $\theta$, intervention speed $\phi$ is also an abstraction---
-that is, the mechanistic models of interventions make implicit assumptions about the shape of the hazard rate $h$ and therefore $\phi$.
-The speed of intervention then corresponds to the difference between the observed growth rate and the growth rate of a simulated epidemic under intervention.
-}
+Like intervention strength $\theta$, intervention speed $\phi$ is also an abstraction -- that is, the mechanistic models of interventions make implicit assumptions about the shape of the hazard rate $h$ and therefore $\phi$.
 
 The disease cannot spread when $\phi \geq r$. In other words, \rr, like \RR, is a metric for how hard a disease is to eliminate: we can measure the ``speed'' of a control measure, this must exceed the speed of the disease (\rr) to achieve elimination.
 
@@ -331,8 +322,9 @@ More early transmission, for a given value of \rr, means {shorter generation int
 For interventions which {target} infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission. 
 More early transmission does not change our estimate of the speed of the epidemic, but it does change our estimate of the \emph{effective} speed of a given control curve. 
 This is because more early transmission gives more weight in the calculation of effective speed ($\phi$) to the early period of infection.
-Thus, if the hazard of control is increasing through time, as might be expected with isolation of symptomatic cases, more early transmission means that the effective speed of control is lower than originally thought, and control will be harder.
-Conversely, if the hazard of control decreases through time, as might be expected with isolation of returning travellers, or event-based contact tracing, more early transmission means that control will be easier than originally thought. \swp{I think this part needs to be explained more clearly. If hazard decreases through time, then the intervention focuses on reducing early transmission (whereas before, we try to reduce late transmission). So if there is more early transmission, than easier to control. I also wonder if it's better to frame it in terms of symptom-based intervention vs non-symptom-based? Increasing/decreasing hazard may be a bit vague.}
+
+If control depends on identifying cases from symptoms, we might expect the hazard of control to increase through time. In this case, more early transmission will give more weight to the low effectiveness of control early in infection: thus, the effective speed of control will be lower than originally thought, and control will be harder.
+Conversely, if control is mostly done by tracing travellers and contacts, cases might be most likely to be identified early on: in this case more weight on the early hazard of control will mean a faster effective speed. Thus, control will be easier than originally thought. 
 
 \section{Discussion}
 
