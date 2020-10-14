@@ -2,10 +2,16 @@
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
 \newcommand{\rr}{\ensuremath{{r}}}
 
+\newcommand{\comment}{RENEW the comment command}
+\renewcommand{\comment}[3]{}
+\renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
+\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+
 \hypertarget{referee-1}{%
 \subsection{Referee: 1}\label{referee-1}}
 
-JD: I moved this to tex, and then figured out that the only equation here is from the reviewer, which makes it awkward to edit.
+\jd{I moved this to tex, and then figured out that the only equation here is from the reviewer, which makes it awkward to edit.}
 
 \begin{quote}\sl
 One additional reference that might be worth mentioning is O. Diekmann,
@@ -46,7 +52,7 @@ ideas that have been discussed in the ecological context, but also feel
 that this is a perspective sorely lacking in the disease-modeling world.
 
 We have expanded the application section with examples from COVID-19. To
-our mind, these examples further underline the absence of r-based
+our mind, these examples further underline the absence of \rr-based
 thinking in the disease-modeling world. We also address more explicitly
 the link between the parameters of the initial phase and the prospects
 for long-term control. We feel that issues dealing directly with
@@ -59,12 +65,12 @@ transmission can affect conclusions about the efficacy of intervention.
 In the beginning of the current pandemic, there was much discussion on
 how presymptomatic transmission could make intervention more
 difficult---however, some of these conclusions were based on the
-assumption that R is constant, rather than r (e.g., Hellewell et
+assumption that \RR\ is constant, rather than \rr\ (e.g., Hellewell et
 al.~2020. ``Feasibility of controlling COVID-19 outbreaks by isolation
-of cases and contacts.'' The Lancet Global Health. In reality, given
-observed r, more presymptomatic transmission reduces R, meaning that
+of cases and contacts.'' \emph{ Lancet Global Health}. In reality, given
+observed \rr, more presymptomatic transmission reduces \RR, meaning that
 strength-based interventions will be easier than previously thought. To
-our mind, these examples further underline the absence of r-based
+our mind, these examples further underline the absence of \rr-based
 thinking in the disease-modeling world. While we appreciate the
 reviewer's concern that a more data-driven approach could provide
 further insight, we are worried that details may take away general ideas
@@ -147,12 +153,12 @@ Thank you for this. We were using individual to mean targeted at
 infectious individuals, and population to mean targeted at everyone. We
 have now dropped these shortcuts, and we simply explain this directly. We have also added more discussion of how frameworks differ, both in examples and in Discussion.
 
-SWP: I like this better for individual vs population-based: The efficacy
+\swp{I like this better for individual vs population-based: The efficacy
 of individual-based intervention depends on time since infection (e.g.,
 more likely to be isolated during symptomatic stage). The efficacy of
 population-based intervention doesn't (e.g., the relative efficacy of
-condom doesn't really change). What do you think?
-JD: This is exactly the kind of detail I'm avoiding at this point. We can get back to it in the next paper?
+condom doesn't really change). What do you think?}
+\jd{This is exactly the kind of detail I'm avoiding at this point. We can get back to it in the next paper?}
 
 \begin{quote}\sl
 In Figures 3 and 4, the black lines are not clear to me -- the strength
