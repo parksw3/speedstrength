@@ -101,6 +101,7 @@ We first generalize the idea that \RR\ measures the difficulty of elimination by
 We then show that we can likewise measure an intervention's ``speed'' on the same scale as the growth rate.
 Thus, there is a dual sense in which \rr\ also measures difficulty of elimination. 
 We argue that the primacy of $\RR$ over $r$ is partly due to history, and discuss cases where strength provides the better framing for practical disease questions and cases where speed does.
+\swp{maybe this is where it might be better to say "speed provides the better framing ..."?}
 
 \section{Mathematical theory}
 
@@ -119,6 +120,14 @@ Thus, we will assume $K(\tau, t) \equiv K(\tau)$.
 Importantly, this means we are neglecting changes in susceptible proportion through time: that is, assuming that $S(t) \approx S(0)$.
 Under this assumption, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
 Note that this focus does not mean we are only interested in the initial period of exponential growth: the ability of a disease to increase under conditions characteristic of a naive population is commonly used as a criterion for whether it can be eliminated under general conditions \citep{anderson1985vaccination,fraser2004factors}.
+\swp{I feel like there's too much ``something, ...'' phrasing. How about the following?} 
+\swp{
+Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time and assume $K(\tau, t) \equiv K(\tau)$.
+Importantly, this means we are neglecting changes in susceptible proportion through time: $S(t) \approx S(0)$.
+Under this assumption, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
+However, this focus does not mean we are only interested in the initial period of exponential growth: the ability of a disease to spread under conditions characteristic of a naive population is commonly used as a criterion for whether it can be eliminated under general conditions \citep{anderson1985vaccination,fraser2004factors}.
+}
+\swp{``conditions characteristic of a naive population'' doesn't really make sense...}
 
 \subsection{Strength-based decomposition}
 
@@ -171,6 +180,7 @@ It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau
 \end{equation}
 Again, we have that the disease cannot spread when $\theta \geq \RR$. 
 In other words, $\theta$ generalizes the well-known idea that \RR\ is a metric for how hard a disease is to eliminate: we can measure the ``strength'' of a control measure, this must exceed the strength of the disease (\RR) to achieve elimination.
+\swp{The last two/three sentences feel repetitive.}
 
 We note that intervention function $L$ and the strength of intervention $\theta$ need not be calculated explicitly in many contexts: they can usefully be thought of as abstractions of existing modeling practices.
 Modelers typically rely on mechanistic models (often based on ordinary differential equations) to model disease spread and evaluate intervention effects.
@@ -178,7 +188,7 @@ By doing so, they make implicit assumptions about the shape of $L$ and therefore
 
 \subsection{Speed-based decomposition}
 
-The above decomposition generalizes the argument that \RR\ is the key parameter in evaluating whether a disease can be controlled -- one of the main foundations of historical primacy of \RR. But we can in fact do an analogous decomposition based on speed, and place \rr\ in a similar role.
+The above decomposition generalizes the argument that \RR\ is the key parameter in evaluating whether a disease can be controlled --- one of the main foundations of historical primacy of \RR. But we can in fact do an analogous decomposition based on speed, and place \rr\ in a similar role.
 
 The Euler-Lotka equation allows us to calculate the initial exponential growth rate $r$ of an epidemic given an infection kernel $K$:
 \begin{equation}
@@ -221,7 +231,7 @@ We can then show that $\phi$ is a (sort of) mean satisfying the implicit equatio
 	\eqlab{speedMean}
 \end{equation}
 Specifically, the speed $\phi$ is a mean of the hazard $h$ in the sense that an increase (or decrease) in $h$ produces the same sign of change in $\phi$, and if $h$ is constant across the generation then $\phi=h$.
-Like intervention strength $\theta$, intervention speed $\phi$ is also an abstraction -- that is, the mechanistic models of interventions make implicit assumptions about the shape of the hazard rate $h$ and therefore $\phi$.
+Like intervention strength $\theta$, intervention speed $\phi$ is also an abstraction --- that is, the mechanistic models of interventions make implicit assumptions about the shape of the hazard rate $h$ and therefore $\phi$.
 
 The disease cannot spread when $\phi \geq r$. In other words, \rr, like \RR, is a metric for how hard a disease is to eliminate: we can measure the ``speed'' of a control measure, this must exceed the speed of the disease (\rr) to achieve elimination.
 
@@ -300,7 +310,7 @@ In this example, we see that, as \pEarly\ goes down and our estimate of epidemic
 In our scenario, we predict that the intervention remains effective over the range of considered parameters.
 
 Though there is a clear intuition for why both strengths increase as early transmission goes down, the speed paradigm provides insight into why these two increases are so close to parallel.
-The estimated epidemic speed depends only on the observed growth rate -- it does not change if we change our assumption about the proportion of early transmission.
+The estimated epidemic speed depends only on the observed growth rate --- it does not change if we change our assumption about the proportion of early transmission.
 For the test-and-treat intervention, the effective intervention speed also stays relatively constant (\figref{test}D), in part because we have (plausibly) assumed that hazard stays relatively constant for a few key months, and in part because the backward generation-interval distributions for different scenarios are relatively similar (Supplemental figure).
 The effective intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 Thus, the speed paradigm provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission.
@@ -310,12 +320,12 @@ We reiterate that a complete calculation using the same assumptions under either
 %% \section{Other examples}\subsection{COVID-19}
 \section{Example: COVID-19}
 
-There has been a great deal of discussion of the importance of pre-symptomatic transmission of COVID-19. 
+There has been a great deal on discussion of the importance of pre-symptomatic transmission of COVID-19 \cite{ferretti2020quantifying, he2020temporal, hellewell2020feasibility}. 
 Pre-symptomatic transmission is likely to be hard to detect, and therefore hard to prevent. 
 Thus, it might be supposed that an increase in the estimated importance of pre-symptomatic transmission would lead to an increase in the estimated difficulty of control.
 
 A generation-interval perspective \cite{park2019practical} can be used to challenge this view. 
-More early transmission, for a given value of \rr, means {shorter generation intervals and therefore} less transmission per individual -- that is, a lower value of \RR. Thus, although earlier transmission could make intervention less effective, it also means that less intervention may be necessary. For interventions like lockdowns, which are generally assumed affect everyone roughly equally, the strength-based perspective thus gives a clear (and somewhat surprising) answer: more early transmission means we will conclude that non-targeted interventions are \emph{more} effective.
+More early transmission, for a given value of \swp{observed} \rr, means {shorter generation intervals and therefore} less transmission per individual --- that is, a lower value of \RR. Thus, although earlier transmission could make intervention less effective, it also means that less intervention may be necessary. For interventions like lockdowns, which are generally assumed \swp{to} affect everyone roughly equally, the strength-based perspective thus gives a clear (and somewhat surprising) answer: more early transmission means we will conclude that non-targeted interventions are \emph{more} effective.
 
 For interventions which {target} infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission. 
 More early transmission does not change our estimate of the speed of the epidemic, but it does change our estimate of the \emph{effective} speed of a given control curve. 
@@ -340,15 +350,16 @@ we can control an outbreak if we can identify infected individuals and enroll th
 The original explanation of the result relied on a strength-based argument: increasing the amount of early transmission decreases the basic reproductive number, which negatively correlates with the outcome of the ART intervention \citep{eaton2014proportion}.
 The speed paradigm provides an additional insight: since we expect more early transmission to make our estimate of intervention speed (a little) faster, higher amounts of early transmission (when controlling for the observed initial growth rate) are expected to make control via test-and-treat (a little) easier.
 
-We also discussed the question of uncertainties introduced by the unknown magnitude of pre-symptomatic transmission of COVID-19. We showed that the strength-based paradigm provides clear insight into how this uncertainty affects interventions targeted to the general population, while the speed-based paradigm is a clearer way to think about interventions targeted to infected people. We concluded that increasing pre-symptomatic transmission increases estimated effectiveness of contact-based interventions and decreases estimated effectiveness of symptom-based interventions. In hindsight, these conclusions are consistent with common sense, but in practice the speed-based framework provides a clear way to think about these questions.
+We also discussed the question of uncertainties introduced by the unknown magnitude of pre-symptomatic transmission of COVID-19. We showed that the strength-based paradigm provides clear insight into how this uncertainty affects interventions targeted to the general population, while the speed-based paradigm is a clearer way to think about interventions targeted to infected people. We concluded that \swp{``a higher estimate of'' instead of ``increasing''?}increasing pre-symptomatic transmission increases estimated effectiveness of contact-based interventions and decreases estimated effectiveness of symptom-based interventions. In hindsight, these conclusions are consistent with common sense, but in practice the speed-based framework provides a clear way to think about these questions.
 
 While both strength- and speed-based frameworks can give the same conclusion about the outcome of an intervention, sometimes one provides a clearer understanding of a given measure.
 For example, we expect the speed-based framework to be clearer for characterizing newly invading pathogens: when an epidemic is growing exponentially, \rr\ can be directly observed from case data but the reproductive number cannot be estimated with confidence \citep{weitz2015modeling}, especially when there is large uncertainty in the shape of the generation-interval distribution \citep{park2020reconciling}.
 Conversely, we expect the strength-based framework to be clearer for evaluating established pathogens (based on the effective proportion of the population susceptible).
 
-Thinking explicitly about the two perspectives can also reduce confusion. Because of the dominance of the strength paradigm, researchers often explore different scenarios while holding \RR\ fixed. Fixed \RR\ is in fact a good default assumption for many endemic diseases. For invading diseases, however, \rr\ is likely to be better constrained by data than \RR. In this case, comparing scenarios while holding \RR\ fixed creates a bias that makes scenarios with faster transmission at the individual level look relatively more dangerous (since these scenarios will have \rr\ faster than the observed value) \citep{eaton2014proportion, powers2014impact, park2019practical}.
+Thinking explicitly about the two perspectives can also reduce confusion. Because of the dominance of the strength paradigm, researchers often explore different scenarios while holding \RR\ fixed. Fixed \RR\ is in fact a good default assumption for many endemic diseases. For invading diseases, however, \rr\ is likely to be better constrained by data than \RR. In this case, comparing scenarios while holding \RR\ fixed creates a bias that makes scenarios with faster transmission at the individual level \swp{(i.e., higher proportion of early transmission)} look relatively more dangerous (since these scenarios will have \rr\ faster than the observed value) \citep{eaton2014proportion, powers2014impact, park2019practical}. \swp{I think we can remove the parenthesis in the last sentence}
 
-For interventions, we expect the speed-based framework to be clearer for evaluating intervention strategies that target infected people, like test-and-treat for HIV \citep{granich2009universal}, or contact-tracing and quarantine for COVID-19 \citep{hellewell2020feasibility}; we expect the strength-based framework to be clearer for intervention strategies that target the general population, like condom use, or susceptible people, like prophylaxis.
+For interventions, we expect the speed-based framework to be clearer for evaluating intervention strategies that target infected people, like test-and-treat for HIV \citep{granich2009universal}, or contact-tracing and quarantine for COVID-19 \citep{hellewell2020feasibility}. 
+We expect the strength-based framework to be clearer for intervention strategies that target the general population, like condom use, or susceptible people, like prophylaxis.
 In other cases, such as real-time rollout of vaccines during an outbreak, both strength and speed approaches might be similarly uncertain because the result depends both on the speed of the rollout and the (strength-like) final coverage \citep{shah2018mumps}.
 
 When comparing proposed interventions with estimated epidemic parameters to evaluate strategies, the situation is similar. Some scenarios lend themselves naturally to a single approach. For example, in the classic case of vaccination to eliminate a previously established childhood disease, both disease spread and intervention can be clearly characterized using strength \citep{anderson1985vaccination}. In our HIV example, both the HIV epidemic and the test-and-treat intervention can be best characterized using speed. Other cases, such as using social distancing (a strength-like intervention) in the early stages of COVID-19 (epidemic speed is observed) may not fit so neatly into either paradigm, however.
@@ -363,8 +374,9 @@ There is also a link between the duality of these perspectives and the evolution
 The importance of speed-based perspectives are still rarely recognized in the case of infectious disease, however. 
 Responses to the 2014 Ebola Outbreak in West Africa and the recent COVID-19 outbreak show an over-emphasis on strength at the expense of speed:   
 during the early phases of both outbreaks, many disease modelers tried to estimate $\mathcal R_0$ but overlooked $r$.
-For example, only 1 out of 7 preliminary analyses of the COVID-19 outbreak that were published as preprints between January 23--26, 2020 reported the doubling time of an epidemic \citep{bedfordncov, imaincov, liuncov, majumderncov, readncov, riouncov, zhaoncov}. \swp{does this feel weak now? Maybe need something like ``Many subsequent studies then relied on strength-based frameworks to evaluate the efficacy of speed-like interventions, such as contact tracing, with a few exceptions'' with citations?}
-\jd{It would be great if you could do this.}
+For example, only 1 out of 7 preliminary analyses of the COVID-19 outbreak that were published as preprints between January 23--26, 2020 reported the doubling time of an epidemic \citep{bedfordncov, imaincov, liuncov, majumderncov, readncov, riouncov, zhaoncov}.
+Subsequent studies then relied on strength-based frameworks to evaluate the efficacy of speed-like interventions, such as contact tracing \cite{hellewell2020feasibility,kretzschmar2020impact,kucharski2020contact}, with a few exceptions \cite{ferretti2020quantifying}.
+\swp{How is this? Don't want to overwhelm with citations. Seems good enough for me.}
 We suggest that infectious disease modelers should be aware of the complementarity of these two frameworks when analyzing disease outbreaks.
 
 \bibliography{speedstrength}

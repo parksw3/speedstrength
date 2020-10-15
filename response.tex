@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{color}
+
+\usepackage{xspace}
+
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+
+\usepackage[pdfencoding=auto, psdextra]{hyperref}
+
+\usepackage{natbib}
+\bibliographystyle{chicago}
+
+\newcommand{\eref}[1]{Eq.~(\ref{eq:#1})}
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+
+\newcommand{\rr}{\ensuremath{{r}}}
+\newcommand{\rR}{\mbox{$r$--$\cal R$}}
+\newcommand{\RR}{\ensuremath{{\cal R}}}
+\newcommand{\RRhat}{\ensuremath{{\hat \cal R}}}
+\newcommand{\Rx}[1]{\ensuremath{{\cal R}_{#1}}} 
+\newcommand{\Ro}{\ensuremath{{\mathcal R}_{0}}\xspace}
+\newcommand{\Rs}{\Rx{\mathrm{s}}}
+\newcommand{\Rpool}{\ensuremath{{\mathcal R}_{\textrm{\tiny{pool}}}}\xspace}
+\newcommand{\Reff}{\Rx{\mathit{eff}}}
+\newcommand{\Tc}{\ensuremath{C}}
+
+\newcommand{\dd}[1]{\ensuremath{\, \mathrm{d}#1}}
+\newcommand{\dtau}{\dd{\tau}}
+\newcommand{\dx}{\dd{x}}
+\newcommand{\dsigma}{\dd{\sigma}}
+
+\newcommand{\rev}{\subsection*}
+\newcommand{\revtext}{\textsf}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0em}
+
+\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textsl{#3}\textbf{]}}}
+\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
+\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+\newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
+\newcommand{\jsw}[1]{\comment{green}{JSW}{#1}}
+\newcommand{\hotcomment}[1]{\comment{red}{HOT}{#1}}
+
+
+\newcommand{\psymp}{\ensuremath{p}} %% primary symptom time
+\newcommand{\ssymp}{\ensuremath{s}} %% secondary symptom time
+\newcommand{\pinf}{\ensuremath{\alpha_1}} %% primary infection time
+\newcommand{\sinf}{\ensuremath{\alpha_2}} %% secondary infection time
+
+\newcommand{\psize}{{\mathcal P}} %% primary cohort size
+\newcommand{\ssize}{{\mathcal S}} %% secondary cohort size
+
+\newcommand{\gtime}{\tau_{\rm g}} %% generation interval
+\newcommand{\gdist}{g} %% generation-interval distribution
+\newcommand{\idist}{\ell} %% incubation period distribution
+
+\newcommand{\total}{{\mathcal T}} %% total number of serial intervals
+
+\begin{document}
+
+\noindent Dear Editor:
+
+Thank you for the chance to revise and resubmit our manuscript. 
+We have made major revisions to our manuscript to address the reviewers' comments.
+We have also added a new section and discuss how presymptomatic transmission can affect the efficacy of COVID-19 interventions.
+Below please find our detailed responses to reviewers.
+
+\rev{Reviewer \#1}
+
+\revtext{One additional reference that might be worth mentioning is O. Diekmann,
+H. Heesterbeek, and H. Metz,The legacy of Kermack and McKendrick, in
+Epidemic Models, Their Structure and Relation to Data (D. Mollinson,
+ed.) (1995), pp.95-115.}
+
+Thank you. We now cite this article as an early mentioner of the
+little-r threshold.
+
+\rev{Reviewer \#2}
+
+\revtext{In this work the authors propose that ``strength'' and ``speed'' are
+complementary frameworks for understanding interventions in infectious
+disease models. This is an interesting and appealing idea based on
+simple re-arrangements of well-known equations for exponentially growing
+epidemics. As the authors themselves note, comparing growth rates r
+rather than reproductive numbers R is already well known in ecology.}
+
+\revtext{In my view this paper could bring these ideas to light in infectious
+disease more thoroughly and compellingly with an expanded application
+section, a section on the relationship to data and/or estimation from
+data, improved and expanded section on interventions and the distinct
+views provided by (and usefulness of) the two distinct frameworks,
+and/or with some extension of the results to population dynamics that
+differ from constant rate exponential growth or decay. As it stands it
+feels quite minimal, though I appreciate the appeal of the conceptual
+point.}
+
+Thank you for this feedback. We agree that these ideas are similar to
+ideas that have been discussed in the ecological context, but also feel
+that this is a perspective sorely lacking in the disease-modeling world.
+
+We have expanded the
+application section with examples from COVID-19, providing a qualitative
+understanding on how uncertainties in the amount of presymptomatic
+transmission can affect conclusions about the efficacy of intervention.
+In the beginning of the current pandemic, there was much discussion on
+how presymptomatic transmission could make intervention more
+difficult---however, some of these conclusions were based on the
+assumption that \RR\ is constant, rather than \rr\ (e.g., Hellewell et
+al.~2020. ``Feasibility of controlling COVID-19 outbreaks by isolation
+of cases and contacts.'' \emph{ Lancet Global Health}). In reality, given
+observed \rr, more presymptomatic transmission reduces \RR, meaning that
+strength-based interventions will be easier than previously thought. To
+our mind, these examples further underline the absence of \rr-based
+thinking in the disease-modeling world. While we appreciate the
+reviewer's concern that a more data-driven approach could provide
+further insight, we are worried that details may take away general ideas
+behind speed- and strength-based paradigms. We feel that it is important
+to provide a conceptual framework at this stage to a broader audience.
+We also address more explicitly the link between the parameters of the
+initial phase and the prospects for long-term control. We feel that
+issues dealing directly with non-exponential disease dynamics are
+complicated enough for another paper.
+
+\revtext{Near equation (9) the authors need to make a more explicit link with
+survival analysis so that we are clear on why we multiply K by survival
+functions. Survival functions multiply in the sense that if there are
+two hazards at rates lambda1 and lambda2 then the survival function is
+S(t) = S1(t) S2(t) . But K(tau) is proportional to the density g(tau),
+and is not a survival function. What is the interpretation of the
+density times the survival function? Why would the interventions not
+change the density directly, so that g becomes ghat (and then this would
+impact the hazard rate and survival function via the usual relationship
+$S(t) = \int_t ^\infty ( \hat{g} (x) dx )  )$ ?}
+
+We have expanded (9) into two steps and attempted to explain the logic clearly:
+
+``Now imagine an idealized intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation (Fig. 1B), for example, by identifying and isolating infectious individuals.
+We then have:
+\begin{equation}
+	\hat K(\tau) = K(\tau)\exp(-\phi\tau)
+\end{equation}
+The interpretation is that average infectiousness for under this control regime is the product of the original infectiousness $K(\tau)$ (at age of infection $\tau$) and the probability $\exp(-\phi\tau)$ of escaping the hazard of control up to that time.
+
+Substituting (8):
+\begin{equation}
+	\hat K(\tau) = K(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
+\end{equation}
+Since $b$ is a distribution (which integrates to 1), the reduction needed to prevent invasion (or to eliminate disease) is exactly $\phi=r$. 
+We call $\phi$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is faster than the speed of spread.''
+
+\revtext{
+In practice what is the need for equations (6) and (12)? Both
+essentially re-write the other equations; are these averages that can be
+linked to estimates from data, for example?
+}
+
+We think that the value of (6) and (12 -- now 13) is conceptual. We have
+added explanations following these derivations. In retrospect, we
+believe that S2.2 and S2.3 were written in too ``mathematical'' a
+style: we got a bit carried away with the formal parallelism. The new
+version is still short, but engages more with the biological concepts.
+
+We note that in practice 6 and 12 are often implicit in mechanistic models. We now make this point in the MS near the end of both S2.2 and S2.3:
+
+``
+We note that intervention function $L$ and the strength of intervention $\theta$ need not be calculated explicitly in many contexts: they can usefully be thought of as abstractions of existing modeling practices.
+Modelers typically rely on mechanistic models (often based on ordinary differential equations) to model disease spread and evaluate intervention effects.
+By doing so, they make implicit assumptions about the shape of $L$ and therefore $\theta$.
+''
+
+``Like intervention strength $\theta$, intervention speed $\phi$ is also an abstraction --- that is, the mechanistic models of interventions make implicit assumptions about the shape of the hazard rate $h$ and therefore $\phi$.''
+
+\revtext{
+Presumably both frameworks give a decline when the growth rate is
+negative and growth when it is positive. Therefore they would never
+contradict each other as to whether an intervention was sufficient or
+not - is this correct? This should be made explicit.
+}
+
+This is correct, and we have worked to be more explicit. 
+\swp{Where? Can we get a quote?}
+
+\revtext{
+It would also be good to more explicitly state and discuss what the
+differences are. I realize that this is in the discussion and in some
+sense in Figure 4, but I found the discussion section vague,
+particularly since the analysis is only relevant for the case of
+exponential growth. In particular, where would the two frameworks give
+different estimates of the uncertainty surrounding the benefits of an
+intervention, or the comparison between two interventions?
+}
+
+We never expect to get a different final answer from the two formalisms if they are both correctly applied;
+they are two ways of doing essentially the same calculation. 
+We have tried to be more clear about this as mentioned above. 
+We do expect in some cases to be able to use one formalism or another to more clearly illuminate the key issues and quantities determining the detailed answer, as we try to explain in our HIV example and in our new COVID example.
+
+Keeping the two paradigms in mind, however, can help to do the analysis correctly.
+In particular, in emerging epidemics, researchers often vary assumptions about parameters while holding \RR\ constant, even in cases where it would be more consistent with available information to hold \rr\ constant.
+We now discuss this in the paper:
+
+``Thinking explicitly about the two perspectives can also reduce confusion. Because of the dominance of the strength paradigm, researchers often explore different scenarios while holding \RR\ fixed. Fixed \RR\ is in fact a good default assumption for many endemic diseases. For invading diseases, however, \rr\ is likely to be better constrained by data than \RR. In this case, comparing scenarios while holding \RR\ fixed creates a bias that makes scenarios with faster transmission at the individual level \swp{(i.e., higher proportion of early transmission)} look relatively more dangerous (since these scenarios will have \rr\ faster than the observed value). \swp{I think we can remove the parenthesis in the last sentence}''
+
+\revtext{
+On a minor note, since condoms are ultimately an individual choice
+applied to individual (potential) transmission events, why are they a
+population-level intervention whereas test and treat is deemed
+individual? More details on why the two frameworks give different
+intuition or analytical capacity would be good.
+}
+
+Thank you for this. We were using individual to mean targeted at
+infectious individuals, and population to mean targeted at everyone. We
+have now dropped these shortcuts, and we simply explain this directly:
+
+``We expect the strength-based framework to be clearer for intervention strategies that target the general population, like condom use, or susceptible people, like prophylaxis.''
+
+We have also added more discussion of how frameworks differ, both in examples and in Discussion.
+
+\revtext{In Figures 3 and 4, the black lines are not clear to me -- the strength
+is defined as R/Rhat and the speed as rhat -r . So what is the strength
+(or speed) of ``the epidemic'' (black lines) - what's Rhat and what's R?
+It might be good to have some prevalence curves}
+
+We define strength and speed of the epidemic in the introduction, and
+compare these to strength and speed of intervention efforts. We now
+reiterate these points (including in the figure captions).
+
+\revtext{
+Minor quibble: equation (4) has L described in words as the ``average
+proportional reduction'' but where the reduction is 75\%, in fact the
+denominator is 4: $(1 / (1-0.75) )$ -- rephrase.
+}
+
+Done, thank you.
+
+
+
+\end{document}
