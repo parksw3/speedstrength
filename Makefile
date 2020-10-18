@@ -20,12 +20,11 @@ Sources += $(wildcard *.css)
 ## Include: significance.tex ## Drafted for PNAS
 
 ## speedstrength.pdf: speedstrength.tex
-responses.pdf: responses.tex
-	$(pandoc)
+## response.pdf: response.tex
 
-## Old responses
+## Old responses (here for rules, mostly)
+## responses.pdf: responses.tex;  $(pandoc)
 ## prsb_responses.html: prsb_responses.md response.css
-## Transition rule
 ## prsb_responses.tex: prsb_responses.html; $(pandoc)
 
 ## supp.pdf: supp.tex
