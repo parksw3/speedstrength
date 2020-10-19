@@ -114,17 +114,10 @@ i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
 In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ --- notably, the proportion of the population susceptible, $S(t)$.
 
-Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time.
-Thus, we will assume $K(\tau, t) \equiv K(\tau)$.
-Importantly, this means we are neglecting changes in susceptible proportion through time: that is, assuming that $S(t) \approx S(0)$.
-Under this assumption, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
-Note that this focus does not mean we are only interested in the initial period of exponential growth: the ability of a disease to increase under conditions characteristic of a naive population is commonly used as a criterion for whether it can be eliminated under general conditions \citep{anderson1985vaccination,fraser2004factors}.
-\swp{I feel like there's too much ``something, ...'' phrasing. How about the following?} 
 Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through time and assume $K(\tau, t) \equiv K(\tau)$.
 Importantly, this means we are neglecting changes in susceptible proportion through time: $S(t) \approx S(0)$.
 Under this assumption, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
 However, this focus does not mean we are only interested in the initial period of exponential growth: the ability of a disease to spread under conditions characteristic of a naive population is commonly used as a criterion for whether it can be eliminated under general conditions \citep{anderson1985vaccination,fraser2004factors}.
-\swp{``conditions characteristic of a naive population'' doesn't really make sense...}
 
 \subsection{Strength-based decomposition}
 
@@ -177,7 +170,6 @@ It is then straightforward to show that $\theta$ is the harmonic mean of $L(\tau
 \end{equation}
 As in the constant-$L$ case above, we have that the disease cannot spread when $\theta \geq \RR$. 
 In other words, $\theta$ generalizes the well-known idea that \RR\ is a metric for how hard a disease is to eliminate: we can measure the ``strength'' of a control measure, this must exceed the strength of the disease (\RR) to achieve elimination.
-\swp{The last two/three sentences feel repetitive.}
 
 We note that intervention function $L$ and the strength of intervention $\theta$ need not be calculated explicitly in many contexts: they can usefully be thought of as abstractions of existing modeling practices.
 Modelers typically rely on mechanistic models (often based on ordinary differential equations) to model disease spread and evaluate intervention effects.
