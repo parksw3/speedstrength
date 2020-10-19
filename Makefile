@@ -22,6 +22,9 @@ Sources += $(wildcard *.css)
 ## speedstrength.pdf: speedstrength.tex
 ## response.pdf: response.tex
 
+speedstrength.tex.9ee1a922.oldfile:
+speedstrength.ld.pdf: speedstrength.tex $(wildcard speedstrength*.oldfile)
+
 ## Old responses (here for rules, mostly)
 ## responses.pdf: responses.tex;  $(pandoc)
 ## prsb_responses.html: prsb_responses.md response.css
