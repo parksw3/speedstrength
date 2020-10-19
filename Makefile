@@ -22,6 +22,7 @@ Sources += $(wildcard *.css)
 ## speedstrength.pdf: speedstrength.tex
 ## response.pdf: response.tex
 
+Ignore += speedstrength.ld.out speedstrength.ld.pdf
 speedstrength.tex.9ee1a922.oldfile:
 speedstrength.ld.pdf: speedstrength.tex $(wildcard speedstrength*.oldfile)
 
