@@ -25,6 +25,9 @@ Sources += $(wildcard *.css)
 Ignore += speedstrength.ld.out speedstrength.ld.pdf
 ## speedstrength.ld.pdf: speedstrength.tex
 
+Sources += press.txt ## 100-word something for prsb
+Ignore += fullresponse.pdf
+## combined rtr document for prsb
 fullresponse.pdf: response.pdf speedstrength.ld.pdf
 	$(pdfcat)
 
