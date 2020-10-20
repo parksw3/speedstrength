@@ -26,8 +26,6 @@
 \newcommand{\comment}{RENEW the comment command}
 \renewcommand{\comment}[3]{}
 \renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
-\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
-\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
 
 \newcommand{\Rx}[1]{\ensuremath{{\mathcal R}_{#1}}} 
 \newcommand{\Ro}{\Rx{0}}
@@ -224,7 +222,6 @@ Like intervention strength $\theta$, intervention speed $\phi$ is also an abstra
 
 The disease cannot spread when $\phi \geq r$. In other words, \rr, like \RR, is a metric for how hard a disease is to eliminate: we can measure the ``speed'' of a control measure, this must exceed the speed of the disease (\rr) to achieve elimination. Since both $\phi \geq r$ and $\theta \geq \RR$ are conditions for control, they are necessarily equivalent: the speed paradigm does not provide a different answer, it provides a different way of thinking about the steps to the correct answer.
 
-\section{Example: Human immunodeficiency virus (HIV)}
 
 In this section, we use both strength- and speed-based decompositions to evaluate intervention strategies for the human immunodeficiency virus (HIV). 
 In particular, we study how the amount of early HIV transmission affects estimates of intervention effectiveness. 
@@ -368,5 +365,17 @@ Subsequent studies then relied on strength-based frameworks to evaluate the effi
 We suggest that infectious disease modelers should be aware of the complementarity of these two frameworks when analyzing disease outbreaks.
 
 \bibliography{speedstrength}
+
+\section{Data accessibility}
+
+All code and data required to reproduce this paper available at \url{https://github.com/mac-theobio/Speed_and_strength}
+
+\section{Competing interests}
+
+The authors declare no competing interests.
+
+\section{Authors’ contributions}
+
+JD did the initial analyses. SWP wrote the first draft. Both authors wrote code, analyzed data and revised the manuscript. Both authors approved the final version of the manuscript.
 
 \end{document}

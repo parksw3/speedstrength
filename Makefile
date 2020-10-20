@@ -26,10 +26,10 @@ Ignore += speedstrength.ld.out speedstrength.ld.pdf
 speedstrength.tex.9ee1a922.oldfile:
 speedstrength.ld.pdf: speedstrength.tex $(wildcard speedstrength*.oldfile)
 
-## Old responses (here for rules, mostly)
+## Old responses (here for rules)
 ## responses.pdf: responses.tex;  $(pandoc)
-## prsb_responses.html: prsb_responses.md response.css
 ## prsb_responses.tex: prsb_responses.html; $(pandoc)
+## prsb_responses.html: prsb_responses.md response.css; pandoc --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart -s -c response.css -o $@ $<
 
 ## supp.pdf: supp.tex
 
@@ -49,20 +49,6 @@ head.txt: speedstrength.tex abstract.pl
 	$(PUSH)
 
 Sources += $(wildcard *.md)
-
-######################################################################
-
-## All of this html/md stuff is outdated now
-
-Ignore += prsb_responses.gh.html
-prsb_responses.gh.html: prsb_responses.md
-
-Ignore += prsb_responses.html
-prsb_responses.html: prsb_responses.md response.css
-	pandoc --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart -s -c response.css -o $@ $<
-
-prsb_instructions.md:
-prsb_reviews.md:
 
 ######################################################################
 
