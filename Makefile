@@ -23,13 +23,10 @@ Sources += $(wildcard *.css)
 ## response.pdf: response.tex
 
 Ignore += speedstrength.ld.out speedstrength.ld.pdf
-speedstrength.tex.9ee1a922.oldfile:
-speedstrength.ld.pdf: speedstrength.tex $(wildcard speedstrength*.oldfile)
+## speedstrength.ld.pdf: speedstrength.tex
 
-## Old responses (here for rules)
-## responses.pdf: responses.tex;  $(pandoc)
-## prsb_responses.tex: prsb_responses.html; $(pandoc)
-## prsb_responses.html: prsb_responses.md response.css; pandoc --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart -s -c response.css -o $@ $<
+fullresponse.pdf: response.pdf speedstrength.ld.pdf
+	$(pdfcat)
 
 ## supp.pdf: supp.tex
 
@@ -60,6 +57,11 @@ resources/%:
 	$(MAKE) resources
 
 ######################################################################
+
+## Old responses (here for rules)
+## responses.pdf: responses.tex;  $(pandoc)
+## prsb_responses.tex: prsb_responses.html; $(pandoc)
+## prsb_responses.html: prsb_responses.md response.css; pandoc --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart -s -c response.css -o $@ $<
 
 ## Automake
 
