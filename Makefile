@@ -1,5 +1,7 @@
-# speedstrength
-## Target
+# speedstrength development
+# All of the public-facing stuff moved to
+## https://github.com/mac-theobio/Speed_and_strength
+
 current: target
 -include target.mk
 
