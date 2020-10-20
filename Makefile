@@ -34,8 +34,8 @@ fullresponse.pdf: response.pdf speedstrength.ld.pdf
 ## supp.pdf: supp.tex
 
 ## speedstrength.tex.texcount: speedstrength.tex
-Sources += speedstrength.bib
-speedstrength.bbl: speedstrength.bib
+## Sources += speedstrength.bib
+## speedstrength.bbl: speedstrength.bib
 
 ######################################################################
 
@@ -43,7 +43,7 @@ speedstrength.bbl: speedstrength.bib
 
 ## Sources += reviewers.txt ## Moved to ../
 
-Sources += abstract.pl
+## Sources += abstract.pl
 Ignore += head.txt
 head.txt: speedstrength.tex abstract.pl
 	$(PUSH)
