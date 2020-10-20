@@ -31,7 +31,7 @@ gencontrol.Rout: gencontrol.R kernel.R
 ######## HIV
 
 ## Fit to the data for use downstream
-Sources += WHO_data.csv
+## Sources += WHO_data.csv
 HIVfit.Rout: HIVfit.R WHO_data.csv units.rda
 
 HIVexample.Rout: HIVexample.R HIVfit.rda HIVfuns.rda kernel.rda units.rda
