@@ -64,8 +64,9 @@ resources/%:
 ######################################################################
 
 ## Responses (older ones archived; see log)
-responses.pdf: responses.tex;  $(pandoc)
-prsb_responses.tex: prsb_responses.html; $(pandoc)
+## responses.pdf: responses.tex;  $(pandoc)
+## prsb_responses.tex: prsb_responses.html; $(pandoc)
+Ignore += prsb_responses.html
 prsb_responses.html: prsb_responses.md response.css; pandoc --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart -s -c response.css -o $@ $<
 
 ## Automake
