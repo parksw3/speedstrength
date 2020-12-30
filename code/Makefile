@@ -1,5 +1,5 @@
-
-## This is the speedstrength code subdirectory
+## DO NOT BE HERE
+## This is the old, private version of the speedstrength code subdirectory
 
 current: target
 -include target.mk
