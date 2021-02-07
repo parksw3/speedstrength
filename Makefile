@@ -29,7 +29,7 @@ Ignore += speedstrength.ld.out speedstrength.ld.pdf
 
 Sources += press.txt ## 100-word something for prsb
 Ignore += fullresponse.pdf
-## combined rtr document for prsb
+## combined rtr document for prsb (October! Second one is below)
 fullresponse.pdf: response.pdf speedstrength.ld.pdf
 	$(pdfcat)
 

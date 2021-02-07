@@ -11,7 +11,7 @@
 > have thought that before 2020 but this pandemic has made me think
 > differently.
 
-Thank you for your help with this MS, and for your willingness to help us find a middle ground. We have DONE SOMETHING
+Thank you for your help with this MS, and for your willingness to help us find a middle ground. We have maintained our focus on counterfactuals involving known, and roughly constant, values of r and R, but now explain this a little better. Crucially, we have changed the way we talk about our counterfactuals, in a way we think will be helpful to readers like Referee 2. We are now much more careful to clarify when we are talking about our pre-intervention assumptions, and we avoid a former confusion between generic values and pre-intervention values by using an explicit subscript "pre".
 
 ## Referee: 1
 
@@ -68,6 +68,7 @@ Thank you for your continued patience and work to help us improve this MS.
 > the conditioning on constant r is a little hard to picture.
 
 We feel this is a problem with our explanation, not with our argument. We have broadened our attempts to explain our conceptual framework (see below).
+In particular, in no case do we imagine an intervention that leaves r fixed: what we are fixing is the the _pre-intervention_ value of r in our two examples. The idea is that r_pre has been observed more clearly than R or the generation interval for HIV and for COVID-19, so when we change our estimate of g_pre (called g in the MS), it changes our estimate of R_pre while leaving r_pre fixed.
 
 > In the response document there are many points where the authors note
 > that R might not be constant but r might be, or vice versa. Concrete
@@ -82,3 +83,4 @@ We feel this is a problem with our explanation, not with our argument. We have b
 
 These comments are very useful in underlining how we've explained poorly. The issues about what counter-factuals to account for in thinking about “initial” values of r and R are complicated, and we lazily tried to avoid them. This  made our submissions harder to follow than they should have been.
 
+We now systematically refer the subscripts pre and post for both r and R. We believe that this has made our paper substantially easier to read, and thank the reviewer for the patience that it took to help us see that we needed to be more clear.
