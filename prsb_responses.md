@@ -81,7 +81,7 @@ In particular, in no case do we imagine an intervention that leaves r fixed: wha
 > quite just-so and I am left with the same sense of reaching for a
 > concrete example that I had in the last version.
 
-These comments are very useful in underlining how we've explained poorly. The issues about what counter-factuals to account for in thinking about “initial” values of r and R are complicated, and we tried to avoid them. This made our submissions harder to follow than they should have been.
+These comments are very useful in underlining how we've explained poorly. The issues about what counter-factuals to account for in thinking about “initial” values of r and R are complicated, and we previously tried to avoid them. This made our submissions harder to follow than they should have been.
 
 We now systematically use the subscripts pre and post for both r and R, and have tried to make clear that it is r_pre that we are assuming is known in the examples discussed above.
 We believe that this has made our paper substantially easier to read, and thank the reviewer for the patience that it took to help us see that we needed to be more clear.
