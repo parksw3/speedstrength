@@ -1,0 +1,25 @@
+ORCID:
+* JD: 0000-0003-0506-4794
+* SWP: 
+
+SQ1. OA confirmed. We have not been billed yet.
+
+SQ2. The supplementary files are correct
+
+L40L therefore θ ⇒ therefore about θ
+
+L70-71L would be easier to read if the "exp" could be moved to the next line
+
+We would like to replace the funding text: This work was supported in part by a grant to JD from the Canadian Institutes for Health Research
+
+We would also like to add an acknowledgment: JD thanks Elia Portnoy for discussions about intervention speed.
+
+Q1. Seriously?
+* R2: Oxford, England
+* R12: Hoboken, NJ
+
+Q2. eabb6936
+
+Q3.
+* R24: 45
+* R38: 74

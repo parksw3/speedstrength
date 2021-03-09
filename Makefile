@@ -16,6 +16,8 @@ Ignore += $(alldirs)
 
 ######################################################################
 
+Sources += proofnotes.txt
+
 Sources += $(wildcard *.tex)
 Sources += $(wildcard *.css)
 
