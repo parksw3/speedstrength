@@ -1,6 +1,6 @@
 ORCID:
 * JD: 0000-0003-0506-4794
-* SWP: 
+* SWP: 0000-0003-2202-3361
 
 SQ1. OA confirmed. We have not been billed yet.
 
@@ -9,6 +9,10 @@ SQ2. The supplementary files are correct
 L40L therefore θ ⇒ therefore about θ
 
 L70-71L would be easier to read if the "exp" could be moved to the next line
+
+L80 “Post-intervention kernels The infection kernel after” -> “Post-intervention kernels after”
+
+Figure 2(c): reproduction => reproductive
 
 We would like to replace the funding text: This work was supported in part by a grant to JD from the Canadian Institutes for Health Research
 
