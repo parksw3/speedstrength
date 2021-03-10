@@ -10,15 +10,15 @@ L40L therefore θ ⇒ therefore about θ
 
 L70-71L would be easier to read if the "exp" could be moved to the next line
 
-L80 “Post-intervention kernels The infection kernel after” -> “Post-intervention kernels after”
+L80 “Post-intervention kernels The infection kernel after” ⇒ “The post-intervention kernel after”
 
-Figure 2(c): reproduction => reproductive
+Figure 2(c) vertical axis: reproduction ⇒ reproductive
 
 We would like to replace the funding text: This work was supported in part by a grant to JD from the Canadian Institutes for Health Research
 
 We would also like to add an acknowledgment: JD thanks Elia Portnoy for discussions about intervention speed.
 
-Q1. Seriously?
+Q1. 
 * R2: Oxford, England
 * R12: Hoboken, NJ
 
